@@ -154,7 +154,7 @@ document.getElementById("checkoutBtn").addEventListener("click", () => {
   }).join("\n");
   const body = `Buongiorno,\n\nvorrei ricevere un'offerta per i seguenti prodotti:\n\n${righe}\n\nNome:\nAzienda:\nIndirizzo di consegna:\nTelefono:\n\nGrazie!`;
   window.location.href =
-    `mailto:trinacriaexpress@gmail.com?subject=${encodeURIComponent("Richiesta Baviera → Sicilia")}&body=${encodeURIComponent(body)}`;
+    `mailto:trinacriaexpress26@gmail.com?subject=${encodeURIComponent("Richiesta Baviera → Sicilia")}&body=${encodeURIComponent(body)}`;
 });
 
 /* ---------- Drawer ---------- */

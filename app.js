@@ -213,7 +213,7 @@ document.getElementById("checkoutBtn").addEventListener("click", () => {
   }).join("\n");
   const body = `Guten Tag,\n\nich interessiere mich für folgende Produkte:\n\n${lines}\n\nBitte senden Sie mir ein Angebot.\n\nName:\nFirma:\nLieferadresse:\nTelefon:\n\nVielen Dank!`;
   window.location.href =
-    `mailto:trinacriaexpress@gmail.com?subject=${encodeURIComponent("Produktanfrage Trinacria Express")}&body=${encodeURIComponent(body)}`;
+    `mailto:trinacriaexpress26@gmail.com?subject=${encodeURIComponent("Produktanfrage Trinacria Express")}&body=${encodeURIComponent(body)}`;
 });
 
 /* ---------- Drawer ---------- */
