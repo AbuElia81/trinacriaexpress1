@@ -1,40 +1,132 @@
-/* ============ TERRA SICULA — Laden ============ */
+/* ============ TRINACRIA EXPRESS — Bio-Sortiment (Convivia / INTEX s.r.l.) ============ */
+
+const CATS = {
+  sughi:      "Saucen & Sugo",
+  pesti:      "Pesto",
+  pate:       "Patè & Conserve",
+  marmellate: "Marmeladen",
+  creme:      "Süße Cremes",
+};
 
 const PRODUCTS = [
-  { id: "p01", name: "Olio Extravergine d'Oliva", origin: "Castelvetrano", size: "Nocellara del Belice · 500 ml", price: 18.50, cat: "dispensa", hue: ["#8a9159", "#4a512e"] },
-  { id: "p02", name: "Crema di Pistacchio", origin: "Bronte", size: "Glas · 190 g", price: 14.90, cat: "dolce", hue: ["#a4b06a", "#5c6633"] },
-  { id: "p03", name: "Arance Rosse di Sicilia", origin: "Piana di Catania", size: "Kiste · 5 kg", price: 12.00, cat: "fresco", hue: ["#d96a3b", "#8f2b1c"] },
-  { id: "p04", name: "Limoni di Siracusa IGP", origin: "Siracusa", size: "Kiste · 3 kg", price: 9.50, cat: "fresco", hue: ["#e6c44f", "#b28a1f"] },
-  { id: "p05", name: "Capperi di Pantelleria IGP", origin: "Pantelleria", size: "In Meersalz · 250 g", price: 7.80, cat: "dispensa", hue: ["#7d8a5c", "#44502e"] },
-  { id: "p06", name: "Pomodori Secchi sott'olio", origin: "Pachino", size: "Glas · 280 g", price: 8.90, cat: "dispensa", hue: ["#c0502c", "#7c2a16"] },
-  { id: "p07", name: "Mandorle di Avola", origin: "Avola", size: "Pizzuta · 400 g", price: 11.40, cat: "dispensa", hue: ["#cfa065", "#8a5f33"] },
-  { id: "p08", name: "Miele di Zagara", origin: "Zafferana Etnea", size: "Glas · 400 g", price: 10.50, cat: "dolce", hue: ["#e0a83c", "#a06d1c"] },
-  { id: "p09", name: "Sale Marino di Trapani IGP", origin: "Trapani", size: "Beutel · 1 kg", price: 5.20, cat: "dispensa", hue: ["#b9c3c6", "#6f8287"] },
-  { id: "p10", name: "'U Strattu — Tomatenextrakt", origin: "Noto", size: "Glas · 300 g", price: 9.20, cat: "dispensa", hue: ["#a83820", "#5f1c0e"] },
-  { id: "p11", name: "Origano Selvatico", origin: "Monti Iblei", size: "Bund · 50 g", price: 4.80, cat: "dispensa", hue: ["#8f975f", "#4f5531"] },
-  { id: "p12", name: "Marmellata di Arance Rosse", origin: "Ribera", size: "Glas · 340 g", price: 7.50, cat: "dolce", hue: ["#d4703a", "#93381d"] },
-  { id: "p13", name: "Busiate Trapanesi", origin: "Trapani", size: "Alter Hartweizen · 500 g", price: 6.40, cat: "dispensa", hue: ["#dbb87a", "#a3803f"] },
-  { id: "p14", name: "Nero d'Avola DOC", origin: "Vittoria", size: "Flasche · 750 ml", price: 16.00, cat: "cantina", hue: ["#7c2f3a", "#3d1017"] },
-  { id: "p15", name: "Pecorino Siciliano DOP", origin: "Madonie", size: "Gereift · 350 g", price: 13.80, cat: "fresco", hue: ["#e3cf9a", "#a8904f"] },
-  { id: "p16", name: "Confettura di Fichi d'India", origin: "Etna", size: "Glas · 340 g", price: 8.20, cat: "dolce", hue: ["#c9603f", "#87301f"] },
-];
+  { id: "p01", cat: "sughi", name: "Salsa pronta di pomodoro ciliegino", de: "Fertige Kirschtomatensauce",
+    ean: "8053251660525", weight: "330 g", carton: 12, shelf: "24–36",
+    ing: "Kirschtomaten* (97,5 %), natives Olivenöl extra* (1,7 %), Meersalz, Basilikum* (0,3 %).",
+    hue: ["#c0502c", "#7c2a16"] },
+  { id: "p02", cat: "sughi", name: "Salsa di pomodoro ciliegino con peperoni", de: "Kirschtomatensauce mit Paprika",
+    ean: "8053251660549", weight: "330 g", carton: 12, shelf: "24–36",
+    ing: "Kirschtomaten* (93 %), Paprika* (4,6 %), natives Olivenöl extra* (1,4 %), Meersalz, Basilikum* (0,4 %).",
+    hue: ["#c0502c", "#7c2a16"] },
+  { id: "p03", cat: "sughi", name: "Salsa pronta di pomodoro datterino", de: "Fertige Datterino-Tomatensauce",
+    ean: "8053251660419", weight: "330 g", carton: 12, shelf: "24–36",
+    ing: "Datterino-Tomaten* (96 %), natives Olivenöl extra* (1,7 %), Meersalz, Basilikum* (0,5 %).",
+    hue: ["#cf5b30", "#8a2f18"] },
+  { id: "p04", cat: "sughi", name: "Sugo alla Siciliana", de: "Kirschtomaten-Sugo auf sizilianische Art",
+    ean: "8053251660518", weight: "250 g", carton: 12, shelf: "24–36",
+    ing: "Kirschtomaten* (91 %), natives Olivenöl extra* (2,5 %), Zwiebeln* (1,6 %), Kapern* (1,1 %), Meersalz, Sellerie* (0,7 %), Karotten*, Basilikum* (0,6 %), Petersilie* (0,1 %), Knoblauch* (0,02 %), Zitronenschale*, schwarzer Pfeffer*, Chili*.",
+    hue: ["#c0502c", "#7c2a16"] },
+  { id: "p05", cat: "sughi", name: "Sugo all'Arrabbiata", de: "Kirschtomaten-Sugo Arrabbiata",
+    ean: "8053251660976", weight: "250 g", carton: 12, shelf: "24–36",
+    ing: "Kirschtomaten* (95 %), natives Olivenöl extra* (1,5 %), Zwiebeln*, Meersalz, Basilikum* (0,3 %), Chili* (0,1 %), Petersilie*, Zitronenschale*, Knoblauch*.",
+    hue: ["#b83f22", "#6f2010"] },
+  { id: "p06", cat: "sughi", name: "Sugo alla Puttanesca", de: "Kirschtomaten-Sugo Puttanesca",
+    ean: "8053251660839", weight: "250 g", carton: 12, shelf: "24–36",
+    ing: "Kirschtomaten* (92 %), natives Olivenöl extra* (2,5 %), Kapern* (1,47 %), Zwiebeln*, Meersalz, schwarze Oliven* (0,7 %), grüne Oliven* (0,7 %), Basilikum* (0,3 %), Petersilie*, schwarzer Pfeffer*, Knoblauch*, Zitronenschale*, wilde Fenchelsamen*, Chili*.",
+    hue: ["#a83820", "#5f1c0e"] },
+  { id: "p07", cat: "sughi", name: "Sugo alla Palermitana", de: "Kirschtomaten-Sugo nach Palermo-Art",
+    ean: "8053251660846", weight: "250 g", carton: 12, shelf: "24–36",
+    ing: "Kirschtomaten* (94 %), natives Olivenöl extra* (2,5 %), Zwiebeln* (0,9 %), Meersalz, Kapern* (0,3 %), Basilikum* (0,3 %), Sultaninen*, wilde Fenchelsamen* (0,2 %), Petersilie*, Knoblauch*, Zitronenschale*, schwarzer Pfeffer*.",
+    hue: ["#c0502c", "#7c2a16"] },
+  { id: "p08", cat: "sughi", name: "Sugo alla Norma", de: "Kirschtomaten-Sugo mit Auberginen",
+    ean: "8053251660198", weight: "250 g", carton: 12, shelf: "24–36",
+    ing: "Kirschtomaten* (82,6 %), Auberginen* (11,5 %), Basilikum*, natives Olivenöl extra*, Apfelessig*, Meersalz, Knoblauch*.",
+    hue: ["#a4442a", "#5f1c0e"] },
+  { id: "p09", cat: "sughi", name: "Sugo alla Mediterranea", de: "Kirschtomaten-Sugo mediterran",
+    ean: "8053251660617", weight: "250 g", carton: 12, shelf: "24–36",
+    ing: "Kirschtomaten* (94 %), getrocknete Tomaten* (2,2 %), natives Olivenöl extra* (1,5 %), Meersalz, Kapern* (0,3 %), Basilikum* (0,3 %), Petersilie*, Weißweinessig*, Rosmarin*, Chili*, Oregano*.",
+    hue: ["#c0502c", "#7c2a16"] },
+  { id: "p10", cat: "sughi", name: "Passata di pomodoro", de: "Passierte Tomaten — ideal für Saucen, Ragù & Pizza",
+    ean: "8053251661065", weight: "420 g", carton: 12, shelf: "24–36",
+    ing: "Kirschtomaten* (mind. 99 %), Meersalz.",
+    hue: ["#c94f2b", "#7c2a16"] },
 
-const fmt = (n) => n.toFixed(2).replace(".", ",") + " €";
+  { id: "p11", cat: "pesti", name: "Pesto di finocchietto selvatico", de: "Pesto aus wildem Fenchel",
+    ean: "8053251660983", weight: "190 g", carton: 12, shelf: "24–30",
+    ing: "Wilder Fenchel* (48 %), natives Olivenöl extra* (32 %), Zwiebeln*, getrocknete Tomaten*, Weißweinessig*, Sultaninen*, Rohrzucker*, Meersalz.",
+    hue: ["#8f975f", "#4f5531"] },
+  { id: "p12", cat: "pesti", name: "Pesto trapanese", de: "Pesto nach Trapani-Art",
+    ean: "8053251660785", weight: "190 g", carton: 12, shelf: "24–30",
+    ing: "Tomaten* (82 %), natives Olivenöl extra* (10 %), Basilikum* (2,4 %), MANDELN* (2,4 %), Weißweinessig*, Meersalz, Knoblauch*.",
+    hue: ["#b4593a", "#6f2010"] },
+  { id: "p13", cat: "pesti", name: "Pesto di basilico alla siciliana", de: "Sizilianisches Basilikum-Pesto",
+    ean: "8053251660440", weight: "190 g", carton: 12, shelf: "24–30",
+    ing: "Basilikum* (53 %), natives Olivenöl extra* (32 %), MANDELN* (5 %), Apfelsaftkonzentrat*, Apfelessig*, getrocknete Tomaten*, Meersalz, Knoblauch*, schwarzer Pfeffer*.",
+    hue: ["#7f8f4e", "#43502a"] },
+
+  { id: "p14", cat: "pate", name: "Patè di melanzane", de: "Auberginen-Patè",
+    ean: "8053251660556", weight: "190 g", carton: 12, shelf: "24–30",
+    ing: "Auberginen* (67 %), natives Olivenöl extra* (25 %), Basilikum*, Rohrzucker*, Weißweinessig*, Meersalz, MANDELN* (1 %), Petersilie*, Knoblauch*, Rosmarin*, schwarzer Pfeffer*.",
+    hue: ["#8a7f4e", "#4b4426"] },
+  { id: "p15", cat: "pate", name: "Patè di peperoncino", de: "Chili-Patè",
+    ean: "8053251660938", weight: "190 g", carton: 12, shelf: "24–30",
+    ing: "Chili* (83 %), natives Olivenöl extra* (13 %), Weißweinessig*, Meersalz, Kartoffelstärke*.",
+    hue: ["#c33a22", "#75190d"] },
+  { id: "p16", cat: "pate", name: "Caponata siciliana", de: "Sizilianische Caponata",
+    ean: "8053251660761", weight: "190 g", carton: 12, shelf: "24–30",
+    ing: "Auberginen* (50 %), Tomatensauce* (16 %), Zwiebeln* (11 %), Sellerie* (7 %), natives Olivenöl extra* (5 %), Weißweinessig*, Rohrzucker*, grüne Oliven*, Kapern*, Meersalz, Basilikum*, schwarzer Pfeffer*, Chili*.",
+    hue: ["#9a5a30", "#542c15"] },
+
+  { id: "p17", cat: "marmellate", name: "Marmellata di arance rosse", de: "Blutorangen-Marmelade",
+    ean: "8053251661157", weight: "360 g", carton: 6, shelf: "24–36",
+    ing: "Rohrzucker*, Blutorangen mit Schale*, Geliermittel: Fruchtpektin, Säuerungsmittel: Zitronensäure. Fruchtanteil: 45 g je 100 g.",
+    hue: ["#d4703a", "#93381d"] },
+  { id: "p18", cat: "marmellate", name: "Marmellata di limoni", de: "Zitronen-Marmelade",
+    ean: "8053251661164", weight: "360 g", carton: 6, shelf: "24–36",
+    ing: "Rohrzucker*, Zitronen mit Schale*, Geliermittel: Fruchtpektin, Säuerungsmittel: Zitronensäure. Fruchtanteil: 45 g je 100 g.",
+    hue: ["#e0c14b", "#a98a20"] },
+  { id: "p19", cat: "marmellate", name: "Marmellata di mandarini", de: "Mandarinen-Marmelade",
+    ean: "8053251661140", weight: "360 g", carton: 6, shelf: "24–36",
+    ing: "Rohrzucker*, Mandarinen mit Schale*, Geliermittel: Fruchtpektin, Säuerungsmittel: Zitronensäure. Fruchtanteil: 45 g je 100 g.",
+    hue: ["#e29a3c", "#a2651c"] },
+  { id: "p20", cat: "marmellate", name: "Confettura extra di fichi bianchi", de: "Extra-Konfitüre aus weißen Feigen",
+    ean: "8053251661133", weight: "360 g", carton: 6, shelf: "24–36",
+    ing: "Feigen*, Rohrzucker*, Geliermittel: Fruchtpektin, Säuerungsmittel: Zitronensäure. Fruchtanteil: 90 g je 100 g.",
+    hue: ["#c2a86a", "#7e6635"] },
+
+  { id: "p21", cat: "creme", name: "Crema dolce di pistacchio", de: "Süße Pistaziencreme",
+    ean: "8053251660341", weight: "190 g", carton: 12, shelf: "24",
+    ing: "PISTAZIEN* (45 %), Rohrzucker*, Olivenöl*, Sonnenblumenöl*.",
+    hue: ["#a4b06a", "#5c6633"] },
+  { id: "p22", cat: "creme", name: "Crema dolce di mandorle", de: "Süße Mandelcreme",
+    ean: "8053251660358", weight: "190 g", carton: 12, shelf: "24",
+    ing: "MANDELN* (38 %), Rohrzucker*, Olivenöl*, Sonnenblumenöl*.",
+    hue: ["#dcc08c", "#a3854c"] },
+  { id: "p23", cat: "creme", name: "Crema dolce di nocciole", de: "Süße Haselnusscreme",
+    ean: "8053251660495", weight: "190 g", carton: 12, shelf: "24",
+    ing: "HASELNÜSSE* (38 %), Rohrzucker*, Olivenöl*, Sonnenblumenöl*.",
+    hue: ["#b98a5c", "#6d4c2c"] },
+];
 
 /* ---------- Produktgrid ---------- */
 const grid = document.getElementById("productGrid");
 grid.innerHTML = PRODUCTS.map((p) => `
   <article class="card" data-cat="${p.cat}">
-    <div class="card-media ph" data-label="${p.name}" style="--ph-bg: linear-gradient(165deg, ${p.hue[0]}, ${p.hue[1]})">
+    <div class="card-media pack ph" data-label="${p.name}" style="--ph-bg: linear-gradient(165deg, ${p.hue[0]}, ${p.hue[1]})">
       <img src="images/products/${p.id}.jpg" alt="${p.name}" loading="lazy" onerror="this.remove()">
     </div>
     <div class="card-body">
-      <p class="card-origin">${p.origin}</p>
+      <p class="card-origin">${CATS[p.cat]} · Bio</p>
       <h3 class="card-name">${p.name}</h3>
-      <p class="card-size">${p.size}</p>
+      <p class="card-de">${p.de}</p>
+      <p class="card-size">${p.weight} · ${p.carton} Stück/Karton · ${p.shelf} Monate haltbar</p>
+      <details class="card-ing">
+        <summary>Zutaten &amp; EAN</summary>
+        <p>${p.ing} <span class="bio-note">*aus biologischer Landwirtschaft</span></p>
+        <p class="card-ean">EAN ${p.ean}</p>
+      </details>
       <div class="card-foot">
-        <span class="card-price">${fmt(p.price)}</span>
-        <button class="card-add" data-id="${p.id}">In den Korb</button>
+        <span class="card-ask">Preis auf Anfrage</span>
+        <button class="card-add" data-id="${p.id}">Zur Anfrage</button>
       </div>
     </div>
   </article>
@@ -51,11 +143,11 @@ document.getElementById("filters").addEventListener("click", (e) => {
   });
 });
 
-/* ---------- Warenkorb ---------- */
+/* ---------- Anfrageliste ---------- */
 let cart = {};
-try { cart = JSON.parse(localStorage.getItem("ts-cart")) || {}; } catch { cart = {}; }
+try { cart = JSON.parse(localStorage.getItem("tx-anfrage")) || {}; } catch { cart = {}; }
 
-const save = () => localStorage.setItem("ts-cart", JSON.stringify(cart));
+const save = () => localStorage.setItem("tx-anfrage", JSON.stringify(cart));
 const byId = (id) => PRODUCTS.find((p) => p.id === id);
 
 function renderCart() {
@@ -65,21 +157,21 @@ function renderCart() {
 
   const box = document.getElementById("cartItems");
   if (!items.length) {
-    box.innerHTML = `<p class="cart-empty">Dein Korb ist leer —<br>die Vorratskammer wartet.</p>`;
+    box.innerHTML = `<p class="cart-empty">Deine Anfrageliste ist leer —<br>das Sortiment wartet.</p>`;
   } else {
     box.innerHTML = items.map(([id, qty]) => {
       const p = byId(id);
       return `
         <div class="cart-item">
-          <div class="cart-item-thumb ph" style="--ph-bg: linear-gradient(165deg, ${p.hue[0]}, ${p.hue[1]})">
+          <div class="cart-item-thumb pack ph" style="--ph-bg: linear-gradient(165deg, ${p.hue[0]}, ${p.hue[1]})">
             <img src="images/products/${p.id}.jpg" alt="" onerror="this.remove()">
           </div>
           <div>
             <p class="cart-item-name">${p.name}</p>
-            <p class="cart-item-price">${fmt(p.price)}</p>
+            <p class="cart-item-price">${p.weight} · ${p.carton} Stk./Karton</p>
             <div class="qty">
               <button data-act="dec" data-id="${id}" aria-label="Weniger">−</button>
-              <span>${qty}</span>
+              <span>${qty} ${qty === 1 ? "Karton" : "Kartons"}</span>
               <button data-act="inc" data-id="${id}" aria-label="Mehr">+</button>
             </div>
           </div>
@@ -88,8 +180,8 @@ function renderCart() {
     }).join("");
   }
 
-  const total = items.reduce((s, [id, q]) => s + byId(id).price * q, 0);
-  document.getElementById("cartTotal").textContent = fmt(total);
+  document.getElementById("cartTotal").textContent =
+    count === 0 ? "—" : `${count} ${count === 1 ? "Karton" : "Kartons"}`;
 }
 
 /* ---------- Aktionen ---------- */
@@ -98,7 +190,7 @@ grid.addEventListener("click", (e) => {
   if (!btn) return;
   cart[btn.dataset.id] = (cart[btn.dataset.id] || 0) + 1;
   save(); renderCart();
-  toast(`${byId(btn.dataset.id).name} liegt im Korb`);
+  toast(`${byId(btn.dataset.id).name} steht auf der Anfrageliste`);
 });
 
 document.getElementById("cartItems").addEventListener("click", (e) => {
@@ -111,8 +203,17 @@ document.getElementById("cartItems").addEventListener("click", (e) => {
   save(); renderCart();
 });
 
+/* ---------- Anfrage per E-Mail ---------- */
 document.getElementById("checkoutBtn").addEventListener("click", () => {
-  toast("Demo — die Kasse kommt mit der echten Seite");
+  const items = Object.entries(cart);
+  if (!items.length) { toast("Bitte zuerst Produkte zur Anfrage hinzufügen"); return; }
+  const lines = items.map(([id, q]) => {
+    const p = byId(id);
+    return `- ${q} x ${p.name} (${p.weight}, ${p.carton} Stk./Karton, EAN ${p.ean})`;
+  }).join("\n");
+  const body = `Guten Tag,\n\nich interessiere mich für folgende Produkte:\n\n${lines}\n\nBitte senden Sie mir ein Angebot.\n\nName:\nFirma:\nLieferadresse:\nTelefon:\n\nVielen Dank!`;
+  window.location.href =
+    `mailto:trinacriaexpress@gmail.com?subject=${encodeURIComponent("Produktanfrage Trinacria Express")}&body=${encodeURIComponent(body)}`;
 });
 
 /* ---------- Drawer ---------- */
@@ -132,7 +233,7 @@ function toast(msg) {
   toastTimer = setTimeout(() => el.classList.remove("show"), 2200);
 }
 
-/* ---------- Marquee: Spur verdoppeln für nahtlosen Lauf ---------- */
+/* ---------- Marquee ---------- */
 const track = document.getElementById("marqueeTrack");
 track.innerHTML += track.innerHTML;
 

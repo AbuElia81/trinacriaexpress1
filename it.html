@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trinacria Express — Birre bavaresi in Sicilia</title>
+<meta name="description" content="Trinacria Express porta birre bavaresi in Sicilia: Helles, Weissbier, Märzen, Pils, Dunkel, Doppelbock, Kellerbier. Prezzi su richiesta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Karla:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <a class="brand" href="index.html">
+    <img class="brand-mark" src="images/logo-mark.png" alt="Trinacria Express">
+    <span>Trinacria&nbsp;Express</span>
+  </a>
+  <nav class="nav-links">
+    <a href="#prodotti">Le birre</a>
+    <a href="#noi">Chi siamo</a>
+    <a href="#contatto">Contatto</a>
+    <a href="shop.html">Sicilia → Germania</a>
+  </nav>
+  <button class="cart-btn" id="cartBtn" aria-label="Apri la lista richiesta">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+      <path d="M6 8h12l-1.2 11a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 8Z"/>
+      <path d="M9 8a3 3 0 0 1 6 0"/>
+    </svg>
+    <span class="cart-count" id="cartCount">0</span>
+  </button>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero hero--it">
+    <div class="hero-inner">
+      <img class="hero-logo" src="images/logo-trinacria-express.png" alt="Trinacria Express">
+      <p class="eyebrow">Baviera → Sicilia</p>
+      <h1>Dalle Alpi<br><em>fino all'isola.</em></h1>
+      <p class="hero-sub">Birre bavaresi autentiche, portate in Sicilia dallo stesso treno che porta i sapori siciliani in Germania. Otto stili, secondo il Reinheitsgebot del 1516.</p>
+      <p class="hero-flag"><span class="choice-badge">Pagina in costruzione · le foto sono segnaposto</span></p>
+      <a class="btn btn-primary" href="#prodotti">Scopri le birre</a>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marqueeTrack">
+      <span>Helles</span><i>✳</i><span>Weissbier</span><i>✳</i><span>Märzen</span><i>✳</i><span>Pils</span><i>✳</i><span>Dunkel</span><i>✳</i><span>Doppelbock</span><i>✳</i><span>Kellerbier</span><i>✳</i><span>Reinheitsgebot 1516</span><i>✳</i>
+    </div>
+  </div>
+
+  <!-- ============ MANIFESTO ============ -->
+  <section class="manifesto" id="noi">
+    <div class="manifesto-media arch ph" data-ph="manifesto">
+      <img src="images/banner.jpg" alt="Tavolo rustico" onerror="this.remove()">
+    </div>
+    <div class="manifesto-text">
+      <p class="eyebrow">Chi siamo</p>
+      <h2>Il treno viaggia<br><em>in due direzioni.</em></h2>
+      <p>Trinacria Express nasce da due persone: Massimiliano di Lorenzo, palermitano, e Michael Schnitzer-Trpin, austriaco, che vive in Sicilia da sei anni.</p>
+      <p>Portiamo le specialità biologiche siciliane in Germania — e ora facciamo il viaggio al contrario: birre bavaresi, formaggi di malga, pane di segale. Cose buone del nord, direttamente sull'isola.</p>
+      <p>Questa pagina è ancora in costruzione: le fotografie qui sotto sono segnaposto e il catalogo crescerà. Le birre, però, ci sono già.</p>
+      <a class="btn btn-ghost" href="#contatto">Scriveteci</a>
+    </div>
+  </section>
+
+  <!-- ============ PRODOTTI ============ -->
+  <section class="shop" id="prodotti">
+    <div class="shop-head">
+      <p class="eyebrow">Il catalogo</p>
+      <h2>Otto birre dalla Baviera</h2>
+      <p class="shop-intro">Bottiglie da 0,33 l e 0,5 l, per cartone. Tutte prodotte secondo il Reinheitsgebot bavarese: acqua, malto, luppolo, lievito. Prezzi su richiesta — componete la vostra lista e inviatecela.</p>
+      <div class="filters" id="filters">
+        <button class="chip active" data-cat="tutti">Tutte</button>
+        <button class="chip" data-cat="chiare">Birre chiare</button>
+        <button class="chip" data-cat="frumento">Frumento</button>
+        <button class="chip" data-cat="scure">Birre scure</button>
+      </div>
+    </div>
+    <div class="grid" id="productGrid"></div>
+    <p class="shop-legal">Vendita riservata ai maggiori di 18 anni. Bevi responsabilmente.</p>
+  </section>
+
+  <!-- ============ CONTATTO ============ -->
+  <section class="contact" id="contatto">
+    <div class="contact-inner">
+      <p class="eyebrow">Contatto</p>
+      <h2>Parlate direttamente <em>con noi.</em></h2>
+      <p class="contact-lead">Nessun call center, nessuna attesa. Domande su prodotti, campioni, quantità o prezzi? Scriveteci due righe.</p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <p class="contact-role">Titolare &amp; contatto</p>
+          <h3>Massimiliano di Lorenzo</h3>
+          <p class="contact-sub">Palermo, Sicilia</p>
+        </div>
+        <div class="contact-card">
+          <p class="contact-role">Titolare &amp; contatto</p>
+          <h3>Michael Schnitzer-Trpin</h3>
+          <p class="contact-sub">Austria · da sei anni in Sicilia</p>
+        </div>
+      </div>
+
+      <div class="contact-lines">
+        <a class="contact-line" href="tel:+4915778389906">
+          <span class="contact-label">Telefono</span>
+          <span class="contact-value">0157 78389906</span>
+        </a>
+        <a class="contact-line" href="mailto:trinacriaexpress@gmail.com">
+          <span class="contact-label">E-mail</span>
+          <span class="contact-value">trinacriaexpress@gmail.com</span>
+        </a>
+      </div>
+
+      <a class="btn btn-primary" href="mailto:trinacriaexpress@gmail.com?subject=Baviera%20%E2%86%92%20Sicilia">Scrivi una richiesta</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-cols">
+    <div>
+      <p class="footer-brand">Trinacria&nbsp;Express</p>
+      <p>Massimiliano di Lorenzo<br>Michael Schnitzer-Trpin<br>Baviera → Sicilia</p>
+    </div>
+    <div>
+      <p class="footer-h">Il catalogo</p>
+      <a href="#prodotti">Le birre</a>
+      <a href="#noi">Chi siamo</a>
+      <a href="index.html">Scegli la direzione</a>
+    </div>
+    <div>
+      <p class="footer-h">Contatto</p>
+      <a href="tel:+4915778389906">0157 78389906</a>
+      <a href="mailto:trinacriaexpress@gmail.com">trinacriaexpress@gmail.com</a>
+      <a href="impressum.html">Impressum</a>
+    </div>
+    <div>
+      <p class="footer-h">L'altra direzione</p>
+      <a href="shop.html">Sicilia → Germania</a>
+    </div>
+  </div>
+  <p class="footer-note">© 2026 Trinacria Express — Massimiliano di Lorenzo &amp; Michael Schnitzer-Trpin · Pagina in costruzione, foto segnaposto. Prezzi su richiesta. Vendita vietata ai minori di 18 anni.</p>
+</footer>
+
+<!-- ============ DRAWER RICHIESTA ============ -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Lista richiesta">
+  <div class="cart-head">
+    <h3>La tua richiesta</h3>
+    <button class="cart-close" id="cartClose" aria-label="Chiudi">×</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot">
+    <div class="cart-total"><span>Quantità</span><strong id="cartTotal">—</strong></div>
+    <p class="cart-ship">Prezzi su richiesta · vi rispondiamo con un'offerta</p>
+    <button class="btn btn-primary btn-block" id="checkoutBtn">Invia la richiesta per e-mail</button>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script src="app-it.js"></script>
+</body>
+</html>
