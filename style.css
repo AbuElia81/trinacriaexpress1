@@ -405,6 +405,45 @@ body.cart-open { overflow: hidden; }
 .splash-foot { font-size: .84rem; color: var(--ink-soft); line-height: 1.8; }
 .splash-foot a { color: inherit; }
 
+/* ---- Splash stage: Karte + Auswahl ---- */
+.splash-stage {
+  width: 100%; max-width: 1000px; display: grid; grid-template-columns: 1fr;
+  gap: 1.6rem; justify-items: center; align-items: center;
+}
+.railmap { margin: 0; width: 100%; max-width: 340px; }
+.railmap-svg { width: 100%; height: auto; display: block; }
+.railmap-cap { margin-top: .7rem; font-size: .8rem; font-style: italic; color: var(--ink-soft); text-align: center; line-height: 1.45; }
+
+.map-sea { fill: #dbe6e3; }
+.map-grid line { stroke: rgba(46, 42, 34, .06); stroke-width: 1; }
+.map-land { fill: #e8d6b0; stroke: rgba(107, 112, 66, .45); stroke-width: 1; }
+.map-alps { fill: none; stroke: rgba(74, 81, 46, .6); stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+.map-cardinal { font-size: 10px; letter-spacing: .18em; fill: var(--ink-soft); text-transform: uppercase; }
+
+.rail-base { fill: none; stroke: #c7bba3; stroke-width: 3.4; stroke-linecap: round; }
+.rail-flow { fill: none; stroke: var(--terracotta); stroke-width: 3.4; stroke-linecap: round; stroke-dasharray: 2 12; }
+
+.station { fill: var(--cream); stroke: var(--terracotta); stroke-width: 2; }
+.station--key { stroke-width: 2.6; }
+.station-label { font-size: 12px; fill: var(--ink-soft); }
+.station-label.is-key { fill: var(--terracotta-deep); font-weight: 700; }
+
+.endpoint-glow { fill: var(--terracotta); opacity: 0; transition: opacity .3s ease; }
+.railmap.is-north .endpoint-glow.north { opacity: .22; }
+.railmap.is-south .endpoint-glow.south { opacity: .22; }
+
+.train-body { fill: var(--terracotta); stroke: var(--terracotta-deep); stroke-width: 1; }
+.train-win { fill: var(--cream); }
+.train-light { fill: var(--lemon); }
+
+@media (min-width: 880px) {
+  .splash-stage { grid-template-columns: minmax(260px, 340px) minmax(320px, 1fr); gap: 2.5rem; }
+  .splash-stage .splash-choices { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rail-flow { stroke-dasharray: none; opacity: .5; }
+}
+
 /* ============ IN COSTRUZIONE ============ */
 .soon {
   max-width: 640px; display: flex; flex-direction: column; align-items: center; gap: 1rem;

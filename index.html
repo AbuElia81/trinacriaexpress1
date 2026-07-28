@@ -21,34 +21,111 @@
 
   <p class="splash-prompt">Wählt eure Richtung</p>
 
-  <div class="splash-choices">
+  <div class="splash-stage">
 
-    <a class="choice" href="shop.html">
-      <span class="choice-route">
-        <span>Sizilien</span>
-        <svg class="choice-arrow" viewBox="0 0 60 12" aria-hidden="true">
-          <path d="M0 6 H52 M46 1 L52 6 L46 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span>Deutschland</span>
-      </span>
-      <h2>Der Trinacria Express fährt von Sizilien nach Deutschland</h2>
-      <p>Bio-Sugo, Pesto, Patè, Caponata, Marmeladen und süße Cremes — 23 Spezialitäten aus sizilianischer Erde. Preise auf Anfrage.</p>
-      <span class="choice-cta">Zum Sortiment</span>
-    </a>
+    <figure class="railmap" aria-labelledby="railmap-cap">
+      <svg class="railmap-svg" viewBox="0 0 400 480" role="img" aria-labelledby="railmap-title">
+        <title id="railmap-title">Karte der Trinacria-Express-Linie von Sizilien bis Füssen und München</title>
 
-    <a class="choice choice--soon" href="it.html">
-      <span class="choice-route">
-        <span>Baviera</span>
-        <svg class="choice-arrow" viewBox="0 0 60 12" aria-hidden="true">
-          <path d="M0 6 H52 M46 1 L52 6 L46 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span>Sicilia</span>
-      </span>
-      <span class="choice-badge">In costruzione · Im Aufbau</span>
-      <h2>Il Trinacria Express porta prodotti dalla Baviera in Sicilia</h2>
-      <p>Prodotti bavaresi in Sicilia — la pagina italiana è in costruzione. / Bayerische Produkte für Sizilien — diese Seite entsteht gerade.</p>
-      <span class="choice-cta">Scopri di più</span>
-    </a>
+        <!-- Meer -->
+        <rect class="map-sea" x="0" y="0" width="400" height="480" rx="18"/>
+
+        <!-- Breitengrad-Hilfslinien -->
+        <g class="map-grid">
+          <line x1="14" y1="120" x2="386" y2="120"/>
+          <line x1="14" y1="200" x2="386" y2="200"/>
+          <line x1="14" y1="280" x2="386" y2="280"/>
+          <line x1="14" y1="360" x2="386" y2="360"/>
+        </g>
+
+        <!-- Bayern / Süddeutschland (Landfläche oben) -->
+        <path class="map-land" d="M100,150 C100,100 150,62 202,62 C260,62 302,96 302,132 C302,166 252,188 196,186 C140,184 100,180 100,150 Z"/>
+
+        <!-- Sizilien (Dreieck unten) -->
+        <path class="map-land" d="M84,470 L176,470 L126,412 Z"/>
+
+        <!-- Alpen -->
+        <polyline class="map-alps" points="128,182 146,166 164,180 182,162 200,180 218,164 236,180 252,168 268,182"/>
+
+        <!-- Endpunkt-Glühen -->
+        <circle class="endpoint-glow north" cx="168" cy="84" r="13"/>
+        <circle class="endpoint-glow south" cx="120" cy="436" r="13"/>
+
+        <!-- Bahnlinie -->
+        <path id="rail" class="rail-base"
+          d="M120,436 C170,410 214,392 238,356 C250,340 224,336 210,320 C196,304 200,278 198,250 C196,214 196,200 196,176 C196,152 206,140 214,120 C220,106 190,96 168,84"/>
+        <path class="rail-flow"
+          d="M120,436 C170,410 214,392 238,356 C250,340 224,336 210,320 C196,304 200,278 198,250 C196,214 196,200 196,176 C196,152 206,140 214,120 C220,106 190,96 168,84"/>
+
+        <!-- Stationen -->
+        <g class="stations">
+          <circle class="station" cx="120" cy="436" r="4.5"/>
+          <circle class="station" cx="238" cy="356" r="4"/>
+          <circle class="station" cx="210" cy="320" r="4"/>
+          <circle class="station" cx="198" cy="250" r="4"/>
+          <circle class="station" cx="196" cy="176" r="4"/>
+          <circle class="station" cx="214" cy="120" r="4.5"/>
+          <circle class="station station--key" cx="168" cy="84" r="5.5"/>
+        </g>
+
+        <!-- Beschriftungen -->
+        <g>
+          <text class="station-label" text-anchor="middle" x="126" y="462">Palermo · Sicilia</text>
+          <text class="station-label" x="250" y="360">Napoli</text>
+          <text class="station-label" x="222" y="322">Roma</text>
+          <text class="station-label" x="210" y="252">Firenze</text>
+          <text class="station-label" x="276" y="180">Alpen</text>
+          <text class="station-label" x="226" y="124">München</text>
+          <text class="station-label is-key" x="112" y="80">Füssen</text>
+        </g>
+
+        <!-- Himmelsrichtungen -->
+        <text class="map-cardinal" text-anchor="middle" x="330" y="34">Nord</text>
+        <text class="map-cardinal" text-anchor="middle" x="330" y="456">Süd</text>
+
+        <!-- Zug -->
+        <g id="train" class="train" transform="translate(120,436) rotate(-60)">
+          <rect class="train-body" x="-15" y="-8" width="30" height="16" rx="8"/>
+          <circle class="train-win" cx="-5" cy="0" r="2.8"/>
+          <circle class="train-win" cx="3" cy="0" r="2.8"/>
+          <circle class="train-light" cx="12" cy="0" r="2.6"/>
+        </g>
+      </svg>
+      <figcaption id="railmap-cap" class="railmap-cap">
+        Ein Zug, zwei Richtungen — der Trinacria&nbsp;Express pendelt zwischen Sizilien und Füssen.
+      </figcaption>
+    </figure>
+
+    <div class="splash-choices">
+
+      <a class="choice" href="shop.html" data-dir="north">
+        <span class="choice-route">
+          <span>Sizilien</span>
+          <svg class="choice-arrow" viewBox="0 0 60 12" aria-hidden="true">
+            <path d="M0 6 H52 M46 1 L52 6 L46 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Deutschland</span>
+        </span>
+        <h2>Der Trinacria Express fährt von Sizilien nach Deutschland</h2>
+        <p>Bio-Sugo, Pesto, Patè, Caponata, Marmeladen und süße Cremes — 23 Spezialitäten aus sizilianischer Erde. Preise auf Anfrage.</p>
+        <span class="choice-cta">Zum Sortiment</span>
+      </a>
+
+      <a class="choice choice--soon" href="it.html" data-dir="south">
+        <span class="choice-route">
+          <span>Baviera</span>
+          <svg class="choice-arrow" viewBox="0 0 60 12" aria-hidden="true">
+            <path d="M0 6 H52 M46 1 L52 6 L46 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Sicilia</span>
+        </span>
+        <span class="choice-badge">In costruzione · Im Aufbau</span>
+        <h2>Il Trinacria Express porta prodotti dalla Baviera in Sicilia</h2>
+        <p>Prodotti bavaresi in Sicilia — la pagina italiana è in costruzione. / Bayerische Produkte für Sizilien — diese Seite entsteht gerade.</p>
+        <span class="choice-cta">Scopri di più</span>
+      </a>
+
+    </div>
 
   </div>
 
@@ -62,6 +139,89 @@
   </footer>
 
 </main>
+
+<script>
+(function () {
+  var fig = document.querySelector('.railmap');
+  if (!fig) return;
+  var rail = fig.querySelector('#rail');
+  var train = fig.querySelector('#train');
+  var flow = fig.querySelector('.rail-flow');
+  if (!rail || !train || !rail.getTotalLength) return;
+
+  var L = rail.getTotalLength();
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // pos: 0 = Palermo (Süden/unten), 1 = Füssen (Norden/oben)
+  var pos = 0, dir = 1, mode = 'bounce';
+  var speed = 1 / 5.5;              // volle Strecke in ~5,5 s
+  var phase = 'run', fadeT = 0, fadeDur = 0.32, dashOff = 0;
+
+  function place() {
+    var l = Math.max(0, Math.min(L, pos * L));
+    var p = rail.getPointAtLength(l);
+    var la = Math.max(0, Math.min(L, l + dir * 2.4));
+    var pa = rail.getPointAtLength(la);
+    var ang = Math.atan2(pa.y - p.y, pa.x - p.x) * 180 / Math.PI;
+    train.setAttribute('transform', 'translate(' + p.x.toFixed(2) + ',' + p.y.toFixed(2) + ') rotate(' + ang.toFixed(1) + ')');
+    fig.classList.toggle('is-north', dir > 0);
+    fig.classList.toggle('is-south', dir < 0);
+  }
+
+  if (reduce) {
+    pos = 0.5; dir = 1; place();
+    return;
+  }
+
+  var last = null;
+  function frame(t) {
+    if (last === null) last = t;
+    var dt = Math.min(0.05, (t - last) / 1000); last = t;
+
+    if (mode === 'bounce') {
+      pos += speed * dir * dt;
+      if (pos >= 1) { pos = 1; dir = -1; }
+      if (pos <= 0) { pos = 0; dir = 1; }
+      train.style.opacity = 1;
+    } else {
+      if (phase === 'run') {
+        pos += speed * dir * dt;
+        if ((dir > 0 && pos >= 1) || (dir < 0 && pos <= 0)) { pos = dir > 0 ? 1 : 0; phase = 'fadeout'; fadeT = 0; }
+        train.style.opacity = 1;
+      } else if (phase === 'fadeout') {
+        fadeT += dt; train.style.opacity = Math.max(0, 1 - fadeT / fadeDur);
+        if (fadeT >= fadeDur) { pos = dir > 0 ? 0 : 1; phase = 'fadein'; fadeT = 0; }
+      } else {
+        fadeT += dt; train.style.opacity = Math.min(1, fadeT / fadeDur);
+        if (fadeT >= fadeDur) phase = 'run';
+      }
+    }
+
+    dashOff -= dir * 42 * dt;
+    if (flow) flow.style.strokeDashoffset = dashOff.toFixed(1);
+
+    place();
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  function setMode(m) {
+    mode = m;
+    if (m === 'north') { dir = 1; phase = 'run'; }
+    else if (m === 'south') { dir = -1; phase = 'run'; }
+  }
+  function bind(sel, m) {
+    var el = document.querySelector(sel);
+    if (!el) return;
+    el.addEventListener('pointerenter', function () { setMode(m); });
+    el.addEventListener('focusin', function () { setMode(m); });
+    el.addEventListener('pointerleave', function () { setMode('bounce'); });
+    el.addEventListener('focusout', function () { setMode('bounce'); });
+  }
+  bind('[data-dir="north"]', 'north');
+  bind('[data-dir="south"]', 'south');
+})();
+</script>
 
 </body>
 </html>
