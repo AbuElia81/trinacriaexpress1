@@ -376,8 +376,8 @@ body.cart-open { overflow: hidden; }
 .splash-prompt { font-family: var(--font-display); font-style: italic; font-size: 1.15rem; color: var(--ink-soft); }
 
 .splash-choices {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.25rem; width: 100%; max-width: 980px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 1.25rem; width: 100%; max-width: 980px; justify-self: stretch;
 }
 .choice {
   display: flex; flex-direction: column; gap: .7rem; text-align: left; text-decoration: none; color: inherit;
