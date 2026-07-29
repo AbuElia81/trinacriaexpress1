@@ -57,67 +57,136 @@
   <div class="splash-stage">
 
     <figure class="railmap" aria-labelledby="railmap-cap">
-      <svg class="railmap-svg" viewBox="0 0 400 480" role="img" aria-labelledby="railmap-title">
-        <title id="railmap-title">Karte der Trinacria-Express-Linie von Sizilien bis Füssen und München</title>
+      <svg class="railmap-svg" viewBox="0 0 480 660" role="img" aria-labelledby="railmap-title">
+        <title id="railmap-title">Illustrierte Karte der Trinacria-Express-Linie von Sizilien über Italien und Österreich bis Bayern und Berlin</title>
 
         <!-- Meer -->
-        <rect class="map-sea" x="0" y="0" width="400" height="480" rx="18"/>
+        <rect class="map-sea" x="0" y="0" width="480" height="660" rx="20"/>
 
         <!-- Breitengrad-Hilfslinien -->
         <g class="map-grid">
-          <line x1="14" y1="120" x2="386" y2="120"/>
-          <line x1="14" y1="200" x2="386" y2="200"/>
-          <line x1="14" y1="280" x2="386" y2="280"/>
-          <line x1="14" y1="360" x2="386" y2="360"/>
+          <line x1="16" y1="150" x2="464" y2="150"/>
+          <line x1="16" y1="280" x2="464" y2="280"/>
+          <line x1="16" y1="410" x2="464" y2="410"/>
+          <line x1="16" y1="540" x2="464" y2="540"/>
         </g>
 
-        <!-- Bayern / Süddeutschland (Landfläche oben) -->
-        <path class="map-land" d="M100,150 C100,100 150,62 202,62 C260,62 302,96 302,132 C302,166 252,188 196,186 C140,184 100,180 100,150 Z"/>
-
-        <!-- Sizilien (Dreieck unten) -->
-        <path class="map-land" d="M84,470 L176,470 L126,412 Z"/>
+        <!-- Deutschland -->
+        <path class="map-land" d="M300,300 C258,300 232,286 214,262 C196,240 176,236 172,208 C168,184 182,168 206,168 C210,146 232,132 258,138 C272,120 300,116 320,132 C346,126 372,140 372,164 C388,176 392,200 378,216 C388,236 380,266 352,282 C336,296 320,300 300,300 Z"/>
+        <!-- Österreich -->
+        <path class="map-land map-land--at" d="M214,300 C246,292 320,292 360,300 C378,304 372,326 350,328 C300,336 250,336 220,328 C204,324 200,304 214,300 Z"/>
+        <!-- Italien (Stiefel) -->
+        <path class="map-land" d="M226,326 C258,318 316,320 344,330 C346,350 338,366 322,376 C306,388 306,404 312,420 C322,444 330,474 340,506 C348,532 362,552 372,566 C380,576 372,588 360,582 C340,572 328,552 320,530 C312,510 306,514 302,532 C297,556 280,576 254,600 C240,612 226,624 232,606 C239,588 254,570 260,550 C265,534 258,528 248,520 C232,506 224,484 222,452 C219,412 214,392 210,362 C207,340 210,332 226,326 Z"/>
+        <!-- Sardinien -->
+        <path class="map-land" d="M96,470 C84,470 80,520 96,536 C112,546 122,516 118,488 C116,474 108,470 96,470 Z"/>
+        <!-- Sizilien -->
+        <path class="map-land" d="M118,648 L226,644 L150,590 Z"/>
 
         <!-- Alpen -->
-        <polyline class="map-alps" points="128,182 146,166 164,180 182,162 200,180 218,164 236,180 252,168 268,182"/>
+        <polyline class="map-alps" points="212,332 230,318 248,332 266,316 284,332 302,318 320,332 338,320 356,332"/>
+
+        <!-- Region-Labels -->
+        <text class="region-label" text-anchor="middle" x="286" y="208">Deutschland</text>
+        <text class="region-label" text-anchor="middle" x="290" y="314">Österreich</text>
+        <text class="region-label" text-anchor="middle" x="306" y="452">Italia</text>
+        <text class="region-label" text-anchor="middle" x="168" y="632">Sicilia</text>
+
+        <!-- Berlin: dezente Zukunfts-Linie + Brandenburger Tor -->
+        <path class="rail-future" d="M272,262 C300,224 300,176 322,140"/>
+        <g transform="translate(322,120)">
+          <rect x="-15" y="-2" width="30" height="4" rx="1" fill="#e7dcc4" stroke="#c9b48c" stroke-width=".7"/>
+          <g stroke="#e7dcc4" stroke-width="3" stroke-linecap="round">
+            <line x1="-11.5" y1="2" x2="-11.5" y2="13"/>
+            <line x1="-5.7" y1="2" x2="-5.7" y2="13"/>
+            <line x1="0" y1="2" x2="0" y2="13"/>
+            <line x1="5.7" y1="2" x2="5.7" y2="13"/>
+            <line x1="11.5" y1="2" x2="11.5" y2="13"/>
+          </g>
+          <rect x="-6" y="-6" width="12" height="4" rx="1" fill="#c9a24a"/>
+          <rect x="-1.4" y="-9" width="2.8" height="3" fill="#c9a24a"/>
+        </g>
+        <circle class="station" cx="322" cy="134" r="3.6"/>
+        <text class="station-label" text-anchor="middle" x="322" y="150">Berlin</text>
 
         <!-- Endpunkt-Glühen -->
-        <circle class="endpoint-glow north" cx="168" cy="84" r="13"/>
-        <circle class="endpoint-glow south" cx="120" cy="436" r="13"/>
+        <circle class="endpoint-glow north" cx="272" cy="260" r="15"/>
+        <circle class="endpoint-glow south" cx="150" cy="610" r="15"/>
 
-        <!-- Bahnlinie -->
-        <path id="rail" class="rail-base"
-          d="M120,436 C170,410 214,392 238,356 C250,340 224,336 210,320 C196,304 200,278 198,250 C196,214 196,200 196,176 C196,152 206,140 214,120 C220,106 190,96 168,84"/>
-        <path class="rail-flow"
-          d="M120,436 C170,410 214,392 238,356 C250,340 224,336 210,320 C196,304 200,278 198,250 C196,214 196,200 196,176 C196,152 206,140 214,120 C220,106 190,96 168,84"/>
+        <!-- Bahnlinie Palermo -> München -->
+        <path id="rail" class="rail-base" d="M150,610 C214,600 254,556 286,506 C302,480 262,486 258,468 C252,440 256,436 250,414 C246,392 250,388 256,372 C262,352 268,346 276,332 C282,320 256,312 250,300 C244,290 262,272 272,260"/>
+        <path class="rail-flow" d="M150,610 C214,600 254,556 286,506 C302,480 262,486 258,468 C252,440 256,436 250,414 C246,392 250,388 256,372 C262,352 268,346 276,332 C282,320 256,312 250,300 C244,290 262,272 272,260"/>
 
         <!-- Stationen -->
         <g class="stations">
-          <circle class="station" cx="120" cy="436" r="4.5"/>
-          <circle class="station" cx="238" cy="356" r="4"/>
-          <circle class="station" cx="210" cy="320" r="4"/>
-          <circle class="station" cx="198" cy="250" r="4"/>
-          <circle class="station" cx="196" cy="176" r="4"/>
-          <circle class="station" cx="214" cy="120" r="4.5"/>
-          <circle class="station station--key" cx="168" cy="84" r="5.5"/>
+          <circle class="station station--key" cx="150" cy="610" r="5.5"/>
+          <circle class="station" cx="286" cy="506" r="4"/>
+          <circle class="station" cx="258" cy="468" r="4"/>
+          <circle class="station" cx="250" cy="414" r="4"/>
+          <circle class="station" cx="256" cy="372" r="4"/>
+          <circle class="station" cx="276" cy="332" r="4"/>
+          <circle class="station station--key" cx="250" cy="300" r="5"/>
+          <circle class="station station--key" cx="272" cy="260" r="5.5"/>
         </g>
 
-        <!-- Beschriftungen -->
+        <!-- Stationslabels -->
         <g>
-          <text class="station-label" text-anchor="middle" x="126" y="462">Palermo · Sicilia</text>
-          <text class="station-label" x="250" y="360">Napoli</text>
-          <text class="station-label" x="222" y="322">Roma</text>
-          <text class="station-label" x="210" y="252">Firenze</text>
-          <text class="station-label" x="276" y="180">Alpen</text>
-          <text class="station-label" x="226" y="124">München</text>
-          <text class="station-label is-key" x="112" y="80">Füssen</text>
+          <text class="station-label is-key" x="162" y="614">Palermo</text>
+          <text class="station-label" x="298" y="510">Napoli</text>
+          <text class="station-label" x="270" y="472">Roma</text>
+          <text class="station-label" x="262" y="418">Firenze</text>
+          <text class="station-label" x="268" y="376">Bologna</text>
+          <text class="station-label" text-anchor="end" x="264" y="336">Innsbruck</text>
+          <text class="station-label is-key" text-anchor="end" x="236" y="304">Füssen</text>
+          <text class="station-label is-key" x="302" y="256">München</text>
+        </g>
+
+        <!-- Ätna -->
+        <g transform="translate(196,600)">
+          <path d="M-18,15 L-6,-9 Q0,-15 6,-9 L18,15 Z" fill="#8a7d6e"/>
+          <path d="M-18,15 L18,15 L13,9 L-13,9 Z" fill="#6f6456"/>
+          <path d="M-6,-9 Q0,-15 6,-9 L4,-5 Q0,-8 -4,-5 Z" fill="#d24a22"/>
+          <path d="M-2,-9 L-4,-1 M2,-8 L1,-2" stroke="#e58a24" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M0,-16 C-4,-24 4,-27 1,-35 C6,-31 3,-22 6,-18" fill="none" stroke="#b7b0a4" stroke-width="2.2" stroke-linecap="round" opacity=".7"/>
+        </g>
+        <text class="landmark-label" text-anchor="middle" x="196" y="628">Ätna</text>
+
+        <!-- Orangenbaum -->
+        <g transform="translate(128,612)">
+          <rect x="-2" y="4" width="4" height="10" rx="1.5" fill="#7a5230"/>
+          <circle cx="0" cy="-2" r="10" fill="#5f7d3f"/>
+          <circle cx="-4" cy="-5" r="6" fill="#6b8a45"/>
+          <circle cx="5" cy="-3" r="6" fill="#6b8a45"/>
+          <circle cx="-3" cy="0" r="2" fill="#e58a24"/>
+          <circle cx="4" cy="-5" r="2" fill="#e58a24"/>
+          <circle cx="1" cy="-7" r="2" fill="#e58a24"/>
+        </g>
+
+        <!-- Neuschwanstein (bei Füssen) -->
+        <g transform="translate(224,294)">
+          <rect x="-11" y="-2" width="20" height="13" fill="#f3ede0" stroke="#cdbfa3" stroke-width=".8"/>
+          <rect x="-13" y="-7" width="6" height="18" fill="#f3ede0" stroke="#cdbfa3" stroke-width=".8"/>
+          <rect x="6" y="-9" width="6" height="20" fill="#f3ede0" stroke="#cdbfa3" stroke-width=".8"/>
+          <polygon points="-13,-7 -10,-15 -7,-7" fill="#4f7f88"/>
+          <polygon points="6,-9 9,-18 12,-9" fill="#4f7f88"/>
+          <polygon points="-5,-2 0,-9 5,-2" fill="#4f7f88"/>
+        </g>
+
+        <!-- Frauenkirche (München) -->
+        <g transform="translate(292,248)">
+          <rect x="-9" y="-6" width="6" height="16" fill="#efe7d6" stroke="#cdbfa3" stroke-width=".8"/>
+          <rect x="3" y="-6" width="6" height="16" fill="#efe7d6" stroke="#cdbfa3" stroke-width=".8"/>
+          <path d="M-9,-6 Q-6,-15 -3,-6 Z" fill="#3e6f66"/>
+          <path d="M3,-6 Q6,-15 9,-6 Z" fill="#3e6f66"/>
+          <circle cx="-6" cy="-15" r="1.3" fill="#3e6f66"/>
+          <circle cx="6" cy="-15" r="1.3" fill="#3e6f66"/>
         </g>
 
         <!-- Himmelsrichtungen -->
-        <text class="map-cardinal" text-anchor="middle" x="330" y="34">Nord</text>
-        <text class="map-cardinal" text-anchor="middle" x="330" y="456">Süd</text>
+        <text class="map-cardinal" text-anchor="middle" x="410" y="42">Nord</text>
+        <text class="map-cardinal" text-anchor="middle" x="410" y="628">Süd</text>
 
         <!-- Zug -->
-        <g id="train" class="train" transform="translate(120,436) rotate(-60)">
+        <g id="train" class="train" transform="translate(150,610) rotate(-60)">
           <rect class="train-body" x="-15" y="-8" width="30" height="16" rx="8"/>
           <circle class="train-win" cx="-5" cy="0" r="2.8"/>
           <circle class="train-win" cx="3" cy="0" r="2.8"/>
@@ -125,7 +194,7 @@
         </g>
       </svg>
       <figcaption id="railmap-cap" class="railmap-cap">
-        Ein Zug, zwei Richtungen — der Trinacria&nbsp;Express pendelt zwischen Sizilien und Füssen.
+        Von Palermo über den Stiefel und die Alpen bis Bayern — der Trinacria&nbsp;Express pendelt zwischen Sizilien und Füssen.
       </figcaption>
     </figure>
 
@@ -190,9 +259,9 @@
   var L = rail.getTotalLength();
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // pos: 0 = Palermo (Süden/unten), 1 = Füssen (Norden/oben)
+  // pos: 0 = Palermo (Süden/unten), 1 = München (Norden/oben)
   var pos = 0, dir = 1, mode = 'bounce';
-  var speed = 1 / 5.5;              // volle Strecke in ~5,5 s
+  var speed = 1 / 6.5;             // volle Strecke in ~6,5 s
   var phase = 'run', fadeT = 0, fadeDur = 0.32, dashOff = 0;
 
   function place() {

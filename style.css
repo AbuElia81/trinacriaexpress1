@@ -410,7 +410,7 @@ body.cart-open { overflow: hidden; }
   width: 100%; max-width: 1000px; display: grid; grid-template-columns: 1fr;
   gap: 1.6rem; justify-items: center; align-items: center;
 }
-.railmap { margin: 0; width: 100%; max-width: 340px; }
+.railmap { margin: 0; width: 100%; max-width: 440px; }
 .railmap-svg { width: 100%; height: auto; display: block; }
 .railmap-cap { margin-top: .7rem; font-size: .8rem; font-style: italic; color: var(--ink-soft); text-align: center; line-height: 1.45; }
 
@@ -419,6 +419,10 @@ body.cart-open { overflow: hidden; }
 .map-land { fill: #e8d6b0; stroke: rgba(107, 112, 66, .45); stroke-width: 1; }
 .map-alps { fill: none; stroke: rgba(74, 81, 46, .6); stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
 .map-cardinal { font-size: 10px; letter-spacing: .18em; fill: var(--ink-soft); text-transform: uppercase; }
+.map-land--at { fill: #ecd9b0; }
+.region-label { font-size: 10px; letter-spacing: .22em; fill: rgba(74, 81, 46, .5); text-transform: uppercase; font-weight: 700; }
+.landmark-label { font-size: 10px; fill: var(--terracotta-deep); font-weight: 700; }
+.rail-future { fill: none; stroke: var(--terracotta); stroke-width: 2; stroke-dasharray: 1 7; stroke-linecap: round; opacity: .42; }
 
 .rail-base { fill: none; stroke: #c7bba3; stroke-width: 3.4; stroke-linecap: round; }
 .rail-flow { fill: none; stroke: var(--terracotta); stroke-width: 3.4; stroke-linecap: round; stroke-dasharray: 2 12; }
@@ -437,8 +441,7 @@ body.cart-open { overflow: hidden; }
 .train-light { fill: var(--lemon); }
 
 @media (min-width: 880px) {
-  .splash-stage { grid-template-columns: minmax(260px, 340px) minmax(320px, 1fr); gap: 2.5rem; }
-  .splash-stage .splash-choices { grid-template-columns: 1fr; }
+  .splash-choices { max-width: 760px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .rail-flow { stroke-dasharray: none; opacity: .5; }
