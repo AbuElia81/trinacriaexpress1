@@ -611,3 +611,26 @@ body.cart-open { overflow: hidden; }
 .choice-route.small .choice-mark { width: 18px; height: 18px; }
 .choice-mini-sub { font-size: .82rem; color: var(--ink-soft); font-style: italic; }
 .choice--mini .choice-badge { align-self: center; flex: none; }
+
+/* ---- Splash: echte Karte (CIA World Factbook, gemeinfrei) + Route-Overlay ---- */
+.realmap {
+  position: relative; width: 100%; max-width: 400px; margin-inline: auto;
+  aspect-ratio: 560 / 790; overflow: hidden; border-radius: var(--radius);
+  box-shadow: 0 14px 34px rgba(46, 42, 34, .16); background: #bcd3de;
+}
+.realmap-img { position: absolute; width: 250%; max-width: none; left: -83.93%; top: -113.92%; }
+.realmap::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(246, 239, 226, .10), rgba(182, 74, 42, .07));
+}
+.realmap-overlay { position: absolute; inset: 0; width: 100%; height: 100%; }
+.realmap-overlay .rail-base { stroke: rgba(255, 255, 255, .85); stroke-width: 4.6; }
+.realmap-overlay .rail-flow { stroke: var(--terracotta); stroke-width: 3.4; }
+.realmap-overlay .train-body { stroke: #fff; stroke-width: 1.4; }
+.pin-dot { fill: var(--terracotta); stroke: #fff; stroke-width: 2.4; }
+.pin-label {
+  font-family: var(--font-body); font-size: 17px; font-weight: 700; fill: var(--ink);
+  paint-order: stroke; stroke: #fdf7ea; stroke-width: 3.6px; stroke-linejoin: round;
+}
+.pin-label--key { fill: var(--terracotta-deep); }
+.map-credit { display: block; margin-top: .35rem; font-size: .68rem; font-style: normal; color: var(--ink-soft); opacity: .7; }
