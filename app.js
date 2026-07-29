@@ -6,6 +6,7 @@ const CATS = {
   pate:       "Patè & Conserve",
   marmellate: "Marmeladen",
   creme:      "Süße Cremes",
+  gelato:     "Gelato",
 };
 
 const PRODUCTS = [
@@ -105,6 +106,36 @@ const PRODUCTS = [
     ean: "8053251660495", weight: "190 g", carton: 12, shelf: "24",
     ing: "HASELNÜSSE* (38 %), Rohrzucker*, Olivenöl*, Sonnenblumenöl*.",
     hue: ["#b98a5c", "#6d4c2c"] },
+
+  /* ---- Gelato · PEPINO 1884, Torino (seit 1884 · Erfinder des Pinguino, 1938) ---- */
+  { id: "g01", cat: "gelato", bio: false, name: "Pinguino Fiordilatte", de: "Das Original von 1938: Milchcreme-Stieleis im Zartbitter-Schokomantel.",
+    ean: "auf Anfrage", weight: "65 ml · tiefgekühlt", carton: 24, shelf: "18",
+    ing: "MILCH, Zucker, Zartbitterschokolade (Kakaomasse, Zucker, Kakaobutter, Emulgator: SOJALECITHIN), MAGERMILCHPULVER, SAHNE, Glukosesirup, Vanillearoma. Kann Spuren von SCHALENFRÜCHTEN enthalten.",
+    hue: ["#6f4a2e", "#3a2413"] },
+  { id: "g02", cat: "gelato", bio: false, name: "Pinguino Crema", de: "Feines Eier-Cremeeis am Stiel im knackigen Schokoladenmantel.",
+    ean: "auf Anfrage", weight: "65 ml · tiefgekühlt", carton: 24, shelf: "18",
+    ing: "MILCH, Zucker, EIGELB, Zartbitterschokolade (Kakaomasse, Zucker, Kakaobutter, Emulgator: SOJALECITHIN), SAHNE, MAGERMILCHPULVER, Glukosesirup, Aroma.",
+    hue: ["#dcae3f", "#8f6817"] },
+  { id: "g03", cat: "gelato", bio: false, name: "Pinguino Gianduia", de: "Piemonteser Gianduia — Haselnuss-Schokolade als Stieleis im Schokomantel.",
+    ean: "auf Anfrage", weight: "65 ml · tiefgekühlt", carton: 24, shelf: "18",
+    ing: "MILCH, Zucker, HASELNÜSSE (10 %), Zartbitterschokolade (Kakaomasse, Zucker, Kakaobutter, Emulgator: SOJALECITHIN), Kakao, SAHNE, MAGERMILCHPULVER, Glukosesirup, Aroma.",
+    hue: ["#7a4a2c", "#3e2110"] },
+  { id: "g04", cat: "gelato", bio: false, name: "Pinguino Nocciola Piemonte", de: "Stieleis aus Piemonteser Haselnüssen, überzogen mit Zartbitterschokolade.",
+    ean: "auf Anfrage", weight: "65 ml · tiefgekühlt", carton: 24, shelf: "18",
+    ing: "MILCH, Zucker, HASELNÜSSE (12 %), SAHNE, MAGERMILCHPULVER, Zartbitterschokolade (Kakaomasse, Zucker, Kakaobutter, Emulgator: SOJALECITHIN), Glukosesirup, Aroma.",
+    hue: ["#b98a5c", "#6d4c2c"] },
+  { id: "g05", cat: "gelato", bio: false, name: "Pinguino Pistacchio", de: "Pistazien-Stieleis im feinen Zartbitter-Schokomantel.",
+    ean: "auf Anfrage", weight: "65 ml · tiefgekühlt", carton: 24, shelf: "18",
+    ing: "MILCH, Zucker, PISTAZIEN (8 %), SAHNE, MAGERMILCHPULVER, Zartbitterschokolade (Kakaomasse, Zucker, Kakaobutter, Emulgator: SOJALECITHIN), Glukosesirup, Aroma.",
+    hue: ["#9aa864", "#586031"] },
+  { id: "g06", cat: "gelato", bio: false, name: "Pinguino Caffè", de: "Espresso-Stieleis, umhüllt von Zartbitterschokolade.",
+    ean: "auf Anfrage", weight: "65 ml · tiefgekühlt", carton: 24, shelf: "18",
+    ing: "MILCH, Zucker, SAHNE, MAGERMILCHPULVER, löslicher Kaffee (1,2 %), Zartbitterschokolade (Kakaomasse, Zucker, Kakaobutter, Emulgator: SOJALECITHIN), Glukosesirup, Aroma.",
+    hue: ["#6b4a34", "#392416"] },
+  { id: "g07", cat: "gelato", bio: false, name: "Pinguino Menta", de: "Erfrischendes Minz-Stieleis im dunklen Schokomantel.",
+    ean: "auf Anfrage", weight: "65 ml · tiefgekühlt", carton: 24, shelf: "18",
+    ing: "MILCH, Zucker, SAHNE, MAGERMILCHPULVER, Zartbitterschokolade (Kakaomasse, Zucker, Kakaobutter, Emulgator: SOJALECITHIN), Glukosesirup, Minzaroma, Farbstoff: Chlorophylle.",
+    hue: ["#6fae8f", "#356b52"] },
 ];
 
 /* ---------- Produktgrid ---------- */
@@ -115,13 +146,13 @@ grid.innerHTML = PRODUCTS.map((p) => `
       <img src="images/products/${p.id}.jpg" alt="${p.name}" loading="lazy" onerror="this.remove()">
     </div>
     <div class="card-body">
-      <p class="card-origin">${CATS[p.cat]} · Bio</p>
+      <p class="card-origin">${CATS[p.cat]}${p.bio === false ? "" : " · Bio"}</p>
       <h3 class="card-name">${p.name}</h3>
       <p class="card-de">${p.de}</p>
       <p class="card-size">${p.weight} · ${p.carton} Stück/Karton · ${p.shelf} Monate haltbar</p>
       <details class="card-ing">
         <summary>Zutaten &amp; EAN</summary>
-        <p>${p.ing} <span class="bio-note">*aus biologischer Landwirtschaft</span></p>
+        <p>${p.ing}${p.bio === false ? "" : ' <span class="bio-note">*aus biologischer Landwirtschaft</span>'}</p>
         <p class="card-ean">EAN ${p.ean}</p>
       </details>
       <div class="card-foot">
