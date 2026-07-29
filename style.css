@@ -408,9 +408,9 @@ body.cart-open { overflow: hidden; }
 /* ---- Splash stage: Karte + Auswahl ---- */
 .splash-stage {
   width: 100%; max-width: 1000px; display: grid; grid-template-columns: 1fr;
-  gap: 1.6rem; justify-items: center; align-items: center;
+  gap: 1.6rem; justify-items: stretch; align-items: center;
 }
-.railmap { margin: 0; width: 100%; max-width: 440px; }
+.railmap { margin: 0 auto; width: 100%; max-width: 440px; }
 .railmap-svg { width: 100%; height: auto; display: block; }
 .railmap-cap { margin-top: .7rem; font-size: .8rem; font-style: italic; color: var(--ink-soft); text-align: center; line-height: 1.45; }
 
