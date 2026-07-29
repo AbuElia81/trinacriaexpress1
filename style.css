@@ -584,3 +584,30 @@ body.cart-open { overflow: hidden; }
   font-size: clamp(.86rem, 1.9vw, 1rem); font-weight: 600; color: #fdf7ea; text-align: center;
   background: linear-gradient(to top, rgba(28, 18, 10, .68), rgba(28, 18, 10, 0));
 }
+
+/* ---- Splash: grosser Deutschland-Button + kleiner Palermo-Button ---- */
+.splash-choices { display: flex; flex-direction: column; gap: 1rem; max-width: 620px; }
+.choice-mark { width: 30px; height: 30px; flex: none; object-fit: contain; }
+
+.choice--primary {
+  background: var(--cream); border: 1.6px solid var(--terracotta);
+  padding: clamp(1.9rem, 4vw, 2.6rem) clamp(1.6rem, 3.5vw, 2.2rem);
+  box-shadow: 0 16px 38px rgba(46, 42, 34, .14); gap: .85rem;
+}
+.choice--primary:hover { transform: translateY(-4px); box-shadow: 0 22px 46px rgba(182, 74, 42, .2); }
+.choice--primary .choice-route { font-size: .8rem; gap: .7rem; }
+.choice--primary .choice-route-goal { color: var(--terracotta-deep); }
+.choice--primary h2 { font-size: clamp(1.8rem, 4.6vw, 2.7rem); line-height: 1.12; }
+.choice--primary p { font-size: clamp(.98rem, 2vw, 1.12rem); }
+.choice--primary .choice-cta { font-size: 1.02rem; }
+
+.choice--mini {
+  flex-direction: row; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: .85rem 1.2rem; background: var(--paper-deep);
+}
+.choice--mini:hover { transform: translateY(-2px); }
+.choice-mini-main { display: flex; flex-direction: column; gap: .25rem; }
+.choice-route.small { font-size: .64rem; color: var(--olive); gap: .45rem; }
+.choice-route.small .choice-mark { width: 18px; height: 18px; }
+.choice-mini-sub { font-size: .82rem; color: var(--ink-soft); font-style: italic; }
+.choice--mini .choice-badge { align-self: center; flex: none; }
