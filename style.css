@@ -618,7 +618,7 @@ body.cart-open { overflow: hidden; }
   aspect-ratio: 560 / 790; overflow: hidden; border-radius: var(--radius);
   box-shadow: 0 14px 34px rgba(46, 42, 34, .16); background: #bcd3de;
 }
-.realmap-img { position: absolute; width: 250%; max-width: none; left: -83.93%; top: -113.92%; }
+.realmap-img { position: absolute; width: 250%; height: auto; max-width: none; left: -83.93%; top: -113.92%; }
 .realmap::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(180deg, rgba(246, 239, 226, .10), rgba(182, 74, 42, .07));
