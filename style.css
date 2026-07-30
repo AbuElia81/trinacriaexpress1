@@ -679,3 +679,14 @@ body.cart-open { overflow: hidden; }
   .splash-offer { grid-template-columns: 1.55fr 1fr; gap: clamp(1.6rem, 4vw, 3rem); align-items: start; }
   .offer-map { margin: 0; justify-self: center; }
 }
+
+/* ---- Produktfotos im Deutschland-Button + LKW-Kontur ---- */
+.choice-thumbs { display: flex; gap: .5rem; margin-top: .4rem; flex-wrap: wrap; }
+.choice-thumbs img {
+  width: clamp(42px, 8vw, 56px); height: clamp(42px, 8vw, 56px);
+  object-fit: cover; border-radius: 10px; border: 2px solid var(--cream);
+  box-shadow: 0 3px 8px rgba(46, 42, 34, .18);
+}
+.realmap-overlay .truck {
+  filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, .95)) drop-shadow(0 1px 1px rgba(0, 0, 0, .35));
+}
