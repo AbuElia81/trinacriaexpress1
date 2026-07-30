@@ -19,9 +19,43 @@
     <figcaption class="splash-hero-cap">Vom Markt in Palermo bis zu euch — echtes sizilianisches Lebensgefühl.</figcaption>
   </figure>
 
-  <div class="splash-logo">
-    <img class="logo-img" src="images/logo-trinacria-express.png" alt="Trinacria Express — Bio-Spezialitäten zwischen Sizilien und Bayern">
-    <p class="logo-tag">Sizilien ⇄ Bayern · Bio-Spezialitäten, direkt geliefert</p>
+  <div class="splash-intro">
+
+    <div class="splash-logo">
+      <img class="logo-img" src="images/logo-trinacria-express.png" alt="Trinacria Express — Bio-Spezialitäten zwischen Sizilien und Bayern">
+      <p class="logo-tag">Sizilien ⇄ Bayern · Bio-Spezialitäten, direkt geliefert</p>
+    </div>
+
+    <figure class="railmap" aria-labelledby="railmap-cap">
+      <div class="realmap">
+        <img class="realmap-img" src="images/map-europe.jpg" width="1400" height="1801"
+             alt="Karte: die Trinacria-Express-Route von Palermo (Sizilien) über Italien und die Alpen nach Deutschland">
+        <svg class="realmap-overlay" viewBox="0 0 560 790" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <path id="rail" class="rail-base"
+            d="M328,694 C348,652 352,620 348,590 C343,558 300,556 293,532 C283,498 274,468 270,430 C266,388 258,342 255,300 C252,268 258,244 265,220"/>
+          <path class="rail-flow"
+            d="M328,694 C348,652 352,620 348,590 C343,558 300,556 293,532 C283,498 274,468 270,430 C266,388 258,342 255,300 C252,268 258,244 265,220"/>
+
+          <circle class="endpoint-glow south" cx="328" cy="694" r="16"/>
+          <circle class="endpoint-glow north" cx="265" cy="220" r="16"/>
+
+          <circle class="pin-dot" cx="328" cy="694" r="7"/>
+          <circle class="pin-dot" cx="265" cy="220" r="7"/>
+
+          <g id="train" class="train" transform="translate(328,694) rotate(-70)">
+            <rect class="train-body" x="-15" y="-8" width="30" height="16" rx="8"/>
+            <circle class="train-win" cx="-5" cy="0" r="2.8"/>
+            <circle class="train-win" cx="3" cy="0" r="2.8"/>
+            <circle class="train-light" cx="12" cy="0" r="2.6"/>
+          </g>
+        </svg>
+      </div>
+      <figcaption id="railmap-cap" class="railmap-cap">
+        Von Palermo bis Deutschland — der Trinacria&nbsp;Express pendelt zwischen Sizilien und euch.
+        <span class="map-credit">Karte: CIA World Factbook · gemeinfrei</span>
+      </figcaption>
+    </figure>
+
   </div>
 
   <div class="tile-band" aria-hidden="true">
@@ -54,70 +88,30 @@
 
   <p class="splash-prompt">Wählt eure Richtung</p>
 
-  <div class="splash-stage">
+  <div class="splash-choices">
 
-    <figure class="railmap" aria-labelledby="railmap-cap">
-      <div class="realmap">
-        <img class="realmap-img" src="images/map-europe.jpg" width="1400" height="1801"
-             alt="Karte: die Trinacria-Express-Route von Palermo (Sizilien) über Italien und die Alpen nach Deutschland">
-        <svg class="realmap-overlay" viewBox="0 0 560 790" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-          <!-- Route Palermo -> Deutschland -->
-          <path id="rail" class="rail-base"
-            d="M328,694 C348,652 352,620 348,590 C343,558 300,556 293,532 C283,498 274,468 270,430 C266,388 258,342 255,300 C252,268 258,244 265,220"/>
-          <path class="rail-flow"
-            d="M328,694 C348,652 352,620 348,590 C343,558 300,556 293,532 C283,498 274,468 270,430 C266,388 258,342 255,300 C252,268 258,244 265,220"/>
+    <a class="choice choice--primary" href="shop.html" data-dir="north">
+      <span class="choice-route">
+        <span>Palermo</span>
+        <img class="choice-mark" src="images/logo-mark.png" alt="" aria-hidden="true">
+        <span class="choice-route-goal">Deutschland</span>
+      </span>
+      <h2>Unsere Produkte in Deutschland</h2>
+      <p>Sizilianische Bio-Spezialitäten &amp; Gelato — direkt zu euch geliefert.</p>
+      <span class="choice-cta">Zum Sortiment</span>
+    </a>
 
-          <!-- Endpunkt-Glühen -->
-          <circle class="endpoint-glow south" cx="328" cy="694" r="16"/>
-          <circle class="endpoint-glow north" cx="265" cy="220" r="16"/>
-
-          <!-- Pins -->
-          <circle class="pin-dot" cx="328" cy="694" r="7"/>
-          <text class="pin-label pin-label--key" x="342" y="700">Palermo</text>
-          <circle class="pin-dot" cx="265" cy="220" r="7"/>
-          <text class="pin-label pin-label--key" x="279" y="224">Deutschland</text>
-
-          <!-- Zug -->
-          <g id="train" class="train" transform="translate(328,694) rotate(-70)">
-            <rect class="train-body" x="-15" y="-8" width="30" height="16" rx="8"/>
-            <circle class="train-win" cx="-5" cy="0" r="2.8"/>
-            <circle class="train-win" cx="3" cy="0" r="2.8"/>
-            <circle class="train-light" cx="12" cy="0" r="2.6"/>
-          </g>
-        </svg>
-      </div>
-      <figcaption id="railmap-cap" class="railmap-cap">
-        Von Palermo bis Deutschland — der Trinacria&nbsp;Express pendelt zwischen Sizilien und euch.
-        <span class="map-credit">Karte: CIA World Factbook · gemeinfrei</span>
-      </figcaption>
-    </figure>
-
-    <div class="splash-choices">
-
-      <a class="choice choice--primary" href="shop.html" data-dir="north">
-        <span class="choice-route">
-          <span>Palermo</span>
+    <a class="choice choice--mini choice--soon" href="it.html" data-dir="south">
+      <span class="choice-mini-main">
+        <span class="choice-route small">
+          <span>Deutschland</span>
           <img class="choice-mark" src="images/logo-mark.png" alt="" aria-hidden="true">
-          <span class="choice-route-goal">Deutschland</span>
+          <span>Palermo</span>
         </span>
-        <h2>Unsere Produkte in Deutschland</h2>
-        <p>Sizilianische Bio-Spezialitäten &amp; Gelato — direkt zu euch geliefert.</p>
-        <span class="choice-cta">Zum Sortiment</span>
-      </a>
-
-      <a class="choice choice--mini choice--soon" href="it.html" data-dir="south">
-        <span class="choice-mini-main">
-          <span class="choice-route small">
-            <span>Deutschland</span>
-            <img class="choice-mark" src="images/logo-mark.png" alt="" aria-hidden="true">
-            <span>Palermo</span>
-          </span>
-          <span class="choice-mini-sub">Prodotti bavaresi verso la Sicilia — in costruzione.</span>
-        </span>
-        <span class="choice-badge">Bald</span>
-      </a>
-
-    </div>
+        <span class="choice-mini-sub">Prodotti bavaresi verso la Sicilia — in costruzione.</span>
+      </span>
+      <span class="choice-badge">Bald</span>
+    </a>
 
   </div>
 

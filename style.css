@@ -634,3 +634,15 @@ body.cart-open { overflow: hidden; }
 }
 .pin-label--key { fill: var(--terracotta-deep); }
 .map-credit { display: block; margin-top: .35rem; font-size: .68rem; font-style: normal; color: var(--ink-soft); opacity: .7; }
+
+/* ---- Splash: Logo links + Karte rechts (unter dem Hero-Foto) ---- */
+.splash-intro {
+  width: 100%; max-width: 920px; display: grid; grid-template-columns: 1fr;
+  gap: 1.8rem; align-items: center; justify-items: center;
+}
+.splash-intro .splash-logo { margin: 0; }
+.splash-intro .logo-img { max-width: 320px; width: 100%; }
+@media (min-width: 760px) {
+  .splash-intro { grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); }
+  .splash-intro .logo-img { max-width: 360px; }
+}
