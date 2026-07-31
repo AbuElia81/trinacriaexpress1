@@ -269,3 +269,18 @@ const track = document.getElementById("marqueeTrack");
 track.innerHTML += track.innerHTML;
 
 renderCart();
+
+/* ---------- Kontaktformular (öffnet vorausgefüllte E-Mail) ---------- */
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("cf-name").value.trim();
+    const subject = document.getElementById("cf-subject").value.trim();
+    const message = document.getElementById("cf-message").value.trim();
+    const body = `Name: ${name}\n\nAnliegen: ${subject}\n\nNachricht:\n${message}`;
+    window.location.href =
+      `mailto:trinacriaexpress26@gmail.com?subject=${encodeURIComponent(subject || "Kontakt Trinacria Express")}&body=${encodeURIComponent(body)}`;
+    toast("Dein E-Mail-Programm öffnet sich mit deiner Nachricht");
+  });
+}

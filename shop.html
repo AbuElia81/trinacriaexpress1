@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Karla:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
@@ -220,18 +220,23 @@
         </div>
       </div>
 
-      <div class="contact-lines">
-        <a class="contact-line" href="tel:+4915778389906">
-          <span class="contact-label">Telefon</span>
-          <span class="contact-value">0157 78389906</span>
-        </a>
-        <a class="contact-line" href="mailto:trinacriaexpress26@gmail.com">
-          <span class="contact-label">E-Mail</span>
-          <span class="contact-value">trinacriaexpress26@gmail.com</span>
-        </a>
-      </div>
-
-      <a class="btn btn-primary" href="mailto:trinacriaexpress26@gmail.com?subject=Anfrage%20Trinacria%20Express">Anfrage schreiben</a>
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="Euer Name">
+        </div>
+        <div class="form-row">
+          <label for="cf-subject">Anliegen</label>
+          <input type="text" id="cf-subject" name="subject" required placeholder="Worum geht es?">
+        </div>
+        <div class="form-row">
+          <label for="cf-message">Nachricht</label>
+          <textarea id="cf-message" name="message" rows="5" required placeholder="Eure Nachricht an uns …"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Senden</button>
+        <p class="form-note">Mit „Senden" öffnet sich euer E-Mail-Programm mit der fertigen Nachricht an
+          <a href="mailto:trinacriaexpress26@gmail.com">trinacriaexpress26@gmail.com</a>.</p>
+      </form>
     </div>
   </section>
 
@@ -263,7 +268,6 @@
     </div>
     <div>
       <p class="footer-h">Kontakt</p>
-      <a href="tel:+4915778389906">0157 78389906</a>
       <a href="mailto:trinacriaexpress26@gmail.com">trinacriaexpress26@gmail.com</a>
       <a href="#kontakt">Anfrage stellen</a>
       <a href="impressum.html">Impressum</a>
