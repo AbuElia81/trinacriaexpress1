@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 40" width="80" height="40">
+  <rect width="80" height="40" fill="#fbf7ee"/>
+
+  <!-- teal Kreise an den Kanten (nahtlos bei x=0/40/80) -->
+  <g fill="#6f9c97">
+    <circle cx="0" cy="0" r="7"/><circle cx="40" cy="0" r="7"/><circle cx="80" cy="0" r="7"/>
+    <circle cx="0" cy="40" r="7"/><circle cx="40" cy="40" r="7"/><circle cx="80" cy="40" r="7"/>
+  </g>
+  <g fill="#93381d" opacity=".7">
+    <circle cx="0" cy="0" r="1.8"/><circle cx="40" cy="0" r="1.8"/><circle cx="80" cy="0" r="1.8"/>
+    <circle cx="0" cy="40" r="1.8"/><circle cx="40" cy="40" r="1.8"/><circle cx="80" cy="40" r="1.8"/>
+  </g>
+
+  <!-- olivgrüne Randpunkte -->
+  <g fill="#6b7042">
+    <circle cx="20" cy="0" r="2.2"/><circle cx="20" cy="40" r="2.2"/>
+    <circle cx="60" cy="0" r="2.2"/><circle cx="60" cy="40" r="2.2"/>
+  </g>
+
+  <!-- 8-zackiger Stern (Khatam · arabisch-normannisch) bei (20,20) -->
+  <g fill="none" stroke="#b64a2a" stroke-width="2" stroke-linejoin="round">
+    <rect x="9" y="9" width="22" height="22"/>
+    <rect x="9" y="9" width="22" height="22" transform="rotate(45 20 20)"/>
+  </g>
+  <circle cx="20" cy="20" r="3" fill="#e0b23c"/>
+
+  <!-- Maiolica-Blüte bei (60,20) -->
+  <g fill="#b64a2a">
+    <ellipse cx="60" cy="12.5" rx="3.2" ry="6.2"/><ellipse cx="60" cy="27.5" rx="3.2" ry="6.2"/>
+    <ellipse cx="52.5" cy="20" rx="6.2" ry="3.2"/><ellipse cx="67.5" cy="20" rx="6.2" ry="3.2"/>
+  </g>
+  <circle cx="60" cy="20" r="3" fill="#e0b23c"/>
+</svg>
