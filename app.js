@@ -270,17 +270,31 @@ track.innerHTML += track.innerHTML;
 
 renderCart();
 
-/* ---------- Kontaktformular (öffnet vorausgefüllte E-Mail) ---------- */
+/* ---------- Kontaktformular (FormSubmit → direkt an trinacriaexpress26@gmail.com) ---------- */
 const contactForm = document.getElementById("contactForm");
 if (contactForm) {
-  contactForm.addEventListener("submit", (e) => {
+  const cfStatus = document.getElementById("cf-status");
+  contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const name = document.getElementById("cf-name").value.trim();
-    const subject = document.getElementById("cf-subject").value.trim();
-    const message = document.getElementById("cf-message").value.trim();
-    const body = `Name: ${name}\n\nAnliegen: ${subject}\n\nNachricht:\n${message}`;
-    window.location.href =
-      `mailto:trinacriaexpress26@gmail.com?subject=${encodeURIComponent(subject || "Kontakt Trinacria Express")}&body=${encodeURIComponent(body)}`;
-    toast("Dein E-Mail-Programm öffnet sich mit deiner Nachricht");
+    const btn = contactForm.querySelector("button[type=submit]");
+    btn.disabled = true;
+    if (cfStatus) cfStatus.textContent = "Wird gesendet …";
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/trinacriaexpress26@gmail.com", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(contactForm),
+      });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      contactForm.reset();
+      if (cfStatus) cfStatus.textContent = "Danke! Eure Nachricht ist raus — wir melden uns.";
+      toast("Nachricht gesendet");
+    } catch (err) {
+      if (cfStatus)
+        cfStatus.innerHTML =
+          'Senden hat gerade nicht geklappt. Schreibt uns bitte direkt an <a href="mailto:trinacriaexpress26@gmail.com">trinacriaexpress26@gmail.com</a>.';
+    } finally {
+      btn.disabled = false;
+    }
   });
 }

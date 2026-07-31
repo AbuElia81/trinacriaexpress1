@@ -736,3 +736,8 @@ body.cart-open { overflow: hidden; }
 .contact-form .btn-block { margin-top: .3rem; }
 .form-note { font-size: .82rem; color: var(--ink-soft); margin-top: .2rem; text-align: center; }
 .form-note a { color: var(--terracotta); font-weight: 700; }
+
+/* ---- Kontaktformular: Einwilligung ---- */
+.form-consent { display: flex; align-items: flex-start; gap: .6rem; font-size: .84rem; color: var(--ink-soft); line-height: 1.45; cursor: pointer; }
+.form-consent input { width: 18px; height: 18px; margin-top: .12rem; flex: none; accent-color: var(--terracotta); }
+.form-consent a { color: var(--terracotta); font-weight: 700; }

@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Karla:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
 
@@ -225,9 +225,16 @@
       </div>
 
       <form class="contact-form" id="contactForm">
+        <input type="hidden" name="_subject" value="Neue Kontaktanfrage — Trinacria Express">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
         <div class="form-row">
           <label for="cf-name">Name</label>
           <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="Euer Name">
+        </div>
+        <div class="form-row">
+          <label for="cf-email">E-Mail (für unsere Antwort)</label>
+          <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="eure@email.de">
         </div>
         <div class="form-row">
           <label for="cf-subject">Anliegen</label>
@@ -237,9 +244,12 @@
           <label for="cf-message">Nachricht</label>
           <textarea id="cf-message" name="message" rows="5" required placeholder="Eure Nachricht an uns …"></textarea>
         </div>
+        <label class="form-consent">
+          <input type="checkbox" id="cf-consent" required>
+          <span>Ich bin einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage verarbeitet werden (<a href="datenschutz.html">Datenschutz</a>).</span>
+        </label>
         <button type="submit" class="btn btn-primary btn-block">Senden</button>
-        <p class="form-note">Mit „Senden" öffnet sich euer E-Mail-Programm mit der fertigen Nachricht an
-          <a href="mailto:trinacriaexpress26@gmail.com">trinacriaexpress26@gmail.com</a>.</p>
+        <p class="form-note" id="cf-status" role="status">Mit „Senden" geht eure Nachricht direkt an trinacriaexpress26@gmail.com. Wir antworten meist in ein bis zwei Werktagen.</p>
       </form>
     </div>
   </section>
@@ -277,6 +287,7 @@
       <a href="mailto:trinacriaexpress26@gmail.com">trinacriaexpress26@gmail.com</a>
       <a href="#kontakt">Anfrage stellen</a>
       <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
     </div>
     <div>
       <p class="footer-h">Neues von der Erde</p>
