@@ -362,8 +362,8 @@ body.cart-open { overflow: hidden; }
 /* ============ SPLASH / STARTSEITE ============ */
 .splash-body { background: var(--paper); }
 .splash {
-  min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 2.2rem; padding: clamp(2.5rem, 6vw, 4.5rem) 1.5rem; text-align: center;
+  min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+  gap: 1.5rem; padding: clamp(.9rem, 2.5vw, 1.8rem) 1.5rem clamp(2.5rem, 6vw, 4.5rem); text-align: center;
 }
 .splash-logo { display: flex; flex-direction: column; align-items: center; gap: .6rem; }
 .logo-mark { width: clamp(84px, 12vw, 118px); height: auto; color: var(--terracotta); }
@@ -552,7 +552,7 @@ body.cart-open { overflow: hidden; }
   box-shadow: 0 16px 40px rgba(46, 42, 34, .16);
 }
 .splash-hero-photo {
-  width: 100%; height: clamp(300px, 46vh, 440px);
+  width: 100%; height: clamp(200px, 30vh, 320px);
   object-fit: cover; object-position: center 42%; display: block;
 }
 .splash-hero-cap {
@@ -690,11 +690,11 @@ body.cart-open { overflow: hidden; }
 }
 
 /* ---- Produktfotos im Deutschland-Button + LKW-Kontur ---- */
-.choice-thumbs { display: flex; gap: .5rem; margin-top: .4rem; flex-wrap: wrap; }
+.choice-thumbs { display: flex; gap: .6rem; margin-top: .5rem; flex-wrap: wrap; }
 .choice-thumbs img {
-  width: clamp(42px, 8vw, 56px); height: clamp(42px, 8vw, 56px);
-  object-fit: cover; border-radius: 10px; border: 2px solid var(--cream);
-  box-shadow: 0 3px 8px rgba(46, 42, 34, .18);
+  width: clamp(68px, 13vw, 104px); height: clamp(68px, 13vw, 104px);
+  object-fit: cover; border-radius: 12px; border: 2px solid var(--cream);
+  box-shadow: 0 4px 10px rgba(46, 42, 34, .2);
 }
 .realmap-overlay .truck {
   filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, .95)) drop-shadow(0 1px 1px rgba(0, 0, 0, .35));
