@@ -266,7 +266,7 @@ function toast(msg) {
 
 /* ---------- Marquee ---------- */
 const track = document.getElementById("marqueeTrack");
-track.innerHTML += track.innerHTML;
+if (track) track.innerHTML += track.innerHTML;
 
 renderCart();
 

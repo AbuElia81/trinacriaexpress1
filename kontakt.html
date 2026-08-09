@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt — Trinacria Express</title>
+<meta name="description" content="Schreibt Trinacria Express: Fragen zu Produkten, Mustern, Mengen oder Preisen — wir melden uns.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Karla:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=6">
+</head>
+<body>
+
+<header class="nav">
+  <a class="brand" href="index.html">
+    <img class="brand-mark" src="images/logo-mark.png" alt="Trinacria Express">
+    <span>Trinacria&nbsp;Express</span>
+  </a>
+  <nav class="nav-links">
+    <a href="shop.html#prodotti">Sortiment</a>
+    <a href="kontakt.html">Kontakt</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="contact" id="kontakt">
+    <div class="contact-inner">
+      <p class="eyebrow">Kontakt</p>
+      <h2>Sprecht direkt <em>mit uns.</em></h2>
+      <p class="contact-lead">Trinacria Express wird von zwei Menschen betrieben — kein Callcenter, keine Warteschleife. Fragen zu Produkten, Mustern, Mengen oder Preisen? Meldet euch einfach.</p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <p class="contact-role">Betreiber &amp; Kontakt</p>
+          <h3>Massimiliano di Lorenzo</h3>
+        </div>
+        <div class="contact-card">
+          <p class="contact-role">Betreiber &amp; Kontakt</p>
+          <h3>Michael Schnitzer-Trpin</h3>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <input type="hidden" name="_subject" value="Neue Kontaktanfrage — Trinacria Express">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <div class="form-row">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="Euer Name">
+        </div>
+        <div class="form-row">
+          <label for="cf-email">E-Mail (für unsere Antwort)</label>
+          <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="eure@email.de">
+        </div>
+        <div class="form-row">
+          <label for="cf-subject">Anliegen</label>
+          <input type="text" id="cf-subject" name="subject" required placeholder="Worum geht es?">
+        </div>
+        <div class="form-row">
+          <label for="cf-message">Nachricht</label>
+          <textarea id="cf-message" name="message" rows="5" required placeholder="Eure Nachricht an uns …"></textarea>
+        </div>
+        <label class="form-consent">
+          <input type="checkbox" id="cf-consent" required>
+          <span>Ich bin einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage verarbeitet werden (<a href="datenschutz.html">Datenschutz</a>).</span>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block">Senden</button>
+        <p class="form-note" id="cf-status" role="status">Mit „Senden" geht eure Nachricht direkt an trinacriaexpress26@gmail.com. Wir antworten meist in ein bis zwei Werktagen.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<div class="tile-divider" aria-hidden="true"></div>
+
+<footer class="footer">
+  <div class="footer-cols">
+    <div>
+      <p class="footer-brand">Trinacria&nbsp;Express</p>
+      <p>Massimiliano di Lorenzo<br>Michael Schnitzer-Trpin<br>Sizilien → Deutschland</p>
+    </div>
+    <div>
+      <p class="footer-h">Seiten</p>
+      <a href="index.html">Startseite</a>
+      <a href="shop.html#prodotti">Sortiment</a>
+      <a href="kontakt.html">Kontakt</a>
+    </div>
+    <div>
+      <p class="footer-h">Rechtliches</p>
+      <a href="mailto:trinacriaexpress26@gmail.com">trinacriaexpress26@gmail.com</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </div>
+  <p class="footer-note">© 2026 Trinacria Express — Massimiliano di Lorenzo &amp; Michael Schnitzer-Trpin</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function () {
+  var form = document.getElementById("contactForm");
+  if (!form) return;
+  var status = document.getElementById("cf-status");
+  var toastEl = document.getElementById("toast");
+  var toastTimer;
+  function toast(msg) {
+    if (!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.classList.remove("show"); }, 2200);
+  }
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    var btn = form.querySelector("button[type=submit]");
+    btn.disabled = true;
+    if (status) status.textContent = "Wird gesendet …";
+    try {
+      var res = await fetch("https://formsubmit.co/ajax/trinacriaexpress26@gmail.com", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form),
+      });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      form.reset();
+      if (status) status.textContent = "Danke! Eure Nachricht ist raus — wir melden uns.";
+      toast("Nachricht gesendet");
+    } catch (err) {
+      if (status)
+        status.innerHTML =
+          'Senden hat gerade nicht geklappt. Schreibt uns bitte direkt an <a href="mailto:trinacriaexpress26@gmail.com">trinacriaexpress26@gmail.com</a>.';
+    } finally {
+      btn.disabled = false;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
