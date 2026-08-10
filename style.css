@@ -624,24 +624,34 @@ body.cart-open { overflow: hidden; }
 /* ---- Splash: echte Karte (CIA World Factbook, gemeinfrei) + Route-Overlay ---- */
 .realmap {
   position: relative; width: 100%; max-width: 400px; margin-inline: auto;
-  aspect-ratio: 560 / 790; overflow: hidden; border-radius: var(--radius);
+  aspect-ratio: 240 / 550; overflow: hidden; border-radius: var(--radius);
   box-shadow: 0 14px 34px rgba(46, 42, 34, .16); background: #bcd3de;
 }
-.realmap-img { position: absolute; width: 250%; height: auto; max-width: none; left: -83.93%; top: -113.92%; }
+.realmap-img { position: absolute; width: 658.33%; height: auto; max-width: none; left: -231.25%; top: -130.91%; }
 .realmap::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(180deg, rgba(246, 239, 226, .10), rgba(182, 74, 42, .07));
 }
 .realmap-overlay { position: absolute; inset: 0; width: 100%; height: 100%; }
-.realmap-overlay .rail-base { stroke: rgba(255, 255, 255, .85); stroke-width: 4.6; }
-.realmap-overlay .rail-flow { stroke: var(--terracotta); stroke-width: 3.4; }
+.realmap-overlay .rail-base { stroke: rgba(255, 255, 255, .85); stroke-width: 2.2; }
+.realmap-overlay .rail-flow { stroke: var(--terracotta); stroke-width: 1.6; }
 .realmap-overlay .train-body { stroke: #fff; stroke-width: 1.4; }
-.pin-dot { fill: var(--terracotta); stroke: #fff; stroke-width: 2.4; }
+.pin-dot { fill: var(--terracotta); stroke: #fff; stroke-width: 1.4; }
+.city-dot { fill: #8a5a3a; stroke: #fdf7ea; stroke-width: .9; }
 .pin-label {
-  font-family: var(--font-body); font-size: 17px; font-weight: 700; fill: var(--ink);
-  paint-order: stroke; stroke: #fdf7ea; stroke-width: 3.6px; stroke-linejoin: round;
+  font-family: var(--font-body); font-size: 8px; font-weight: 700; fill: var(--ink);
+  paint-order: stroke; stroke: #fdf7ea; stroke-width: 1.5px; stroke-linejoin: round;
 }
 .pin-label--key { fill: var(--terracotta-deep); }
+.city-label {
+  font-family: var(--font-body); font-size: 6px; font-weight: 600; fill: #2e2a22;
+  paint-order: stroke; stroke: #fdf7ea; stroke-width: 1.2px; stroke-linejoin: round;
+}
+.map-country {
+  font-family: var(--font-display, var(--font-body)); font-size: 10px; font-weight: 700;
+  fill: rgba(52, 40, 26, .42); letter-spacing: 1.5px;
+  paint-order: stroke; stroke: rgba(253, 247, 234, .6); stroke-width: 1.4px; stroke-linejoin: round;
+}
 .map-credit { display: block; margin-top: .35rem; font-size: .68rem; font-style: normal; color: var(--ink-soft); opacity: .7; }
 
 /* ---- Splash: Logo links + Karte rechts (unter dem Hero-Foto) ---- */
@@ -705,7 +715,7 @@ body.cart-open { overflow: hidden; }
 .choice--big { padding: clamp(1.6rem, 3.5vw, 2.8rem); }
 .pcard { display: grid; grid-template-columns: 1fr; gap: 1.4rem; align-items: center; width: 100%; }
 .pcard-text { display: flex; flex-direction: column; gap: .9rem; }
-.pcard-map { margin: 0 auto; width: 100%; max-width: 300px; }
+.pcard-map { margin: 0 auto; width: 100%; max-width: 250px; }
 .pcard-map .realmap { max-width: none; width: 100%; }
 .choice--big h2 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); }
 .choice--big p { font-size: clamp(1rem, 2.2vw, 1.18rem); }
@@ -719,7 +729,7 @@ body.cart-open { overflow: hidden; }
 .pcard-right .pcard-map { margin: 0; width: 100%; }
 @media (min-width: 720px) {
   .pcard { grid-template-columns: 1.3fr 1fr; gap: clamp(1.6rem, 4vw, 3rem); }
-  .pcard-map { margin: 0; justify-self: end; max-width: 340px; }
+  .pcard-map { margin: 0; justify-self: end; max-width: 270px; }
 }
 
 /* ---- Kontaktformular ---- */

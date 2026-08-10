@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Karla:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=11">
+<link rel="stylesheet" href="style.css?v=12">
 </head>
 <body class="splash-body">
 
@@ -51,30 +51,44 @@
 
         <div class="pcard-right">
           <span class="choice-cta">Zum Sortiment</span>
-          <figure class="railmap pcard-map" aria-label="Route Palermo–Deutschland">
+          <figure class="railmap pcard-map" aria-label="Route Palermo–München">
           <div class="realmap">
-            <img class="realmap-img" src="images/map-europe.jpg" width="1400" height="1801"
-                 alt="Karte: die Trinacria-Express-Route von Palermo (Sizilien) über Italien und die Alpen nach Deutschland">
-            <svg class="realmap-overlay" viewBox="0 0 560 790" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <img class="realmap-img" src="images/map-relief.jpg" width="1580" height="1351"
+                 alt="Reliefkarte: die Trinacria-Express-Route von Palermo über Italien und die Alpen nach München">
+            <svg class="realmap-overlay" viewBox="0 0 240 550" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+              <text class="map-country" x="16" y="26">Deutschland</text>
+              <text class="map-country" x="150" y="360">Italia</text>
               <path id="rail" class="rail-base"
-                d="M370,716 C398,662 356,620 346,586 C337,555 300,552 295,528 C286,494 275,462 271,424 C266,384 260,342 259,302 C258,278 258,268 258,248"/>
+                d="M120,486 C140,470 150,440 148,410 C146,380 145,355 145,330 C144,300 138,275 133,252 C120,235 90,222 73,208 C66,175 70,120 70,65"/>
               <path class="rail-flow"
-                d="M370,716 C398,662 356,620 346,586 C337,555 300,552 295,528 C286,494 275,462 271,424 C266,384 260,342 259,302 C258,278 258,268 258,248"/>
-              <circle class="endpoint-glow south" cx="370" cy="716" r="16"/>
-              <circle class="endpoint-glow north" cx="258" cy="248" r="16"/>
-              <circle class="pin-dot" cx="370" cy="716" r="7"/>
-              <circle class="pin-dot" cx="258" cy="248" r="7"/>
-              <text class="pin-label pin-label--key" x="272" y="253">München</text>
-              <g id="train" class="train truck" transform="translate(370,716)">
-                <rect x="-22" y="-10" width="28" height="15" rx="2.5" fill="#26221b"/>
-                <rect x="-22" y="-2.5" width="28" height="3" fill="#b64a2a"/>
-                <path d="M6,-9 L15.5,-9 L19,-2 L19,5 L6,5 Z" fill="#2e2a22"/>
-                <rect x="8.5" y="-6.5" width="6.5" height="5" rx="1" fill="#bcd3da"/>
-                <circle cx="-13" cy="6" r="4.2" fill="#141210"/>
-                <circle cx="-13" cy="6" r="1.7" fill="#8a8577"/>
-                <circle cx="10" cy="6" r="4.2" fill="#141210"/>
-                <circle cx="10" cy="6" r="1.7" fill="#8a8577"/>
-                <circle cx="19" cy="-6.5" r="1.4" fill="#e8c24a"/>
+                d="M120,486 C140,470 150,440 148,410 C146,380 145,355 145,330 C144,300 138,275 133,252 C120,235 90,222 73,208 C66,175 70,120 70,65"/>
+              <circle class="endpoint-glow south" cx="120" cy="486" r="13"/>
+              <circle class="endpoint-glow north" cx="70" cy="65" r="13"/>
+              <circle class="city-dot" cx="145" cy="330" r="3"/>
+              <circle class="city-dot" cx="177" cy="372" r="3"/>
+              <circle class="city-dot" cx="133" cy="252" r="3"/>
+              <circle class="city-dot" cx="73" cy="208" r="3"/>
+              <circle class="pin-dot" cx="120" cy="486" r="5"/>
+              <circle class="pin-dot" cx="70" cy="65" r="5"/>
+              <text class="city-label" x="151" y="333">Roma</text>
+              <text class="city-label" x="183" y="375">Napoli</text>
+              <text class="city-label" x="139" y="250">Firenze</text>
+              <text class="city-label" x="66" y="206" text-anchor="end">Milano</text>
+              <text class="city-label" x="112" y="518" text-anchor="middle">Sicilia</text>
+              <text class="pin-label pin-label--key" x="128" y="490">Palermo</text>
+              <text class="pin-label pin-label--key" x="78" y="60">München</text>
+              <g id="train" class="train truck" transform="translate(120,486)">
+                <g transform="scale(0.42)">
+                  <rect x="-22" y="-10" width="28" height="15" rx="2.5" fill="#26221b"/>
+                  <rect x="-22" y="-2.5" width="28" height="3" fill="#b64a2a"/>
+                  <path d="M6,-9 L15.5,-9 L19,-2 L19,5 L6,5 Z" fill="#2e2a22"/>
+                  <rect x="8.5" y="-6.5" width="6.5" height="5" rx="1" fill="#bcd3da"/>
+                  <circle cx="-13" cy="6" r="4.2" fill="#141210"/>
+                  <circle cx="-13" cy="6" r="1.7" fill="#8a8577"/>
+                  <circle cx="10" cy="6" r="4.2" fill="#141210"/>
+                  <circle cx="10" cy="6" r="1.7" fill="#8a8577"/>
+                  <circle cx="19" cy="-6.5" r="1.4" fill="#e8c24a"/>
+                </g>
               </g>
             </svg>
           </div>
@@ -109,7 +123,7 @@
       <a href="impressum.html">Impressum</a> ·
       <a href="datenschutz.html">Datenschutz</a>
     </p>
-    <p class="foot-credit">Karte: CIA World Factbook · gemeinfrei</p>
+    <p class="foot-credit">Reliefkarte: Wikimedia Commons · CC BY-SA 3.0</p>
   </footer>
 
 </main>
