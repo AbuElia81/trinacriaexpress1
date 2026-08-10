@@ -710,11 +710,13 @@ body.cart-open { overflow: hidden; }
 .choice--big h2 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); }
 .choice--big p { font-size: clamp(1rem, 2.2vw, 1.18rem); }
 .choice--big .choice-cta {
-  align-self: flex-start; margin-top: .5rem;
+  align-self: flex-end;
   background: var(--terracotta); color: var(--cream);
-  padding: .95rem 2rem; border-radius: 999px; font-size: 1.05rem;
-  box-shadow: 0 8px 20px rgba(182, 74, 42, .32);
+  padding: 1.1rem 2.5rem; border-radius: 999px; font-size: clamp(1.1rem, 2.4vw, 1.3rem);
+  box-shadow: 0 10px 24px rgba(182, 74, 42, .34);
 }
+.pcard-right { display: flex; flex-direction: column; align-items: flex-end; gap: 1rem; }
+.pcard-right .pcard-map { margin: 0; width: 100%; }
 @media (min-width: 720px) {
   .pcard { grid-template-columns: 1.3fr 1fr; gap: clamp(1.6rem, 4vw, 3rem); }
   .pcard-map { margin: 0; justify-self: end; max-width: 340px; }
