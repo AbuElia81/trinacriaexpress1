@@ -381,7 +381,7 @@ body.cart-open { overflow: hidden; }
 .splash-body { background: var(--paper); }
 .splash {
   min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
-  gap: 1.5rem; padding: clamp(.9rem, 2.5vw, 1.8rem) 1.5rem clamp(2.5rem, 6vw, 4.5rem); text-align: center;
+  gap: 1.15rem; padding: clamp(.9rem, 2.5vw, 1.8rem) 1.5rem clamp(2.5rem, 6vw, 4.5rem); text-align: center;
 }
 .splash-logo { display: flex; flex-direction: column; align-items: center; gap: .6rem; }
 .logo-mark { width: clamp(84px, 12vw, 118px); height: auto; color: var(--terracotta); }
@@ -570,7 +570,7 @@ body.cart-open { overflow: hidden; }
   box-shadow: 0 16px 40px rgba(46, 42, 34, .16);
 }
 .splash-hero-photo {
-  width: 100%; height: clamp(200px, 30vh, 320px);
+  width: 100%; height: clamp(250px, 40vh, 430px);
   object-fit: cover; object-position: center 42%; display: block;
 }
 .splash-hero-cap {
@@ -694,7 +694,7 @@ body.cart-open { overflow: hidden; }
   background: radial-gradient(ellipse 55% 55% at 50% 48%, rgba(20, 14, 8, .34), transparent 70%);
 }
 .hero-logo {
-  position: relative; width: clamp(132px, 26vw, 210px); height: auto;
+  position: relative; width: clamp(170px, 34vw, 300px); height: auto;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, .42));
 }
 .hero-map { position: relative; margin: 0; width: clamp(122px, 24vw, 172px); }
@@ -730,10 +730,10 @@ body.cart-open { overflow: hidden; }
 
 /* ---- Splash: grosse Deutschland-Karte mit eingebetteter Landkarte ---- */
 .splash-offer { display: flex; flex-direction: column; gap: 1.2rem; max-width: 980px; }
-.choice--big { padding: clamp(1.6rem, 3.5vw, 2.8rem); }
-.pcard { display: grid; grid-template-columns: 1fr; gap: 1.4rem; align-items: center; width: 100%; }
-.pcard-text { display: flex; flex-direction: column; gap: .9rem; }
-.pcard-map { margin: 0 auto; width: 100%; max-width: 250px; }
+.choice--big { padding: clamp(1.2rem, 2.6vw, 2rem); }
+.pcard { display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: center; width: 100%; }
+.pcard-text { display: flex; flex-direction: column; gap: .7rem; }
+.pcard-map { margin: 0 auto; width: 100%; max-width: 190px; }
 .pcard-map .realmap { max-width: none; width: 100%; }
 .choice--big h2 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); }
 .choice--big p { font-size: clamp(1rem, 2.2vw, 1.18rem); }
@@ -746,8 +746,8 @@ body.cart-open { overflow: hidden; }
 .pcard-right { display: flex; flex-direction: column; align-items: flex-end; gap: 1rem; }
 .pcard-right .pcard-map { margin: 0; width: 100%; }
 @media (min-width: 720px) {
-  .pcard { grid-template-columns: 1.3fr 1fr; gap: clamp(1.6rem, 4vw, 3rem); }
-  .pcard-map { margin: 0; justify-self: end; max-width: 270px; }
+  .pcard { grid-template-columns: 1.5fr 1fr; gap: clamp(1.4rem, 3.5vw, 2.6rem); }
+  .pcard-map { margin: 0; justify-self: end; max-width: 210px; }
 }
 
 /* ---- Kontaktformular ---- */
