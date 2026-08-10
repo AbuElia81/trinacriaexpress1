@@ -692,7 +692,7 @@ body.cart-open { overflow: hidden; }
 /* ---- Produktfotos im Deutschland-Button + LKW-Kontur ---- */
 .choice-thumbs { display: flex; gap: .6rem; margin-top: .5rem; flex-wrap: wrap; }
 .choice-thumbs img {
-  width: clamp(68px, 13vw, 104px); height: clamp(68px, 13vw, 104px);
+  width: clamp(82px, 15vw, 128px); height: clamp(82px, 15vw, 128px);
   object-fit: cover; border-radius: 12px; border: 2px solid var(--cream);
   box-shadow: 0 4px 10px rgba(46, 42, 34, .2);
 }
@@ -707,7 +707,7 @@ body.cart-open { overflow: hidden; }
 .pcard-text { display: flex; flex-direction: column; gap: .9rem; }
 .pcard-map { margin: 0 auto; width: 100%; max-width: 300px; }
 .pcard-map .realmap { max-width: none; width: 100%; }
-.choice--big h2 { font-size: clamp(2rem, 5vw, 3.1rem); }
+.choice--big h2 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); }
 .choice--big p { font-size: clamp(1rem, 2.2vw, 1.18rem); }
 .choice--big .choice-cta {
   align-self: flex-start; margin-top: .5rem;
