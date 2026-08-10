@@ -80,6 +80,24 @@ img { display: block; max-width: 100%; }
   background: var(--terracotta); transition: width .2s ease;
 }
 .nav-links a:hover::after { width: 100%; }
+.nav-links { margin-left: auto; }
+/* ---- Sprachumschalter DE / EN / IT ---- */
+.lang-switch {
+  display: inline-flex; gap: 2px; align-items: center; margin-left: 1.1rem;
+  background: rgba(46, 42, 34, .07); border-radius: 999px; padding: 3px;
+}
+.lang-btn {
+  border: none; background: none; cursor: pointer; font-family: var(--font-body);
+  font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+  color: var(--ink-soft); padding: .3rem .55rem; border-radius: 999px; line-height: 1;
+}
+.lang-btn:hover { color: var(--ink); }
+.lang-btn.is-active { background: var(--terracotta); color: var(--cream); }
+.lang-switch--float {
+  position: fixed; top: 1rem; right: 1rem; z-index: 80; margin: 0;
+  background: color-mix(in srgb, var(--paper) 90%, transparent);
+  backdrop-filter: blur(8px); box-shadow: 0 4px 14px rgba(46, 42, 34, .2);
+}
 .cart-btn {
   position: relative; background: none; border: none; cursor: pointer;
   color: var(--ink); padding: .3rem;

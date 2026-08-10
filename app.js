@@ -9,6 +9,59 @@ const CATS = {
   gelato:     "Gelato",
 };
 
+/* ---------- Sprachabhängige dynamische Texte (DE / EN / IT) ---------- */
+const I18N_STR = {
+  de: {
+    cats: CATS, bio: "Bio",
+    size: (w, c, s) => `${w} · ${c} Stück/Karton · ${s} Monate haltbar`,
+    ingSummary: "Zutaten &amp; EAN", bioNote: "*aus biologischer Landwirtschaft",
+    priceAsk: "Preis auf Anfrage", addBtn: "Zur Anfrage",
+    cartEmpty: "Deine Anfrageliste ist leer —<br>das Sortiment wartet.",
+    pcs: (c) => `${c} Stk./Karton`, carton: (q) => `${q} ${q === 1 ? "Karton" : "Kartons"}`,
+    dash: "—", less: "Weniger", more: "Mehr", remove: "Entfernen",
+    comingSoon: "Unser Webshop ist noch im Aufbau — in Kürze bestellbar. Für Anfragen und Muster schreibt uns gern über die Kontaktseite.",
+    added: (n) => `${n} steht auf der Anfrageliste`,
+    needFirst: "Bitte zuerst Produkte zur Anfrage hinzufügen",
+    mailSubject: "Produktanfrage Trinacria Express",
+    mailBody: (lines) => `Guten Tag,\n\nich interessiere mich für folgende Produkte:\n\n${lines}\n\nBitte senden Sie mir ein Angebot.\n\nName:\nFirma:\nLieferadresse:\nTelefon:\n\nVielen Dank!`,
+    mailLine: (q, p) => `- ${q} x ${p.name} (${p.weight}, ${p.carton} Stk./Karton, EAN ${p.ean})`,
+  },
+  en: {
+    cats: { sughi: "Sauces & sugo", pesti: "Pesto", pate: "Patés & preserves", marmellate: "Jams", creme: "Sweet creams", gelato: "Gelato" },
+    bio: "Organic",
+    size: (w, c, s) => `${w} · ${c} pcs/case · best before ${s} months`,
+    ingSummary: "Ingredients &amp; EAN", bioNote: "*from organic farming",
+    priceAsk: "Price on request", addBtn: "Add to enquiry",
+    cartEmpty: "Your enquiry list is empty —<br>the range is waiting.",
+    pcs: (c) => `${c} pcs/case`, carton: (q) => `${q} ${q === 1 ? "case" : "cases"}`,
+    dash: "—", less: "Less", more: "More", remove: "Remove",
+    comingSoon: "Our web shop is still being built — orders coming soon. For enquiries and samples, please write to us via the contact page.",
+    added: (n) => `${n} added to your enquiry`,
+    needFirst: "Please add products to your enquiry first",
+    mailSubject: "Product enquiry Trinacria Express",
+    mailBody: (lines) => `Hello,\n\nI'm interested in the following products:\n\n${lines}\n\nPlease send me an offer.\n\nName:\nCompany:\nDelivery address:\nPhone:\n\nThank you!`,
+    mailLine: (q, p) => `- ${q} x ${p.name} (${p.weight}, ${p.carton} pcs/case, EAN ${p.ean})`,
+  },
+  it: {
+    cats: { sughi: "Salse & sugo", pesti: "Pesto", pate: "Patè & conserve", marmellate: "Marmellate", creme: "Creme dolci", gelato: "Gelato" },
+    bio: "Bio",
+    size: (w, c, s) => `${w} · ${c} pz/cartone · ${s} mesi di conservazione`,
+    ingSummary: "Ingredienti &amp; EAN", bioNote: "*da agricoltura biologica",
+    priceAsk: "Prezzo su richiesta", addBtn: "Aggiungi alla richiesta",
+    cartEmpty: "La tua lista è vuota —<br>il catalogo ti aspetta.",
+    pcs: (c) => `${c} pz/cartone`, carton: (q) => `${q} ${q === 1 ? "cartone" : "cartoni"}`,
+    dash: "—", less: "Meno", more: "Più", remove: "Rimuovi",
+    comingSoon: "Il nostro shop online è ancora in costruzione — presto ordinabile. Per richieste e campioni scriveteci dalla pagina contatti.",
+    added: (n) => `${n} aggiunto alla richiesta`,
+    needFirst: "Aggiungi prima dei prodotti alla richiesta",
+    mailSubject: "Richiesta prodotti Trinacria Express",
+    mailBody: (lines) => `Buongiorno,\n\nsono interessato ai seguenti prodotti:\n\n${lines}\n\nVi prego di inviarmi un'offerta.\n\nNome:\nAzienda:\nIndirizzo di consegna:\nTelefono:\n\nGrazie!`,
+    mailLine: (q, p) => `- ${q} x ${p.name} (${p.weight}, ${p.carton} pz/cartone, EAN ${p.ean})`,
+  },
+};
+const LANG = () => window.__teLang || document.documentElement.lang || "de";
+const S = () => I18N_STR[LANG()] || I18N_STR.de;
+
 const PRODUCTS = [
   { id: "p01", cat: "sughi", name: "Salsa pronta di pomodoro ciliegino", de: "Fertige Kirschtomatensauce",
     ean: "8053251660525", weight: "330 g", carton: 12, shelf: "24–36",
@@ -140,28 +193,32 @@ const PRODUCTS = [
 
 /* ---------- Produktgrid ---------- */
 const grid = document.getElementById("productGrid");
-grid.innerHTML = PRODUCTS.map((p) => `
+function renderGrid() {
+  const t = S();
+  grid.innerHTML = PRODUCTS.map((p) => `
   <article class="card" data-cat="${p.cat}">
     <div class="card-media pack ph" data-label="${p.name}" style="--ph-bg: linear-gradient(165deg, ${p.hue[0]}, ${p.hue[1]})">
       <img src="images/products/${p.id}.jpg" alt="${p.name}" loading="lazy" onerror="this.remove()">
     </div>
     <div class="card-body">
-      <p class="card-origin">${CATS[p.cat]}${p.bio === false ? "" : " · Bio"}</p>
+      <p class="card-origin">${t.cats[p.cat]}${p.bio === false ? "" : " · " + t.bio}</p>
       <h3 class="card-name">${p.name}</h3>
       <p class="card-de">${p.de}</p>
-      <p class="card-size">${p.weight} · ${p.carton} Stück/Karton · ${p.shelf} Monate haltbar</p>
+      <p class="card-size">${t.size(p.weight, p.carton, p.shelf)}</p>
       <details class="card-ing">
-        <summary>Zutaten &amp; EAN</summary>
-        <p>${p.ing}${p.bio === false ? "" : ' <span class="bio-note">*aus biologischer Landwirtschaft</span>'}</p>
+        <summary>${t.ingSummary}</summary>
+        <p>${p.ing}${p.bio === false ? "" : ' <span class="bio-note">' + t.bioNote + "</span>"}</p>
         <p class="card-ean">EAN ${p.ean}</p>
       </details>
       <div class="card-foot">
-        <span class="card-ask">Preis auf Anfrage</span>
-        <button class="card-add" data-id="${p.id}">Zur Anfrage</button>
+        <span class="card-ask">${t.priceAsk}</span>
+        <button class="card-add" data-id="${p.id}">${t.addBtn}</button>
       </div>
     </div>
   </article>
 `).join("");
+}
+renderGrid();
 
 /* ---------- Filter ---------- */
 document.getElementById("filters").addEventListener("click", (e) => {
@@ -182,13 +239,14 @@ const save = () => localStorage.setItem("tx-anfrage", JSON.stringify(cart));
 const byId = (id) => PRODUCTS.find((p) => p.id === id);
 
 function renderCart() {
+  const t = S();
   const items = Object.entries(cart);
   const count = items.reduce((s, [, q]) => s + q, 0);
   document.getElementById("cartCount").textContent = count;
 
   const box = document.getElementById("cartItems");
   if (!items.length) {
-    box.innerHTML = `<p class="cart-empty">Deine Anfrageliste ist leer —<br>das Sortiment wartet.</p>`;
+    box.innerHTML = `<p class="cart-empty">${t.cartEmpty}</p>`;
   } else {
     box.innerHTML = items.map(([id, qty]) => {
       const p = byId(id);
@@ -199,25 +257,24 @@ function renderCart() {
           </div>
           <div>
             <p class="cart-item-name">${p.name}</p>
-            <p class="cart-item-price">${p.weight} · ${p.carton} Stk./Karton</p>
+            <p class="cart-item-price">${p.weight} · ${t.pcs(p.carton)}</p>
             <div class="qty">
-              <button data-act="dec" data-id="${id}" aria-label="Weniger">−</button>
-              <span>${qty} ${qty === 1 ? "Karton" : "Kartons"}</span>
-              <button data-act="inc" data-id="${id}" aria-label="Mehr">+</button>
+              <button data-act="dec" data-id="${id}" aria-label="${t.less}">−</button>
+              <span>${t.carton(qty)}</span>
+              <button data-act="inc" data-id="${id}" aria-label="${t.more}">+</button>
             </div>
           </div>
-          <button class="cart-item-remove" data-act="rm" data-id="${id}" aria-label="Entfernen">×</button>
+          <button class="cart-item-remove" data-act="rm" data-id="${id}" aria-label="${t.remove}">×</button>
         </div>`;
     }).join("");
   }
 
   document.getElementById("cartTotal").textContent =
-    count === 0 ? "—" : `${count} ${count === 1 ? "Karton" : "Kartons"}`;
+    count === 0 ? t.dash : t.carton(count);
 }
 
 /* ---------- Webshop-Status ---------- */
 const SHOP_LIVE = false; // auf true setzen, sobald der Webshop bestellbar ist
-const COMING_SOON = "Unser Webshop ist noch im Aufbau — in Kürze bestellbar. Für Anfragen und Muster schreibt uns gern über die Kontaktseite.";
 
 /* ---------- Aktionen ---------- */
 grid.addEventListener("click", (e) => {
@@ -230,7 +287,7 @@ grid.addEventListener("click", (e) => {
   }
   cart[btn.dataset.id] = (cart[btn.dataset.id] || 0) + 1;
   save(); renderCart();
-  toast(`${byId(btn.dataset.id).name} steht auf der Anfrageliste`);
+  toast(S().added(byId(btn.dataset.id).name));
 });
 
 document.getElementById("cartItems").addEventListener("click", (e) => {
@@ -245,20 +302,18 @@ document.getElementById("cartItems").addEventListener("click", (e) => {
 
 /* ---------- Anfrage per E-Mail ---------- */
 document.getElementById("checkoutBtn").addEventListener("click", () => {
+  const t = S();
   const items = Object.entries(cart);
-  if (!items.length) { toast("Bitte zuerst Produkte zur Anfrage hinzufügen"); return; }
-  const lines = items.map(([id, q]) => {
-    const p = byId(id);
-    return `- ${q} x ${p.name} (${p.weight}, ${p.carton} Stk./Karton, EAN ${p.ean})`;
-  }).join("\n");
-  const body = `Guten Tag,\n\nich interessiere mich für folgende Produkte:\n\n${lines}\n\nBitte senden Sie mir ein Angebot.\n\nName:\nFirma:\nLieferadresse:\nTelefon:\n\nVielen Dank!`;
+  if (!items.length) { toast(t.needFirst); return; }
+  const lines = items.map(([id, q]) => t.mailLine(q, byId(id))).join("\n");
+  const body = t.mailBody(lines);
   window.location.href =
-    `mailto:trinacriaexpress26@gmail.com?subject=${encodeURIComponent("Produktanfrage Trinacria Express")}&body=${encodeURIComponent(body)}`;
+    `mailto:trinacriaexpress26@gmail.com?subject=${encodeURIComponent(t.mailSubject)}&body=${encodeURIComponent(body)}`;
 });
 
 /* ---------- Drawer ---------- */
 const openCart = (open) => document.body.classList.toggle("cart-open", open);
-document.getElementById("cartBtn").addEventListener("click", () => { if (!SHOP_LIVE) { toast(COMING_SOON); return; } openCart(true); });
+document.getElementById("cartBtn").addEventListener("click", () => { if (!SHOP_LIVE) { toast(S().comingSoon); return; } openCart(true); });
 document.getElementById("cartClose").addEventListener("click", () => openCart(false));
 document.getElementById("cartOverlay").addEventListener("click", () => openCart(false));
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") openCart(false); });
@@ -278,6 +333,19 @@ const track = document.getElementById("marqueeTrack");
 if (track) track.innerHTML += track.innerHTML;
 
 renderCart();
+
+/* ---------- Sprache wechseln: Grid + Filter + Warenkorb neu rendern ---------- */
+document.addEventListener("te:langchange", () => {
+  renderGrid();
+  const active = document.querySelector(".chip.active");
+  if (active) {
+    const cat = active.dataset.cat;
+    document.querySelectorAll(".card").forEach((card) => {
+      card.classList.toggle("hidden", cat !== "tutti" && card.dataset.cat !== cat);
+    });
+  }
+  renderCart();
+});
 
 /* ---------- Kontaktformular (FormSubmit → direkt an trinacriaexpress26@gmail.com) ---------- */
 const contactForm = document.getElementById("contactForm");

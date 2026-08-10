@@ -8,9 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Karla:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=12">
+<link rel="stylesheet" href="style.css?v=13">
 </head>
-<body>
+<body data-i18n-title="__title.shop" data-i18n-desc="__desc.shop">
 
 <header class="nav">
   <a class="brand" href="index.html">
@@ -18,9 +18,14 @@
     <span>Trinacria&nbsp;Express</span>
   </a>
   <nav class="nav-links">
-    <a href="#prodotti">Sortiment</a>
-    <a href="kontakt.html">Kontakt</a>
+    <a href="#prodotti" data-i18n="nav.sortiment">Sortiment</a>
+    <a href="kontakt.html" data-i18n="nav.kontakt">Kontakt</a>
   </nav>
+  <div class="lang-switch" role="group" aria-label="Sprache / Language / Lingua">
+    <button class="lang-btn" type="button" data-lang="de">DE</button>
+    <button class="lang-btn" type="button" data-lang="en">EN</button>
+    <button class="lang-btn" type="button" data-lang="it">IT</button>
+  </div>
   <button class="cart-btn" id="cartBtn" aria-label="Anfrageliste öffnen">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
       <path d="M6 8h12l-1.2 11a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 8Z"/>
@@ -35,17 +40,17 @@
   <!-- ============ SORTIMENT ============ -->
   <section class="shop" id="prodotti">
     <div class="shop-head">
-      <p class="eyebrow">Das Sortiment</p>
-      <h2>Unser Sortiment</h2>
-      <p class="shop-intro">23 Bio-Spezialitäten aus Sizilien — mit nativem Olivenöl extra und ohne Konservierungsstoffe — sowie 7 Gelato-Klassiker von PEPINO&nbsp;1884 aus Turin. Preise auf Anfrage: Stellt euch eure Liste zusammen und schickt sie uns.</p>
+      <p class="eyebrow" data-i18n="shop.eyebrow">Das Sortiment</p>
+      <h2 data-i18n="shop.h2">Unser Sortiment</h2>
+      <p class="shop-intro" data-i18n="shop.intro">23 Bio-Spezialitäten aus Sizilien — mit nativem Olivenöl extra und ohne Konservierungsstoffe — sowie 7 Gelato-Klassiker von PEPINO&nbsp;1884 aus Turin. Preise auf Anfrage: Stellt euch eure Liste zusammen und schickt sie uns.</p>
       <div class="filters" id="filters">
-        <button class="chip active" data-cat="tutti">Alle</button>
-        <button class="chip" data-cat="sughi">Saucen &amp; Sugo</button>
-        <button class="chip" data-cat="pesti">Pesto</button>
-        <button class="chip" data-cat="pate">Patè &amp; Conserve</button>
-        <button class="chip" data-cat="marmellate">Marmeladen</button>
-        <button class="chip" data-cat="creme">Süße Cremes</button>
-        <button class="chip" data-cat="gelato">Gelato</button>
+        <button class="chip active" data-cat="tutti" data-i18n="chip.tutti">Alle</button>
+        <button class="chip" data-cat="sughi" data-i18n="chip.sughi">Saucen &amp; Sugo</button>
+        <button class="chip" data-cat="pesti" data-i18n="chip.pesti">Pesto</button>
+        <button class="chip" data-cat="pate" data-i18n="chip.pate">Patè &amp; Conserve</button>
+        <button class="chip" data-cat="marmellate" data-i18n="chip.marmellate">Marmeladen</button>
+        <button class="chip" data-cat="creme" data-i18n="chip.creme">Süße Cremes</button>
+        <button class="chip" data-cat="gelato" data-i18n="chip.gelato">Gelato</button>
       </div>
     </div>
     <div class="grid" id="productGrid"></div>
@@ -59,41 +64,42 @@
   <div class="footer-cols">
     <div>
       <p class="footer-brand">Trinacria&nbsp;Express</p>
-      <p>Massimiliano di Lorenzo<br>Michael Schnitzer-Trpin<br>Sizilien → Deutschland</p>
+      <p data-i18n="foot.brandLine">Massimiliano di Lorenzo<br>Michael Schnitzer-Trpin<br>Sizilien → Deutschland</p>
     </div>
     <div>
-      <p class="footer-h">Seiten</p>
-      <a href="index.html">Startseite</a>
-      <a href="#prodotti">Sortiment</a>
-      <a href="kontakt.html">Kontakt</a>
+      <p class="footer-h" data-i18n="foot.pages">Seiten</p>
+      <a href="index.html" data-i18n="foot.startseite">Startseite</a>
+      <a href="#prodotti" data-i18n="nav.sortiment">Sortiment</a>
+      <a href="kontakt.html" data-i18n="nav.kontakt">Kontakt</a>
     </div>
     <div>
-      <p class="footer-h">Rechtliches</p>
+      <p class="footer-h" data-i18n="foot.legal">Rechtliches</p>
       <a href="mailto:trinacriaexpress26@gmail.com">trinacriaexpress26@gmail.com</a>
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutz</a>
     </div>
   </div>
-  <p class="footer-note">© 2026 Trinacria Express — Massimiliano di Lorenzo &amp; Michael Schnitzer-Trpin · Preise auf Anfrage.</p>
+  <p class="footer-note" data-i18n="foot.note.shop">© 2026 Trinacria Express — Massimiliano di Lorenzo &amp; Michael Schnitzer-Trpin · Preise auf Anfrage.</p>
 </footer>
 
 <!-- ============ ANFRAGELISTE (DRAWER) ============ -->
 <div class="cart-overlay" id="cartOverlay"></div>
 <aside class="cart-drawer" id="cartDrawer" aria-label="Anfrageliste">
   <div class="cart-head">
-    <h3>Deine Anfrage</h3>
+    <h3 data-i18n="cart.title">Deine Anfrage</h3>
     <button class="cart-close" id="cartClose" aria-label="Schließen">×</button>
   </div>
   <div class="cart-items" id="cartItems"></div>
   <div class="cart-foot">
-    <div class="cart-total"><span>Menge</span><strong id="cartTotal">—</strong></div>
-    <p class="cart-ship">Preise auf Anfrage · wir melden uns mit einem Angebot</p>
-    <button class="btn btn-primary btn-block" id="checkoutBtn">Anfrage per E-Mail senden</button>
+    <div class="cart-total"><span data-i18n="cart.qty">Menge</span><strong id="cartTotal">—</strong></div>
+    <p class="cart-ship" data-i18n="cart.ship">Preise auf Anfrage · wir melden uns mit einem Angebot</p>
+    <button class="btn btn-primary btn-block" id="checkoutBtn" data-i18n="cart.checkout">Anfrage per E-Mail senden</button>
   </div>
 </aside>
 
 <div class="toast" id="toast"></div>
 
-<script src="app.js?v=8"></script>
+<script src="i18n.js?v=1"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>
