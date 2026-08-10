@@ -72,6 +72,13 @@ img { display: block; max-width: 100%; }
   border-bottom: 1px solid rgba(46, 42, 34, .1);
 }
 .brand { display: flex; align-items: center; gap: .6rem; font-family: var(--font-display); font-size: 1.35rem; font-weight: 500; }
+.brand-sub {
+  font-family: var(--font-body); font-size: .6rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft);
+  border: 1px solid rgba(46, 42, 34, .22); border-radius: 999px;
+  padding: .16rem .45rem; line-height: 1; white-space: nowrap;
+}
+.brand:hover .brand-sub { color: var(--terracotta); border-color: var(--terracotta); }
 .brand-mark { width: 30px; height: 30px; color: var(--olive); }
 .nav-links { display: flex; gap: 2rem; font-size: .92rem; font-weight: 600; }
 .nav-links a { position: relative; }
