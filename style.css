@@ -743,8 +743,8 @@ body.cart-open { overflow: hidden; }
 .form-consent a { color: var(--terracotta); font-weight: 700; }
 
 /* ---- Nav mobil: Warenkorb bleibt oben rechts, Links brechen um ---- */
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .nav { flex-wrap: wrap; row-gap: .5rem; }
   .nav .cart-btn { order: 1; }
-  .nav-links { order: 2; width: 100%; justify-content: center; gap: 1.1rem; font-size: .85rem; }
+  .nav-links { display: flex; order: 2; width: 100%; justify-content: center; flex-wrap: wrap; gap: .6rem 1.1rem; font-size: .85rem; }
 }
