@@ -215,10 +215,19 @@ function renderCart() {
     count === 0 ? "—" : `${count} ${count === 1 ? "Karton" : "Kartons"}`;
 }
 
+/* ---------- Webshop-Status ---------- */
+const SHOP_LIVE = false; // auf true setzen, sobald der Webshop bestellbar ist
+const COMING_SOON = "Unser Webshop ist noch im Aufbau — in Kürze bestellbar. Für Anfragen und Muster schreibt uns gern über die Kontaktseite.";
+
 /* ---------- Aktionen ---------- */
 grid.addEventListener("click", (e) => {
   const btn = e.target.closest(".card-add");
   if (!btn) return;
+  if (!SHOP_LIVE) {
+    const p = byId(btn.dataset.id);
+    window.location.href = "kontakt.html?produkt=" + encodeURIComponent(p ? p.name : "");
+    return;
+  }
   cart[btn.dataset.id] = (cart[btn.dataset.id] || 0) + 1;
   save(); renderCart();
   toast(`${byId(btn.dataset.id).name} steht auf der Anfrageliste`);
@@ -249,7 +258,7 @@ document.getElementById("checkoutBtn").addEventListener("click", () => {
 
 /* ---------- Drawer ---------- */
 const openCart = (open) => document.body.classList.toggle("cart-open", open);
-document.getElementById("cartBtn").addEventListener("click", () => openCart(true));
+document.getElementById("cartBtn").addEventListener("click", () => { if (!SHOP_LIVE) { toast(COMING_SOON); return; } openCart(true); });
 document.getElementById("cartClose").addEventListener("click", () => openCart(false));
 document.getElementById("cartOverlay").addEventListener("click", () => openCart(false));
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") openCart(false); });
