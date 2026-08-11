@@ -693,12 +693,12 @@ body.cart-open { overflow: hidden; }
 
 /* ---- Splash-Hero: Logo (oben links) + Karte (oben rechts) im Foto eingebettet ---- */
 .hero-overlay {
-  position: absolute; inset: 0; display: flex; align-items: center;
-  justify-content: center; padding: clamp(1rem, 3vw, 2rem); pointer-events: none;
+  position: absolute; inset: 0; display: flex; align-items: flex-start;
+  justify-content: center; padding: clamp(.7rem, 2.2vw, 1.4rem) clamp(1rem, 3vw, 2rem); pointer-events: none;
 }
 .hero-overlay::before {
   content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(ellipse 55% 55% at 50% 48%, rgba(20, 14, 8, .34), transparent 70%);
+  background: radial-gradient(ellipse 62% 42% at 50% 14%, rgba(20, 14, 8, .40), transparent 68%);
 }
 .hero-logo {
   position: relative; width: clamp(170px, 34vw, 300px); height: auto;
