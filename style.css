@@ -725,10 +725,10 @@ body.cart-open { overflow: hidden; }
 }
 
 /* ---- Produktfotos im Deutschland-Button + LKW-Kontur ---- */
-.choice-thumbs { display: flex; gap: .6rem; margin-top: .5rem; flex-wrap: wrap; }
+.choice-thumbs { display: flex; gap: .45rem; margin-top: .35rem; flex-wrap: wrap; }
 .choice-thumbs img {
-  width: clamp(82px, 15vw, 128px); height: clamp(82px, 15vw, 128px);
-  object-fit: cover; border-radius: 12px; border: 2px solid var(--cream);
+  width: clamp(58px, 10.5vw, 84px); height: clamp(58px, 10.5vw, 84px);
+  object-fit: cover; border-radius: 10px; border: 2px solid var(--cream);
   box-shadow: 0 4px 10px rgba(46, 42, 34, .2);
 }
 .realmap-overlay .truck {
@@ -737,10 +737,10 @@ body.cart-open { overflow: hidden; }
 
 /* ---- Splash: grosse Deutschland-Karte mit eingebetteter Landkarte ---- */
 .splash-offer { display: flex; flex-direction: column; gap: 1.2rem; max-width: 980px; }
-.choice--big { padding: clamp(1.2rem, 2.6vw, 2rem); }
-.pcard { display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: center; width: 100%; }
-.pcard-text { display: flex; flex-direction: column; gap: .7rem; }
-.pcard-map { margin: 0 auto; width: 100%; max-width: 190px; }
+.choice--big { padding: clamp(.9rem, 2.1vw, 1.5rem); }
+.pcard { display: grid; grid-template-columns: 1fr; gap: .8rem; align-items: center; width: 100%; }
+.pcard-text { display: flex; flex-direction: column; gap: .5rem; }
+.pcard-map { margin: 0 auto; width: 100%; max-width: 158px; }
 .pcard-map .realmap { max-width: none; width: 100%; }
 .choice--big h2 { font-size: clamp(1.75rem, 4.2vw, 2.6rem); line-height: 1.1; }
 .choice--big p { font-size: clamp(1rem, 2.2vw, 1.18rem); }
@@ -750,11 +750,11 @@ body.cart-open { overflow: hidden; }
   padding: 1.1rem 2.5rem; border-radius: 999px; font-size: clamp(1.1rem, 2.4vw, 1.3rem);
   box-shadow: 0 10px 24px rgba(182, 74, 42, .34);
 }
-.pcard-right { display: flex; flex-direction: column; align-items: flex-end; gap: 1rem; }
+.pcard-right { display: flex; flex-direction: column; align-items: flex-end; gap: .7rem; }
 .pcard-right .pcard-map { margin: 0; width: 100%; }
 @media (min-width: 720px) {
-  .pcard { grid-template-columns: 1.5fr 1fr; gap: clamp(1.4rem, 3.5vw, 2.6rem); }
-  .pcard-map { margin: 0; justify-self: end; max-width: 210px; }
+  .pcard { grid-template-columns: 1.6fr 1fr; gap: clamp(1.2rem, 3vw, 2.2rem); align-items: center; }
+  .pcard-map { margin: 0; justify-self: end; max-width: 176px; }
 }
 
 /* ---- Kontaktformular ---- */
