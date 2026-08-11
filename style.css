@@ -701,7 +701,8 @@ body.cart-open { overflow: hidden; }
   background: radial-gradient(ellipse 62% 42% at 50% 14%, rgba(20, 14, 8, .40), transparent 68%);
 }
 .hero-logo {
-  position: relative; width: clamp(170px, 34vw, 300px); height: auto;
+  position: relative; width: auto; height: auto;
+  max-width: clamp(150px, 30vw, 280px); max-height: 40%;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, .42));
 }
 .hero-map { position: relative; margin: 0; width: clamp(122px, 24vw, 172px); }
