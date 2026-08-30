@@ -786,3 +786,61 @@ body.cart-open { overflow: hidden; }
   .nav .cart-btn { order: 1; }
   .nav-links { display: flex; order: 2; width: 100%; justify-content: center; flex-wrap: wrap; gap: .6rem 1.1rem; font-size: .85rem; }
 }
+
+/* ============ MENUE-BUTTON (rechts oben) statt Linkleiste ============ */
+.nav > .lang-switch { margin-left: auto; }
+.menu { position: relative; margin-left: .9rem; }
+.menu-btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-family: var(--font-body); font-size: .82rem; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase; color: var(--ink);
+  background: rgba(46, 42, 34, .07); border: 0; border-radius: 999px;
+  padding: .48rem .85rem; cursor: pointer; transition: background .18s ease, color .18s ease;
+}
+.menu-btn:hover { background: var(--terracotta); color: var(--cream); }
+.menu-ico { display: inline-flex; flex-direction: column; gap: 3px; width: 16px; }
+.menu-ico span { display: block; height: 2px; border-radius: 2px; background: currentColor; }
+.menu-panel {
+  position: absolute; right: 0; top: calc(100% + .6rem); z-index: 60;
+  display: flex; flex-direction: column; min-width: 190px;
+  background: var(--paper); border: 1px solid rgba(46, 42, 34, .12);
+  border-radius: 12px; padding: .45rem; box-shadow: 0 14px 34px rgba(46, 42, 34, .18);
+}
+.menu-panel[hidden] { display: none; }
+.menu-panel a {
+  padding: .55rem .7rem; border-radius: 8px;
+  font-size: .92rem; font-weight: 600; color: var(--ink); white-space: nowrap;
+}
+.menu-panel a:hover { background: var(--paper-deep); color: var(--terracotta); }
+.menu-sep { height: 1px; margin: .35rem .7rem; background: rgba(46, 42, 34, .12); }
+@media (max-width: 560px) {
+  .menu-label { display: none; }
+  .menu-btn { padding: .5rem .6rem; }
+}
+
+/* ---- Startseite: Hero-Foto der frueheren Splash-Seite ---- */
+.home-hero {
+  display: flex; justify-content: center;
+  padding: clamp(1rem, 2.5vw, 1.8rem) 1.5rem 0;
+}
+
+/* ---- Kopfzeile mobil: alles in einer Zeile, Menue-Button bleibt oben rechts ---- */
+@media (max-width: 760px) {
+  .nav { flex-wrap: nowrap; gap: .3rem; }
+  .nav .cart-btn { order: 0; }
+  .brand { min-width: 0; font-size: 1.12rem; }
+  .brand > span:not(.brand-sub) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .brand-sub { display: none; }
+  .menu { margin-left: .5rem; }
+  .menu-panel { min-width: 168px; max-width: calc(100vw - 2rem); }
+}
+@media (max-width: 560px) {
+  .nav { padding-left: .8rem; padding-right: .8rem; }
+  .brand { font-size: .98rem; gap: .4rem; }
+  .brand-mark { width: 26px; height: 26px; }
+  .nav > .lang-switch { margin-left: auto; padding: 2px; }
+  .lang-btn { padding: .26rem .36rem; font-size: .7rem; }
+  .cart-btn svg { width: 22px; height: 22px; }
+  .menu { margin-left: .3rem; }
+  .menu-btn { padding: .42rem .5rem; }
+}

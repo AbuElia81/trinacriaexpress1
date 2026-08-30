@@ -3,225 +3,125 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trinacria Express — Sizilien &amp; Bayern, direkt verbunden</title>
-<meta name="description" content="Trinacria Express: Bio-Spezialitäten von Sizilien nach Deutschland — und bald von Bayern nach Sizilien. Wählt eure Richtung.">
+<title>Trinacria Express — Sizilianische Bio-Spezialitäten &amp; Gelato</title>
+<meta name="description" content="Das Sortiment von Trinacria Express: 23 Bio-Spezialitäten aus Sizilien und 7 Gelato-Klassiker von PEPINO 1884. Preise auf Anfrage.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Karla:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=19">
+<link rel="stylesheet" href="style.css?v=20">
 </head>
-<body class="splash-body" data-i18n-title="__title" data-i18n-desc="__desc">
+<body data-i18n-title="__title.home" data-i18n-desc="__desc.home">
 
 <header class="nav">
   <a class="brand" href="index.html">
     <img class="brand-mark" src="images/logo-mark.png" alt="Trinacria Express">
     <span>Trinacria&nbsp;Express</span>
   </a>
-  <nav class="nav-links">
-    <a href="shop.html#prodotti" data-i18n="nav.sortiment">Sortiment</a>
-    <a href="automaten.html" data-i18n="nav.automaten">Automaten</a>
-    <a href="kontakt.html" data-i18n="nav.kontakt">Kontakt</a>
-  </nav>
   <div class="lang-switch" role="group" aria-label="Sprache / Language / Lingua">
     <button class="lang-btn" type="button" data-lang="de">DE</button>
     <button class="lang-btn" type="button" data-lang="en">EN</button>
     <button class="lang-btn" type="button" data-lang="it">IT</button>
   </div>
+  <button class="cart-btn" id="cartBtn" aria-label="Anfrageliste öffnen">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+      <path d="M6 8h12l-1.2 11a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 8Z"/>
+      <path d="M9 8a3 3 0 0 1 6 0"/>
+    </svg>
+    <span class="cart-count" id="cartCount">0</span>
+  </button>
+  <div class="menu">
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menuPanel">
+      <span class="menu-ico" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span class="menu-label" data-i18n="nav.menu">Menü</span>
+    </button>
+    <nav class="menu-panel" id="menuPanel" aria-label="Seiten" hidden>
+      <a href="index.html#prodotti" data-i18n="nav.sortiment">Sortiment</a>
+      <a href="automaten.html" data-i18n="nav.automaten">Automaten</a>
+      <a href="kontakt.html" data-i18n="nav.kontakt">Kontakt</a>
+      <span class="menu-sep" aria-hidden="true"></span>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </nav>
+  </div>
 </header>
 
-<main class="splash">
+<main id="top">
 
-  <figure class="splash-hero">
-    <img class="splash-hero-photo" src="images/hero.jpg" alt="Sizilianischer Straßenmarkt im Morgenlicht — frische Blutorangen, Tomaten und Kräuter" loading="eager" width="1400" height="784">
-    <div class="hero-overlay">
-      <img class="hero-logo" src="images/logo-trinacria-express.png" alt="Trinacria Express — Bio-Spezialitäten zwischen Sizilien und Bayern">
-    </div>
-    <figcaption class="splash-hero-cap" data-i18n="idx.cap">Vom Markt in Palermo bis zu euch — echtes sizilianisches Lebensgefühl.</figcaption>
-  </figure>
-
-  <div class="tile-band" aria-hidden="true"></div>
-
-  <div class="splash-offer">
-
-    <a class="choice choice--primary choice--big" href="shop.html" data-dir="north">
-      <div class="pcard">
-        <div class="pcard-text">
-          <span class="choice-route">
-            <span>Palermo</span>
-            <img class="choice-mark" src="images/logo-mark.png" alt="" aria-hidden="true">
-            <span class="choice-route-goal" data-i18n="idx.route.goal">Deutschland</span>
-          </span>
-          <h2 data-i18n="idx.h2">Sizilianische Bio-Spezialitäten &amp; Gelato</h2>
-          <p data-i18n="idx.p">Direkt zu euch geliefert.</p>
-          <span class="choice-thumbs" aria-hidden="true">
-            <img src="images/products/p04.jpg" alt="" loading="lazy">
-            <img src="images/products/p08.jpg" alt="" loading="lazy">
-            <img src="images/products/p11.jpg" alt="" loading="lazy">
-            <img src="images/products/p17.jpg" alt="" loading="lazy">
-            <img src="images/products/p21.jpg" alt="" loading="lazy">
-            <img src="images/products/p13.jpg" alt="" loading="lazy">
-            <img src="images/products/p16.jpg" alt="" loading="lazy">
-            <img src="images/products/p19.jpg" alt="" loading="lazy">
-            <img src="images/products/p23.jpg" alt="" loading="lazy">
-          </span>
-        </div>
-
-        <div class="pcard-right">
-          <span class="choice-cta" data-i18n="idx.cta">Zum Sortiment</span>
-          <figure class="railmap pcard-map" aria-label="Route Palermo–München">
-          <div class="realmap">
-            <img class="realmap-img" src="images/map-relief.jpg" width="1580" height="1351"
-                 alt="Reliefkarte: die Trinacria-Express-Route von Palermo über Italien und die Alpen nach München">
-            <svg class="realmap-overlay" viewBox="0 0 240 550" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-              <text class="map-country" x="16" y="26">Deutschland</text>
-              <text class="map-country" x="150" y="360">Italia</text>
-              <path id="rail" class="rail-base"
-                d="M120,486 C140,470 150,440 148,410 C146,380 145,355 145,330 C144,300 138,275 133,252 C120,235 90,222 73,208 C66,175 70,120 70,65"/>
-              <path class="rail-flow"
-                d="M120,486 C140,470 150,440 148,410 C146,380 145,355 145,330 C144,300 138,275 133,252 C120,235 90,222 73,208 C66,175 70,120 70,65"/>
-              <circle class="endpoint-glow south" cx="120" cy="486" r="13"/>
-              <circle class="endpoint-glow north" cx="70" cy="65" r="13"/>
-              <circle class="city-dot" cx="145" cy="330" r="3"/>
-              <circle class="city-dot" cx="177" cy="372" r="3"/>
-              <circle class="city-dot" cx="133" cy="252" r="3"/>
-              <circle class="city-dot" cx="73" cy="208" r="3"/>
-              <circle class="pin-dot" cx="120" cy="486" r="5"/>
-              <circle class="pin-dot" cx="70" cy="65" r="5"/>
-              <text class="city-label" x="151" y="333">Roma</text>
-              <text class="city-label" x="183" y="375">Napoli</text>
-              <text class="city-label" x="139" y="250">Firenze</text>
-              <text class="city-label" x="66" y="206" text-anchor="end">Milano</text>
-              <text class="city-label" x="112" y="518" text-anchor="middle">Sicilia</text>
-              <text class="pin-label pin-label--key" x="128" y="490">Palermo</text>
-              <text class="pin-label pin-label--key" x="78" y="60">München</text>
-              <g id="train" class="train truck" transform="translate(120,486)">
-                <g transform="scale(0.42)">
-                  <rect x="-22" y="-10" width="28" height="15" rx="2.5" fill="#26221b"/>
-                  <rect x="-22" y="-2.5" width="28" height="3" fill="#b64a2a"/>
-                  <path d="M6,-9 L15.5,-9 L19,-2 L19,5 L6,5 Z" fill="#2e2a22"/>
-                  <rect x="8.5" y="-6.5" width="6.5" height="5" rx="1" fill="#bcd3da"/>
-                  <circle cx="-13" cy="6" r="4.2" fill="#141210"/>
-                  <circle cx="-13" cy="6" r="1.7" fill="#8a8577"/>
-                  <circle cx="10" cy="6" r="4.2" fill="#141210"/>
-                  <circle cx="10" cy="6" r="1.7" fill="#8a8577"/>
-                  <circle cx="19" cy="-6.5" r="1.4" fill="#e8c24a"/>
-                </g>
-              </g>
-            </svg>
-          </div>
-        </figure>
-        </div>
+  <!-- ============ HERO-FOTO (von der frueheren Startseite) ============ -->
+  <section class="home-hero">
+    <figure class="splash-hero">
+      <img class="splash-hero-photo" src="images/hero.jpg" alt="Sizilianischer Straßenmarkt im Morgenlicht — frische Blutorangen, Tomaten und Kräuter" loading="eager" width="1400" height="784">
+      <div class="hero-overlay">
+        <img class="hero-logo" src="images/logo-trinacria-express.png" alt="Trinacria Express — Bio-Spezialitäten zwischen Sizilien und Bayern">
       </div>
-    </a>
+      <figcaption class="splash-hero-cap" data-i18n="idx.cap">Vom Markt in Palermo bis zu euch — echtes sizilianisches Lebensgefühl.</figcaption>
+    </figure>
+  </section>
 
-    <a class="choice choice--mini choice--soon" href="it.html" data-dir="south">
-      <span class="choice-mini-main">
-        <span class="choice-route small">
-          <span data-i18n="idx.mini.r1">Deutschland</span>
-          <img class="choice-mark" src="images/logo-mark.png" alt="" aria-hidden="true">
-          <span data-i18n="idx.mini.r2">Sizilien</span>
-        </span>
-        <span class="choice-mini-sub" data-i18n="idx.mini.sub">Produkte für Sizilien — in costruzione.</span>
-      </span>
-      <span class="choice-badge" data-i18n="idx.badge">Bald</span>
-    </a>
-
-  </div>
-
-  <figure class="splash-banner">
-    <img src="images/banner.jpg" alt="Sizilianische Tafel: Brot, Olivenöl, Blutorangen, Zitronen, Pecorino, Mandeln und getrocknete Tomaten" loading="lazy" width="1600" height="627">
-    <figcaption class="splash-banner-cap" data-i18n="idx.banner.cap">Sugo, Pesto, Marmeladen &amp; süße Cremes — 23 Bio-Spezialitäten aus sizilianischer Erde.</figcaption>
-  </figure>
-
-  <footer class="splash-foot">
-    <p>Massimiliano di Lorenzo &amp; Michael Schnitzer-Trpin</p>
-    <p>
-      <a href="mailto:trinacriaexpress26@gmail.com">trinacriaexpress26@gmail.com</a> ·
-      <a href="impressum.html">Impressum</a> ·
-      <a href="datenschutz.html">Datenschutz</a>
-    </p>
-    <p class="foot-credit">Reliefkarte: Wikimedia Commons · CC BY-SA 3.0</p>
-  </footer>
+  <!-- ============ SORTIMENT ============ -->
+  <section class="shop" id="prodotti">
+    <div class="shop-head">
+      <p class="eyebrow" data-i18n="shop.eyebrow">Das Sortiment</p>
+      <h2 data-i18n="shop.h2">Unser Sortiment</h2>
+      <p class="shop-intro" data-i18n="shop.intro">23 Bio-Spezialitäten aus Sizilien — mit nativem Olivenöl extra und ohne Konservierungsstoffe — sowie 7 Gelato-Klassiker von PEPINO&nbsp;1884 aus Turin. Preise auf Anfrage: Stellt euch eure Liste zusammen und schickt sie uns.</p>
+      <div class="filters" id="filters">
+        <button class="chip active" data-cat="tutti" data-i18n="chip.tutti">Alle</button>
+        <button class="chip" data-cat="sughi" data-i18n="chip.sughi">Saucen &amp; Sugo</button>
+        <button class="chip" data-cat="pesti" data-i18n="chip.pesti">Pesto</button>
+        <button class="chip" data-cat="pate" data-i18n="chip.pate">Patè &amp; Conserve</button>
+        <button class="chip" data-cat="marmellate" data-i18n="chip.marmellate">Marmeladen</button>
+        <button class="chip" data-cat="creme" data-i18n="chip.creme">Süße Cremes</button>
+        <button class="chip" data-cat="gelato" data-i18n="chip.gelato">Gelato</button>
+      </div>
+    </div>
+    <div class="grid" id="productGrid"></div>
+  </section>
 
 </main>
 
-<script src="i18n.js?v=4"></script>
-<script>
-(function () {
-  var fig = document.querySelector('.railmap');
-  if (!fig) return;
-  var rail = fig.querySelector('#rail');
-  var train = fig.querySelector('#train');
-  var flow = fig.querySelector('.rail-flow');
-  if (!rail || !train || !rail.getTotalLength) return;
+<div class="tile-divider" aria-hidden="true"></div>
 
-  var L = rail.getTotalLength();
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+<footer class="footer">
+  <div class="footer-cols">
+    <div>
+      <p class="footer-brand">Trinacria&nbsp;Express</p>
+      <p data-i18n="foot.brandLine">Massimiliano di Lorenzo<br>Michael Schnitzer-Trpin<br>Sizilien → Deutschland</p>
+    </div>
+    <div>
+      <p class="footer-h" data-i18n="foot.pages">Seiten</p>
+      <a href="#prodotti" data-i18n="nav.sortiment">Sortiment</a>
+      <a href="automaten.html" data-i18n="nav.automaten">Automaten</a>
+      <a href="kontakt.html" data-i18n="nav.kontakt">Kontakt</a>
+    </div>
+    <div>
+      <p class="footer-h" data-i18n="foot.legal">Rechtliches</p>
+      <a href="mailto:trinacriaexpress26@gmail.com">trinacriaexpress26@gmail.com</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </div>
+  <p class="footer-note" data-i18n="foot.note.shop">© 2026 Trinacria Express — Massimiliano di Lorenzo &amp; Michael Schnitzer-Trpin · Preise auf Anfrage.</p>
+</footer>
 
-  // pos: 0 = Palermo (Süden/unten), 1 = Deutschland (Norden/oben)
-  var pos = 0, dir = 1, mode = 'bounce';
-  var speed = 1 / 6;
-  var phase = 'run', fadeT = 0, fadeDur = 0.32, dashOff = 0;
+<!-- ============ ANFRAGELISTE (DRAWER) ============ -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Anfrageliste">
+  <div class="cart-head">
+    <h3 data-i18n="cart.title">Deine Anfrage</h3>
+    <button class="cart-close" id="cartClose" aria-label="Schließen">×</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot">
+    <div class="cart-total"><span data-i18n="cart.qty">Menge</span><strong id="cartTotal">—</strong></div>
+    <p class="cart-ship" data-i18n="cart.ship">Preise auf Anfrage · wir melden uns mit einem Angebot</p>
+    <button class="btn btn-primary btn-block" id="checkoutBtn" data-i18n="cart.checkout">Anfrage per E-Mail senden</button>
+  </div>
+</aside>
 
-  function place() {
-    var l = Math.max(0, Math.min(L, pos * L));
-    var p = rail.getPointAtLength(l);
-    train.setAttribute('transform', 'translate(' + p.x.toFixed(2) + ',' + p.y.toFixed(2) + ')');
-    fig.classList.toggle('is-north', dir > 0);
-    fig.classList.toggle('is-south', dir < 0);
-  }
+<div class="toast" id="toast"></div>
 
-  if (reduce) { pos = 0.5; dir = 1; place(); return; }
-
-  var last = null;
-  function frame(t) {
-    if (last === null) last = t;
-    var dt = Math.min(0.05, (t - last) / 1000); last = t;
-
-    if (mode === 'bounce') {
-      pos += speed * dir * dt;
-      if (pos >= 1) { pos = 1; dir = -1; }
-      if (pos <= 0) { pos = 0; dir = 1; }
-      train.style.opacity = 1;
-    } else {
-      if (phase === 'run') {
-        pos += speed * dir * dt;
-        if ((dir > 0 && pos >= 1) || (dir < 0 && pos <= 0)) { pos = dir > 0 ? 1 : 0; phase = 'fadeout'; fadeT = 0; }
-        train.style.opacity = 1;
-      } else if (phase === 'fadeout') {
-        fadeT += dt; train.style.opacity = Math.max(0, 1 - fadeT / fadeDur);
-        if (fadeT >= fadeDur) { pos = dir > 0 ? 0 : 1; phase = 'fadein'; fadeT = 0; }
-      } else {
-        fadeT += dt; train.style.opacity = Math.min(1, fadeT / fadeDur);
-        if (fadeT >= fadeDur) phase = 'run';
-      }
-    }
-
-    dashOff -= dir * 42 * dt;
-    if (flow) flow.style.strokeDashoffset = dashOff.toFixed(1);
-
-    place();
-    requestAnimationFrame(frame);
-  }
-  requestAnimationFrame(frame);
-
-  function setMode(m) {
-    mode = m;
-    if (m === 'north') { dir = 1; phase = 'run'; }
-    else if (m === 'south') { dir = -1; phase = 'run'; }
-  }
-  function bind(sel, m) {
-    var el = document.querySelector(sel);
-    if (!el) return;
-    el.addEventListener('pointerenter', function () { setMode(m); });
-    el.addEventListener('focusin', function () { setMode(m); });
-    el.addEventListener('pointerleave', function () { setMode('bounce'); });
-    el.addEventListener('focusout', function () { setMode('bounce'); });
-  }
-  bind('[data-dir="north"]', 'north');
-  bind('[data-dir="south"]', 'south');
-})();
-</script>
-
+<script src="i18n.js?v=5"></script>
+<script src="nav.js?v=1"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>

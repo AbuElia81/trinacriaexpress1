@@ -12,6 +12,7 @@
       "nav.automaten": "Vending",
       "nav.kontakt": "Contact",
       "nav.home": "Home",
+      "nav.menu": "Menu",
       "foot.pages": "Pages",
       "foot.startseite": "Home",
       "foot.legal": "Legal",
@@ -37,6 +38,8 @@
       "idx.banner.cap": "Sugo, pesto, jams & sweet creams — 23 organic specialities from Sicilian soil.",
 
       /* ---- Sortiment ---- */
+      "__title.home": "Trinacria Express — Sicilian organic specialities & gelato",
+      "__desc.home": "The Trinacria Express range: 23 organic specialities from Sicily and 7 gelato classics by PEPINO 1884. Prices on request.",
       "__title.shop": "Products — Trinacria Express",
       "__desc.shop": "The Trinacria Express range: 23 organic specialities from Sicily and 7 gelato classics by PEPINO 1884. Prices on request.",
       "shop.eyebrow": "The range",
@@ -126,6 +129,7 @@
       "nav.automaten": "Distributori",
       "nav.kontakt": "Contatto",
       "nav.home": "Home page",
+      "nav.menu": "Menu",
       "foot.pages": "Pagine",
       "foot.startseite": "Home",
       "foot.legal": "Note legali",
@@ -151,6 +155,8 @@
       "idx.banner.cap": "Sugo, pesto, marmellate e creme dolci — 23 specialità biologiche dalla terra siciliana.",
 
       /* ---- Sortiment ---- */
+      "__title.home": "Trinacria Express — Specialità biologiche siciliane e gelato",
+      "__desc.home": "Il catalogo di Trinacria Express: 23 specialità biologiche siciliane e 7 classici del gelato PEPINO 1884. Prezzi su richiesta.",
       "__title.shop": "Prodotti — Trinacria Express",
       "__desc.shop": "Il catalogo di Trinacria Express: 23 specialità biologiche siciliane e 7 classici del gelato PEPINO 1884. Prezzi su richiesta.",
       "shop.eyebrow": "Il catalogo",
