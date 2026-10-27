@@ -52,6 +52,7 @@
       "chip.marmellate": "Jams",
       "chip.creme": "Sweet creams",
       "chip.olio": "Olive oil",
+      "shop.pdf": "Ingredients & allergens for all products (PDF)",
       "chip.gelato": "Gelato",
 
       /* ---- Kontakt ---- */
@@ -80,6 +81,7 @@
       "av.h2": "Our <em>vending machines.</em>",
       "av.lead1": "A vending machine doesn't have to mean crisps and chocolate bars. Ours is a little Sicilian bottega, open around the clock: sugo, pesto, caponata, jams, pistachio cream — all organic, all in glass jars.",
       "av.lead2": "We run the <strong>Sielaff SÜ 2020</strong> in the SoftDrop version and are looking for <strong>locations and partners</strong> in and around Munich: businesses, foyers, residential complexes, hotels, sports venues, shopping centres, campsites, holiday flats.",
+      "av.pdf": "Product information & ingredients at the machine (PDF)",
       "av.models.h": "Three models — pick one",
       "av.m1.h": "Rent",
       "av.m1.p": "You provide the space, we pay a fixed monthly rent. Predictable, straightforward, no effort for you.",
@@ -170,6 +172,7 @@
       "chip.marmellate": "Marmellate",
       "chip.creme": "Creme dolci",
       "chip.olio": "Olio d'oliva",
+      "shop.pdf": "Ingredienti e allergeni di tutti i prodotti (PDF)",
       "chip.gelato": "Gelato",
 
       /* ---- Kontatto ---- */
@@ -198,6 +201,7 @@
       "av.h2": "I nostri <em>distributori automatici.</em>",
       "av.lead1": "Un distributore non deve per forza significare patatine e barrette. Il nostro è una piccola bottega siciliana, aperta 24 ore su 24: sugo, pesto, caponata, marmellate, crema di pistacchio — tutto biologico, tutto in vetro.",
       "av.lead2": "Gestiamo il <strong>Sielaff SÜ 2020</strong> nella versione SoftDrop e cerchiamo <strong>spazi e partner</strong> a Monaco e dintorni: aziende, atri, complessi residenziali, hotel, impianti sportivi, centri commerciali, campeggi, case vacanza.",
+      "av.pdf": "Informazioni sul prodotto e ingredienti al distributore (PDF)",
       "av.models.h": "Tre modelli — scegliete voi",
       "av.m1.h": "Affitto",
       "av.m1.p": "Voi mettete lo spazio, noi paghiamo un affitto mensile fisso. Prevedibile, semplice, nessun impegno per voi.",

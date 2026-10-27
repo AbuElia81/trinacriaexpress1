@@ -844,3 +844,12 @@ body.cart-open { overflow: hidden; }
   .menu { margin-left: .3rem; }
   .menu-btn { padding: .42rem .5rem; }
 }
+
+/* ---- Link auf das Produktinformations-PDF ---- */
+.shop-doc { margin-top: .9rem; font-size: .88rem; }
+.shop-doc a {
+  display: inline-flex; align-items: center; gap: .45rem;
+  color: var(--olive); font-weight: 700; border-bottom: 1px solid currentColor; padding-bottom: 1px;
+}
+.shop-doc a::before { content: "↓"; font-weight: 400; }
+.shop-doc a:hover { color: var(--terracotta); }
