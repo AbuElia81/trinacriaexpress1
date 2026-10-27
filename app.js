@@ -170,8 +170,16 @@ const PRODUCTS = [
     ean: "auf Anfrage", weight: "750 ml", carton: null, shelf: null,
     ing: "Natives Olivenöl extra* aus früh geernteten Oliven, kalt extrahiert, 100 % italienisches Öl.",
     hue: ["#6f8a3f", "#36461c"] },
+];
 
-  /* ---- Gelato · PEPINO 1884, Torino (seit 1884 · Erfinder des Pinguino, 1938) ---- */
+/* ---- Pausiert: Gelato von PEPINO 1884, Torino ----------------------------
+   Stand 2026-10-27 verkaufen wir kein Eis. Die Daten bleiben hier liegen;
+   zum Wiederaufnehmen diese Zeile aktivieren und den Filter-Chip
+   <button class="chip" data-cat="gelato" data-i18n="chip.gelato">Gelato</button>
+   in index.html wieder einsetzen:
+     PRODUCTS.push(...GELATO_PAUSIERT);
+-------------------------------------------------------------------------- */
+const GELATO_PAUSIERT = [
   { id: "g01", cat: "gelato", bio: false, name: "Pinguino Fiordilatte", de: "Das Original von 1938: Milchcreme-Stieleis im Zartbitter-Schokomantel.",
     ean: "auf Anfrage", weight: "65 ml · tiefgekühlt", carton: 24, shelf: "18",
     ing: "MILCH, Zucker, Zartbitterschokolade (Kakaomasse, Zucker, Kakaobutter, Emulgator: SOJALECITHIN), MAGERMILCHPULVER, SAHNE, Glukosesirup, Vanillearoma. Kann Spuren von SCHALENFRÜCHTEN enthalten.",
