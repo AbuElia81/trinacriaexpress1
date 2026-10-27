@@ -6,6 +6,7 @@ const CATS = {
   pate:       "Patè & Conserve",
   marmellate: "Marmeladen",
   creme:      "Süße Cremes",
+  olio:       "Olivenöl",
   gelato:     "Gelato",
 };
 
@@ -13,7 +14,7 @@ const CATS = {
 const I18N_STR = {
   de: {
     cats: CATS, bio: "Bio",
-    size: (w, c, s) => `${w} · ${c} Stück/Karton · ${s} Monate haltbar`,
+    size: (w, c, s) => [w, c ? `${c} Stück/Karton` : null, s ? `${s} Monate haltbar` : null].filter(Boolean).join(" · "),
     ingSummary: "Zutaten &amp; EAN", bioNote: "*aus biologischer Landwirtschaft",
     priceAsk: "Preis auf Anfrage", addBtn: "Zur Anfrage",
     cartEmpty: "Deine Anfrageliste ist leer —<br>das Sortiment wartet.",
@@ -24,12 +25,12 @@ const I18N_STR = {
     needFirst: "Bitte zuerst Produkte zur Anfrage hinzufügen",
     mailSubject: "Produktanfrage Trinacria Express",
     mailBody: (lines) => `Guten Tag,\n\nich interessiere mich für folgende Produkte:\n\n${lines}\n\nBitte senden Sie mir ein Angebot.\n\nName:\nFirma:\nLieferadresse:\nTelefon:\n\nVielen Dank!`,
-    mailLine: (q, p) => `- ${q} x ${p.name} (${p.weight}, ${p.carton} Stk./Karton, EAN ${p.ean})`,
+    mailLine: (q, p) => `- ${q} x ${p.name} (${p.weight}${p.carton ? `, ${p.carton} Stk./Karton` : ""}, EAN ${p.ean})`,
   },
   en: {
-    cats: { sughi: "Sauces & sugo", pesti: "Pesto", pate: "Patés & preserves", marmellate: "Jams", creme: "Sweet creams", gelato: "Gelato" },
+    cats: { sughi: "Sauces & sugo", pesti: "Pesto", pate: "Patés & preserves", marmellate: "Jams", creme: "Sweet creams", olio: "Olive oil", gelato: "Gelato" },
     bio: "Organic",
-    size: (w, c, s) => `${w} · ${c} pcs/case · best before ${s} months`,
+    size: (w, c, s) => [w, c ? `${c} pcs/case` : null, s ? `best before ${s} months` : null].filter(Boolean).join(" · "),
     ingSummary: "Ingredients &amp; EAN", bioNote: "*from organic farming",
     priceAsk: "Price on request", addBtn: "Add to enquiry",
     cartEmpty: "Your enquiry list is empty —<br>the range is waiting.",
@@ -40,12 +41,12 @@ const I18N_STR = {
     needFirst: "Please add products to your enquiry first",
     mailSubject: "Product enquiry Trinacria Express",
     mailBody: (lines) => `Hello,\n\nI'm interested in the following products:\n\n${lines}\n\nPlease send me an offer.\n\nName:\nCompany:\nDelivery address:\nPhone:\n\nThank you!`,
-    mailLine: (q, p) => `- ${q} x ${p.name} (${p.weight}, ${p.carton} pcs/case, EAN ${p.ean})`,
+    mailLine: (q, p) => `- ${q} x ${p.name} (${p.weight}${p.carton ? `, ${p.carton} pcs/case` : ""}, EAN ${p.ean})`,
   },
   it: {
-    cats: { sughi: "Salse & sugo", pesti: "Pesto", pate: "Patè & conserve", marmellate: "Marmellate", creme: "Creme dolci", gelato: "Gelato" },
+    cats: { sughi: "Salse & sugo", pesti: "Pesto", pate: "Patè & conserve", marmellate: "Marmellate", creme: "Creme dolci", olio: "Olio d'oliva", gelato: "Gelato" },
     bio: "Bio",
-    size: (w, c, s) => `${w} · ${c} pz/cartone · ${s} mesi di conservazione`,
+    size: (w, c, s) => [w, c ? `${c} pz/cartone` : null, s ? `${s} mesi di conservazione` : null].filter(Boolean).join(" · "),
     ingSummary: "Ingredienti &amp; EAN", bioNote: "*da agricoltura biologica",
     priceAsk: "Prezzo su richiesta", addBtn: "Aggiungi alla richiesta",
     cartEmpty: "La tua lista è vuota —<br>il catalogo ti aspetta.",
@@ -56,7 +57,7 @@ const I18N_STR = {
     needFirst: "Aggiungi prima dei prodotti alla richiesta",
     mailSubject: "Richiesta prodotti Trinacria Express",
     mailBody: (lines) => `Buongiorno,\n\nsono interessato ai seguenti prodotti:\n\n${lines}\n\nVi prego di inviarmi un'offerta.\n\nNome:\nAzienda:\nIndirizzo di consegna:\nTelefono:\n\nGrazie!`,
-    mailLine: (q, p) => `- ${q} x ${p.name} (${p.weight}, ${p.carton} pz/cartone, EAN ${p.ean})`,
+    mailLine: (q, p) => `- ${q} x ${p.name} (${p.weight}${p.carton ? `, ${p.carton} pz/cartone` : ""}, EAN ${p.ean})`,
   },
 };
 const LANG = () => window.__teLang || document.documentElement.lang || "de";
@@ -159,6 +160,16 @@ const PRODUCTS = [
     ean: "8053251660495", weight: "190 g", carton: 12, shelf: "24",
     ing: "HASELNÜSSE* (38 %), Rohrzucker*, Olivenöl*, Sonnenblumenöl*.",
     hue: ["#b98a5c", "#6d4c2c"] },
+
+  /* ---- Natives Olivenöl extra · Casa Olearia Giuseppe Calvi & C., Imperia-Oneglia (seit 1921) ---- */
+  { id: "p24", cat: "olio", name: "Olio Extravergine Bio Rêuza 750 ml", de: "Natives Bio-Olivenöl extra, kalt extrahiert — Biancolilla und Taggiasca, mild und blumig.",
+    ean: "auf Anfrage", weight: "750 ml", carton: null, shelf: null,
+    ing: "Natives Olivenöl extra* aus Oliven der Sorten Biancolilla* und Taggiasca*, kalt extrahiert, 100 % italienisches Öl.",
+    hue: ["#c08a52", "#7a5024"] },
+  { id: "p25", cat: "olio", name: "Extravergine Bio Frutto Verde 750 ml", de: "Natives Bio-Olivenöl extra aus früh geernteten Oliven — kräftig, grün und würzig.",
+    ean: "auf Anfrage", weight: "750 ml", carton: null, shelf: null,
+    ing: "Natives Olivenöl extra* aus früh geernteten Oliven, kalt extrahiert, 100 % italienisches Öl.",
+    hue: ["#6f8a3f", "#36461c"] },
 
   /* ---- Gelato · PEPINO 1884, Torino (seit 1884 · Erfinder des Pinguino, 1938) ---- */
   { id: "g01", cat: "gelato", bio: false, name: "Pinguino Fiordilatte", de: "Das Original von 1938: Milchcreme-Stieleis im Zartbitter-Schokomantel.",

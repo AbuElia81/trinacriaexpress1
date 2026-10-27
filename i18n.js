@@ -39,18 +39,19 @@
 
       /* ---- Sortiment ---- */
       "__title.home": "Trinacria Express — Sicilian organic specialities & gelato",
-      "__desc.home": "The Trinacria Express range: 23 organic specialities from Sicily and 7 gelato classics by PEPINO 1884. Prices on request.",
+      "__desc.home": "The Trinacria Express range: 23 organic specialities from Sicily, two organic extra-virgin olive oils by Olio Calvi and 7 gelato classics by PEPINO 1884. Prices on request.",
       "__title.shop": "Products — Trinacria Express",
       "__desc.shop": "The Trinacria Express range: 23 organic specialities from Sicily and 7 gelato classics by PEPINO 1884. Prices on request.",
       "shop.eyebrow": "The range",
       "shop.h2": "Our range",
-      "shop.intro": "23 organic specialities from Sicily — with extra-virgin olive oil and no preservatives — plus 7 gelato classics by PEPINO 1884 from Turin. Prices on request: put together your list and send it to us.",
+      "shop.intro": "23 organic specialities from Sicily — with extra-virgin olive oil and no preservatives —, two organic extra-virgin olive oils by Olio Calvi plus 7 gelato classics by PEPINO 1884 from Turin. Prices on request: put together your list and send it to us.",
       "chip.tutti": "All",
       "chip.sughi": "Sauces & sugo",
       "chip.pesti": "Pesto",
       "chip.pate": "Patés & preserves",
       "chip.marmellate": "Jams",
       "chip.creme": "Sweet creams",
+      "chip.olio": "Olive oil",
       "chip.gelato": "Gelato",
 
       /* ---- Kontakt ---- */
@@ -156,18 +157,19 @@
 
       /* ---- Sortiment ---- */
       "__title.home": "Trinacria Express — Specialità biologiche siciliane e gelato",
-      "__desc.home": "Il catalogo di Trinacria Express: 23 specialità biologiche siciliane e 7 classici del gelato PEPINO 1884. Prezzi su richiesta.",
+      "__desc.home": "Il catalogo di Trinacria Express: 23 specialità biologiche siciliane, due oli extravergine biologici di Olio Calvi e 7 classici del gelato PEPINO 1884. Prezzi su richiesta.",
       "__title.shop": "Prodotti — Trinacria Express",
       "__desc.shop": "Il catalogo di Trinacria Express: 23 specialità biologiche siciliane e 7 classici del gelato PEPINO 1884. Prezzi su richiesta.",
       "shop.eyebrow": "Il catalogo",
       "shop.h2": "Il nostro catalogo",
-      "shop.intro": "23 specialità biologiche dalla Sicilia — con olio extravergine d'oliva e senza conservanti — più 7 classici del gelato PEPINO 1884 di Torino. Prezzi su richiesta: componete la vostra lista e inviatecela.",
+      "shop.intro": "23 specialità biologiche dalla Sicilia — con olio extravergine d'oliva e senza conservanti —, due oli extravergine biologici di Olio Calvi e 7 classici del gelato PEPINO 1884 di Torino. Prezzi su richiesta: componete la vostra lista e inviatecela.",
       "chip.tutti": "Tutte",
       "chip.sughi": "Salse & sugo",
       "chip.pesti": "Pesto",
       "chip.pate": "Patè & conserve",
       "chip.marmellate": "Marmellate",
       "chip.creme": "Creme dolci",
+      "chip.olio": "Olio d'oliva",
       "chip.gelato": "Gelato",
 
       /* ---- Kontatto ---- */
