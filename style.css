@@ -853,3 +853,6 @@ body.cart-open { overflow: hidden; }
 }
 .shop-doc a::before { content: "↓"; font-weight: 400; }
 .shop-doc a:hover { color: var(--terracotta); }
+
+/* ---- Grundpreis unter der Mengenangabe ---- */
+.card-base { font-size: .78rem; color: var(--ink-soft); margin: -.65rem 0 .9rem; }

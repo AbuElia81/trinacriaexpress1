@@ -17,10 +17,10 @@
       "foot.startseite": "Home",
       "foot.legal": "Legal",
       "foot.brandLine": "Massimiliano di Lorenzo<br>Michael Schnitzer-Trpin<br>Sicily → Germany",
-      "foot.note.shop": "© 2026 Trinacria Express — Massimiliano di Lorenzo &amp; Michael Schnitzer-Trpin · Prices on request.",
+      "foot.note.shop": "© 2026 Trinacria Express — Massimiliano di Lorenzo &amp; Michael Schnitzer-Trpin · All prices incl. VAT, plus shipping.",
       "cart.title": "Your enquiry",
       "cart.qty": "Quantity",
-      "cart.ship": "Prices on request · we'll reply with an offer",
+      "cart.ship": "All prices incl. VAT · shipping is agreed with your enquiry",
       "cart.checkout": "Send enquiry by e-mail",
 
       /* ---- Startseite ---- */
@@ -39,12 +39,12 @@
 
       /* ---- Sortiment ---- */
       "__title.home": "Trinacria Express — Sicilian organic specialities & olive oil",
-      "__desc.home": "The Trinacria Express range: 23 organic specialities from Sicily and two organic extra-virgin olive oils by Olio Calvi. Prices on request.",
+      "__desc.home": "The Trinacria Express range: Sicilian organic specialities, organic extra-virgin olive oils by Olio Calvi and Sicilian organic wines. Prices incl. VAT.",
       "__title.shop": "Products — Trinacria Express",
       "__desc.shop": "The Trinacria Express range: 23 organic specialities from Sicily and 7 gelato classics by PEPINO 1884. Prices on request.",
       "shop.eyebrow": "The range",
       "shop.h2": "Our range",
-      "shop.intro": "23 organic specialities from Sicily — with extra-virgin olive oil and no preservatives — plus two organic extra-virgin olive oils by Olio Calvi. Prices on request: put together your list and send it to us.",
+      "shop.intro": "Sicilian organic specialities — sugo, pesto, patés, jam and sweet creams — plus organic extra-virgin olive oils by Olio Calvi in 500 and 750 ml. All prices incl. VAT; shipping and quantities are agreed by enquiry.",
       "chip.tutti": "All",
       "chip.sughi": "Sauces & sugo",
       "chip.pesti": "Pesto",
@@ -52,6 +52,7 @@
       "chip.marmellate": "Jams",
       "chip.creme": "Sweet creams",
       "chip.olio": "Olive oil",
+      "chip.vino": "Wine",
       "shop.pdf": "Ingredients & allergens for all products (PDF)",
       "chip.gelato": "Gelato",
 
@@ -137,10 +138,10 @@
       "foot.startseite": "Home",
       "foot.legal": "Note legali",
       "foot.brandLine": "Massimiliano di Lorenzo<br>Michael Schnitzer-Trpin<br>Sicilia → Germania",
-      "foot.note.shop": "© 2026 Trinacria Express — Massimiliano di Lorenzo &amp; Michael Schnitzer-Trpin · Prezzi su richiesta.",
+      "foot.note.shop": "© 2026 Trinacria Express — Massimiliano di Lorenzo &amp; Michael Schnitzer-Trpin · Tutti i prezzi IVA inclusa, spese di spedizione escluse.",
       "cart.title": "La tua richiesta",
       "cart.qty": "Quantità",
-      "cart.ship": "Prezzi su richiesta · vi rispondiamo con un'offerta",
+      "cart.ship": "Tutti i prezzi IVA inclusa · la spedizione si concorda con la richiesta",
       "cart.checkout": "Invia la richiesta per e-mail",
 
       /* ---- Startseite ---- */
@@ -159,12 +160,12 @@
 
       /* ---- Sortiment ---- */
       "__title.home": "Trinacria Express — Specialità biologiche siciliane e olio d'oliva",
-      "__desc.home": "Il catalogo di Trinacria Express: 23 specialità biologiche siciliane e due oli extravergine biologici di Olio Calvi. Prezzi su richiesta.",
+      "__desc.home": "Il catalogo di Trinacria Express: specialità biologiche siciliane, oli extravergine biologici di Olio Calvi e vini biologici siciliani. Prezzi IVA inclusa.",
       "__title.shop": "Prodotti — Trinacria Express",
       "__desc.shop": "Il catalogo di Trinacria Express: 23 specialità biologiche siciliane e 7 classici del gelato PEPINO 1884. Prezzi su richiesta.",
       "shop.eyebrow": "Il catalogo",
       "shop.h2": "Il nostro catalogo",
-      "shop.intro": "23 specialità biologiche dalla Sicilia — con olio extravergine d'oliva e senza conservanti — e due oli extravergine biologici di Olio Calvi. Prezzi su richiesta: componete la vostra lista e inviatecela.",
+      "shop.intro": "Specialità biologiche siciliane — sugo, pesto, patè, marmellata e creme dolci — e oli extravergine biologici di Olio Calvi da 500 e 750 ml. Tutti i prezzi IVA inclusa; spedizione e quantità si concordano su richiesta.",
       "chip.tutti": "Tutte",
       "chip.sughi": "Salse & sugo",
       "chip.pesti": "Pesto",
@@ -172,6 +173,7 @@
       "chip.marmellate": "Marmellate",
       "chip.creme": "Creme dolci",
       "chip.olio": "Olio d'oliva",
+      "chip.vino": "Vino",
       "shop.pdf": "Ingredienti e allergeni di tutti i prodotti (PDF)",
       "chip.gelato": "Gelato",
 

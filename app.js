@@ -7,6 +7,7 @@ const CATS = {
   marmellate: "Marmeladen",
   creme:      "Süße Cremes",
   olio:       "Olivenöl",
+  vino:       "Wein",
   gelato:     "Gelato",
 };
 
@@ -15,6 +16,9 @@ const I18N_STR = {
   de: {
     cats: CATS, bio: "Bio",
     size: (w, c, s) => [w, c ? `${c} Stück/Karton` : null, s ? `${s} Monate haltbar` : null].filter(Boolean).join(" · "),
+    money: (v) => v.toFixed(2).replace(".", ",") + " €",
+    base: (v, u) => v.toFixed(2).replace(".", ",") + " €/" + u + " · inkl. MwSt.",
+    vat: "inkl. MwSt.",
     ingSummary: "Zutaten &amp; EAN", bioNote: "*aus biologischer Landwirtschaft",
     priceAsk: "Preis auf Anfrage", addBtn: "Zur Anfrage",
     cartEmpty: "Deine Anfrageliste ist leer —<br>das Sortiment wartet.",
@@ -28,9 +32,12 @@ const I18N_STR = {
     mailLine: (q, p) => `- ${q} x ${p.name} (${p.weight}${p.carton ? `, ${p.carton} Stk./Karton` : ""}, EAN ${p.ean})`,
   },
   en: {
-    cats: { sughi: "Sauces & sugo", pesti: "Pesto", pate: "Patés & preserves", marmellate: "Jams", creme: "Sweet creams", olio: "Olive oil", gelato: "Gelato" },
+    cats: { sughi: "Sauces & sugo", pesti: "Pesto", pate: "Patés & preserves", marmellate: "Jams", creme: "Sweet creams", olio: "Olive oil", vino: "Wine", gelato: "Gelato" },
     bio: "Organic",
     size: (w, c, s) => [w, c ? `${c} pcs/case` : null, s ? `best before ${s} months` : null].filter(Boolean).join(" · "),
+    money: (v) => "€" + v.toFixed(2),
+    base: (v, u) => "€" + v.toFixed(2) + "/" + u + " · incl. VAT",
+    vat: "incl. VAT",
     ingSummary: "Ingredients &amp; EAN", bioNote: "*from organic farming",
     priceAsk: "Price on request", addBtn: "Add to enquiry",
     cartEmpty: "Your enquiry list is empty —<br>the range is waiting.",
@@ -44,9 +51,12 @@ const I18N_STR = {
     mailLine: (q, p) => `- ${q} x ${p.name} (${p.weight}${p.carton ? `, ${p.carton} pcs/case` : ""}, EAN ${p.ean})`,
   },
   it: {
-    cats: { sughi: "Salse & sugo", pesti: "Pesto", pate: "Patè & conserve", marmellate: "Marmellate", creme: "Creme dolci", olio: "Olio d'oliva", gelato: "Gelato" },
+    cats: { sughi: "Salse & sugo", pesti: "Pesto", pate: "Patè & conserve", marmellate: "Marmellate", creme: "Creme dolci", olio: "Olio d'oliva", vino: "Vino", gelato: "Gelato" },
     bio: "Bio",
     size: (w, c, s) => [w, c ? `${c} pz/cartone` : null, s ? `${s} mesi di conservazione` : null].filter(Boolean).join(" · "),
+    money: (v) => v.toFixed(2).replace(".", ",") + " €",
+    base: (v, u) => v.toFixed(2).replace(".", ",") + " €/" + u + " · IVA inclusa",
+    vat: "IVA inclusa",
     ingSummary: "Ingredienti &amp; EAN", bioNote: "*da agricoltura biologica",
     priceAsk: "Prezzo su richiesta", addBtn: "Aggiungi alla richiesta",
     cartEmpty: "La tua lista è vuota —<br>il catalogo ti aspetta.",
@@ -64,6 +74,102 @@ const LANG = () => window.__teLang || document.documentElement.lang || "de";
 const S = () => I18N_STR[LANG()] || I18N_STR.de;
 
 const PRODUCTS = [
+  { id: "p03", cat: "sughi", name: "Salsa pronta di pomodoro datterino", de: "Fertige Datterino-Tomatensauce",
+    ean: "8053251660419", weight: "330 g", carton: 12, shelf: "24–36", price: 4.50,
+    ing: "Datterino-Tomaten* (96 %), natives Olivenöl extra* (1,7 %), Meersalz, Basilikum* (0,5 %).",
+    hue: ["#cf5b30", "#8a2f18"] },
+  { id: "p04", cat: "sughi", name: "Sugo alla Siciliana", de: "Kirschtomaten-Sugo auf sizilianische Art",
+    ean: "8053251660518", weight: "250 g", carton: 12, shelf: "24–36", price: 4.50,
+    ing: "Kirschtomaten* (95 %), natives Olivenöl extra* (1,5 %), Zwiebeln*, Kapern*, Meersalz, SELLERIE* (0,7 %), Karotten*, Basilikum*, Petersilie*, Knoblauch*, Zitronenschale*, schwarzer Pfeffer*, scharfer Pfeffer*.",
+    hue: ["#c0502c", "#7c2a16"] },
+  { id: "p05", cat: "sughi", name: "Sugo all'Arrabbiata", de: "Kirschtomaten-Sugo Arrabbiata",
+    ean: "8053251660976", weight: "250 g", carton: 12, shelf: "24–36", price: 4.50,
+    ing: "Kirschtomaten* (94 %), natives Olivenöl extra*, Zwiebeln*, Meersalz, Basilikum* (0,3 %), scharfer Pfeffer* (0,1 %), Petersilie*, Zitronenschale*, Knoblauch*. Allergene: Kann Spuren von SELLERIE und NÜSSEN enthalten.",
+    hue: ["#b83f22", "#6f2010"] },
+  { id: "p06", cat: "sughi", name: "Sugo alla Puttanesca", de: "Kirschtomaten-Sugo Puttanesca",
+    ean: "8053251660839", weight: "250 g", carton: 12, shelf: "24–36", price: 4.50,
+    ing: "Kirschtomaten* (92 %), natives Olivenöl extra* (2,5 %), Kapern Bourbons*, Zwiebeln*, Meersalz, schwarze Oliven*, grüne Oliven*, Basilikum*, Petersilie*, schwarzer Pfeffer*, Knoblauch*, Zitronenschale*, wilder Fenchelsamen*, Paprika*. Allergene: Kann Spuren von SELLERIE und NÜSSEN enthalten.",
+    hue: ["#a83820", "#5f1c0e"] },
+  { id: "p07", cat: "sughi", name: "Sugo alla Palermitana", de: "Kirschtomaten-Sugo nach Palermo-Art",
+    ean: "8053251660846", weight: "250 g", carton: 12, shelf: "24–36", price: 4.50,
+    ing: "Kirschtomaten* (94 %), natives Olivenöl extra*, Zwiebeln*, Meersalz, Kapern*, Basilikum*, Sultaninen*, wilder Fenchelsamen*, Petersilie*, Knoblauch*, Zitronenschale*, schwarzer Pfeffer*. Allergene: Kann Spuren von SELLERIE und NÜSSEN enthalten.",
+    hue: ["#c0502c", "#7c2a16"] },
+  { id: "p08", cat: "sughi", name: "Sugo alla Norma", de: "Kirschtomaten-Sugo mit Auberginen",
+    ean: "8053251660198", weight: "250 g", carton: 12, shelf: "24–36", price: 4.50,
+    ing: "Kirschtomaten* (82,6 %), Auberginen* (11,5 %), Basilikum*, natives Olivenöl extra*, Apfelessig*, Meersalz, Knoblauch*. Allergene: Kann Spuren von SELLERIE und NÜSSEN enthalten.",
+    hue: ["#a4442a", "#5f1c0e"] },
+
+  { id: "p11", cat: "pesti", name: "Pesto di finocchietto selvatico", de: "Pesto aus wildem Fenchel",
+    ean: "8053251660983", weight: "190 g", carton: 12, shelf: "24–30", price: 6.60,
+    ing: "Wilder Fenchel* (48 %), natives Olivenöl extra* (32 %), Zwiebeln*, getrocknete Tomaten*, Weißweinessig*, Sultaninen*, Rohrzucker*, Meersalz.",
+    hue: ["#8f975f", "#4f5531"] },
+  { id: "p12", cat: "pesti", name: "Pesto trapanese", de: "Pesto nach Trapani-Art",
+    ean: "8053251660785", weight: "190 g", carton: 12, shelf: "24–30", price: 6.60,
+    ing: "Tomaten* (82 %), natives Olivenöl extra* (10 %), Basilikum*, MANDELN* (2,4 %), Weinessig*, Meersalz, Knoblauch*. Allergene: MANDELN, kann Spuren von SELLERIE und NÜSSEN enthalten.",
+    hue: ["#b4593a", "#6f2010"] },
+  { id: "p13", cat: "pesti", name: "Pesto di basilico alla siciliana", de: "Sizilianisches Basilikum-Pesto",
+    ean: "8053251660440", weight: "190 g", carton: 12, shelf: "24–30", price: 6.60,
+    ing: "Basilikum* (53 %), natives Olivenöl extra* (32 %), MANDELN* (5 %), konzentrierter Apfelsaft*, Apfelessig*, getrocknete Tomaten*, Meersalz, Knoblauch*, schwarzer Pfeffer*. Allergene: MANDELN, kann Spuren von SELLERIE und NÜSSEN enthalten.",
+    hue: ["#7f8f4e", "#43502a"] },
+
+  { id: "p15", cat: "pate", name: "Patè di peperoncino", de: "Chili-Patè",
+    ean: "8053251660938", weight: "190 g", carton: 12, shelf: "24–30", price: 6.60,
+    ing: "scharfer Chili* (83 %), natives Olivenöl extra* (13 %), Weißweinessig*, Meersalz, Kartoffelstärke*. Allergene: Kann Spuren von SELLERIE und NÜSSEN enthalten.",
+    hue: ["#c33a22", "#75190d"] },
+
+  { id: "p17", cat: "marmellate", name: "Marmellata di arance rosse", de: "Blutorangen-Marmelade",
+    ean: "8053251661157", weight: "360 g", carton: 6, shelf: "24–36", price: 6.60,
+    ing: "brauner Zucker*, Blutorangen mit Zesten*, Geliermittel: Fruchtpektin, Säuerungsmittel: Zitronensäure.",
+    hue: ["#d4703a", "#93381d"] },
+
+  { id: "p21", cat: "creme", name: "Crema dolce di pistacchio", de: "Süße Pistaziencreme",
+    ean: "8053251660341", weight: "190 g", carton: 12, shelf: "24", price: 11.90,
+    ing: "PISTAZIEN* (45 %), brauner Zucker*, Olivenöl*, Sonnenblumenöl*. Allergene: PISTAZIEN. Kann Spuren von anderen NÜSSEN enthalten.",
+    hue: ["#a4b06a", "#5c6633"] },
+  { id: "p23", cat: "creme", name: "Crema dolce di nocciole", de: "Süße Haselnusscreme",
+    ean: "8053251660495", weight: "190 g", carton: 12, shelf: "24", price: 8.30,
+    ing: "HASELNÜSSE* (38 %), brauner Zucker*, Olivenöl*, Sonnenblumenöl*. Allergene: HASELNÜSSE. Kann Spuren von anderen NÜSSEN enthalten.",
+    hue: ["#b98a5c", "#6d4c2c"] },
+
+  /* ---- Natives Olivenöl extra · Casa Olearia Giuseppe Calvi & C., Imperia-Oneglia (seit 1921) ---- */
+  { id: "p24", cat: "olio", name: "Olio Extravergine Bio Rêuza 750 ml", de: "Natives Bio-Olivenöl extra, mild und blumig — für Bruschetta, Salate, Gemüse und alle Fleischsorten.",
+    ean: "auf Anfrage", weight: "750 ml", carton: null, shelf: null, price: 17.30,
+    ing: "Natives Olivenöl extra* aus Oliven der Sorten Biancolilla* und Taggiasca*, kalt extrahiert, 100 % italienisches Öl.",
+    hue: ["#c08a52", "#7a5024"] },
+  { id: "p25", cat: "olio", name: "Extravergine Bio Frutto Verde 750 ml", de: "Natives Bio-Olivenöl extra, kräftig im Geschmack — ideal zu Bohnengerichten, gegrilltem Fleisch und geräuchertem Fisch.",
+    ean: "auf Anfrage", weight: "750 ml", carton: null, shelf: null, price: 15.70,
+    ing: "Natives Olivenöl extra* aus früh geernteten Oliven, kalt extrahiert, 100 % italienisches Öl.",
+    hue: ["#6f8a3f", "#36461c"] },
+  { id: "p26", cat: "olio", name: "Olio Extravergine Bio Rêuza 500 ml", de: "Natives Bio-Olivenöl extra, mild und blumig — für Bruschetta, Salate, Gemüse und alle Fleischsorten.",
+    ean: "auf Anfrage", weight: "500 ml", carton: null, shelf: null, price: 14.25,
+    ing: "Natives Olivenöl extra* aus Oliven der Sorten Biancolilla* und Taggiasca*, kalt extrahiert, 100 % italienisches Öl.",
+    hue: ["#c08a52", "#7a5024"] },
+  { id: "p27", cat: "olio", name: "Extravergine Bio Frutto Verde 500 ml", de: "Natives Bio-Olivenöl extra, kräftig im Geschmack — ideal zu Bohnengerichten, gegrilltem Fleisch und geräuchertem Fisch.",
+    ean: "auf Anfrage", weight: "500 ml", carton: null, shelf: null, price: 12.80,
+    ing: "Natives Olivenöl extra* aus früh geernteten Oliven, kalt extrahiert, 100 % italienisches Öl.",
+    hue: ["#6f8a3f", "#36461c"] },
+
+  /* ---- Wein · Platzhalter: Jahrgang, Fuellmenge und Preis stehen noch aus ---- */
+  { id: "w01", cat: "vino", name: "Nero d'Avola (Bio)", de: "Sizilianischer Rotwein. Platzhalter — Jahrgang, Füllmenge und Preis folgen. Abgabe nur an Personen ab 18 Jahren.",
+    ean: "auf Anfrage", weight: null, carton: null, shelf: null,
+    ing: "Rotwein* (enthält SULFITE).",
+    hue: ["#7c2438", "#43121e"] },
+  { id: "w02", cat: "vino", name: "Grillo (Bio)", de: "Sizilianischer Weißwein. Platzhalter — Jahrgang, Füllmenge und Preis folgen. Abgabe nur an Personen ab 18 Jahren.",
+    ean: "auf Anfrage", weight: null, carton: null, shelf: null,
+    ing: "Weißwein* (enthält SULFITE).",
+    hue: ["#d8c06a", "#8d7420"] },
+  { id: "w03", cat: "vino", name: "Rosato (Bio)", de: "Sizilianischer Roséwein. Platzhalter — Jahrgang, Füllmenge und Preis folgen. Abgabe nur an Personen ab 18 Jahren.",
+    ean: "auf Anfrage", weight: null, carton: null, shelf: null,
+    ing: "Roséwein* (enthält SULFITE).",
+    hue: ["#d98c92", "#9b4b55"] },
+];
+
+/* ---- Ausgelistet: nicht mehr im aktuellen Sortiment --------------------
+   Stand 2026-11-02 fuehren wir diese zehn Artikel nicht mehr. Die Daten
+   bleiben hier liegen; zum Wiederaufnehmen einzelne Eintraege nach
+   PRODUCTS verschieben oder:  PRODUCTS.push(...AUSGELISTET);
+------------------------------------------------------------------------ */
+const AUSGELISTET = [
   { id: "p01", cat: "sughi", name: "Salsa pronta di pomodoro ciliegino", de: "Fertige Kirschtomatensauce",
     ean: "8053251660525", weight: "330 g", carton: 12, shelf: "24–36",
     ing: "Kirschtomaten* (97,5 %), natives Olivenöl extra* (1,7 %), Meersalz, Basilikum* (0,3 %).",
@@ -72,30 +178,6 @@ const PRODUCTS = [
     ean: "8053251660549", weight: "330 g", carton: 12, shelf: "24–36",
     ing: "Kirschtomaten* (93 %), Paprika* (4,6 %), natives Olivenöl extra* (1,4 %), Meersalz, Basilikum* (0,4 %).",
     hue: ["#c0502c", "#7c2a16"] },
-  { id: "p03", cat: "sughi", name: "Salsa pronta di pomodoro datterino", de: "Fertige Datterino-Tomatensauce",
-    ean: "8053251660419", weight: "330 g", carton: 12, shelf: "24–36",
-    ing: "Datterino-Tomaten* (96 %), natives Olivenöl extra* (1,7 %), Meersalz, Basilikum* (0,5 %).",
-    hue: ["#cf5b30", "#8a2f18"] },
-  { id: "p04", cat: "sughi", name: "Sugo alla Siciliana", de: "Kirschtomaten-Sugo auf sizilianische Art",
-    ean: "8053251660518", weight: "250 g", carton: 12, shelf: "24–36",
-    ing: "Kirschtomaten* (95 %), natives Olivenöl extra* (1,5 %), Zwiebeln*, Kapern*, Meersalz, SELLERIE* (0,7 %), Karotten*, Basilikum*, Petersilie*, Knoblauch*, Zitronenschale*, schwarzer Pfeffer*, scharfer Pfeffer*.",
-    hue: ["#c0502c", "#7c2a16"] },
-  { id: "p05", cat: "sughi", name: "Sugo all'Arrabbiata", de: "Kirschtomaten-Sugo Arrabbiata",
-    ean: "8053251660976", weight: "250 g", carton: 12, shelf: "24–36",
-    ing: "Kirschtomaten* (94 %), natives Olivenöl extra*, Zwiebeln*, Meersalz, Basilikum* (0,3 %), scharfer Pfeffer* (0,1 %), Petersilie*, Zitronenschale*, Knoblauch*. Allergene: Kann Spuren von SELLERIE und NÜSSEN enthalten.",
-    hue: ["#b83f22", "#6f2010"] },
-  { id: "p06", cat: "sughi", name: "Sugo alla Puttanesca", de: "Kirschtomaten-Sugo Puttanesca",
-    ean: "8053251660839", weight: "250 g", carton: 12, shelf: "24–36",
-    ing: "Kirschtomaten* (92 %), natives Olivenöl extra* (2,5 %), Kapern Bourbons*, Zwiebeln*, Meersalz, schwarze Oliven*, grüne Oliven*, Basilikum*, Petersilie*, schwarzer Pfeffer*, Knoblauch*, Zitronenschale*, wilder Fenchelsamen*, Paprika*. Allergene: Kann Spuren von SELLERIE und NÜSSEN enthalten.",
-    hue: ["#a83820", "#5f1c0e"] },
-  { id: "p07", cat: "sughi", name: "Sugo alla Palermitana", de: "Kirschtomaten-Sugo nach Palermo-Art",
-    ean: "8053251660846", weight: "250 g", carton: 12, shelf: "24–36",
-    ing: "Kirschtomaten* (94 %), natives Olivenöl extra*, Zwiebeln*, Meersalz, Kapern*, Basilikum*, Sultaninen*, wilder Fenchelsamen*, Petersilie*, Knoblauch*, Zitronenschale*, schwarzer Pfeffer*. Allergene: Kann Spuren von SELLERIE und NÜSSEN enthalten.",
-    hue: ["#c0502c", "#7c2a16"] },
-  { id: "p08", cat: "sughi", name: "Sugo alla Norma", de: "Kirschtomaten-Sugo mit Auberginen",
-    ean: "8053251660198", weight: "250 g", carton: 12, shelf: "24–36",
-    ing: "Kirschtomaten* (82,6 %), Auberginen* (11,5 %), Basilikum*, natives Olivenöl extra*, Apfelessig*, Meersalz, Knoblauch*. Allergene: Kann Spuren von SELLERIE und NÜSSEN enthalten.",
-    hue: ["#a4442a", "#5f1c0e"] },
   { id: "p09", cat: "sughi", name: "Sugo alla Mediterranea", de: "Kirschtomaten-Sugo mediterran",
     ean: "8053251660617", weight: "250 g", carton: 12, shelf: "24–36",
     ing: "Kirschtomaten* (94 %), getrocknete Tomaten* (2,2 %), natives Olivenöl extra* (1,5 %), Meersalz, Kapern* (0,3 %), Basilikum* (0,3 %), Petersilie*, Weißweinessig*, Rosmarin*, Chili*, Oregano*.",
@@ -104,37 +186,14 @@ const PRODUCTS = [
     ean: "8053251661065", weight: "420 g", carton: 12, shelf: "24–36",
     ing: "Kirschtomaten* (mind. 99 %), Meersalz.",
     hue: ["#c94f2b", "#7c2a16"] },
-
-  { id: "p11", cat: "pesti", name: "Pesto di finocchietto selvatico", de: "Pesto aus wildem Fenchel",
-    ean: "8053251660983", weight: "190 g", carton: 12, shelf: "24–30",
-    ing: "Wilder Fenchel* (48 %), natives Olivenöl extra* (32 %), Zwiebeln*, getrocknete Tomaten*, Weißweinessig*, Sultaninen*, Rohrzucker*, Meersalz.",
-    hue: ["#8f975f", "#4f5531"] },
-  { id: "p12", cat: "pesti", name: "Pesto trapanese", de: "Pesto nach Trapani-Art",
-    ean: "8053251660785", weight: "190 g", carton: 12, shelf: "24–30",
-    ing: "Tomaten* (82 %), natives Olivenöl extra* (10 %), Basilikum*, MANDELN* (2,4 %), Weinessig*, Meersalz, Knoblauch*. Allergene: MANDELN, kann Spuren von SELLERIE und NÜSSEN enthalten.",
-    hue: ["#b4593a", "#6f2010"] },
-  { id: "p13", cat: "pesti", name: "Pesto di basilico alla siciliana", de: "Sizilianisches Basilikum-Pesto",
-    ean: "8053251660440", weight: "190 g", carton: 12, shelf: "24–30",
-    ing: "Basilikum* (53 %), natives Olivenöl extra* (32 %), MANDELN* (5 %), konzentrierter Apfelsaft*, Apfelessig*, getrocknete Tomaten*, Meersalz, Knoblauch*, schwarzer Pfeffer*. Allergene: MANDELN, kann Spuren von SELLERIE und NÜSSEN enthalten.",
-    hue: ["#7f8f4e", "#43502a"] },
-
   { id: "p14", cat: "pate", name: "Patè di melanzane", de: "Auberginen-Patè",
     ean: "8053251660556", weight: "190 g", carton: 12, shelf: "24–30",
     ing: "Auberginen* (67 %), natives Olivenöl extra* (25 %), Basilikum*, Rohrzucker*, Weißweinessig*, Meersalz, MANDELN* (1 %), Petersilie*, Knoblauch*, Rosmarin*, schwarzer Pfeffer*.",
     hue: ["#8a7f4e", "#4b4426"] },
-  { id: "p15", cat: "pate", name: "Patè di peperoncino", de: "Chili-Patè",
-    ean: "8053251660938", weight: "190 g", carton: 12, shelf: "24–30",
-    ing: "scharfer Chili* (83 %), natives Olivenöl extra* (13 %), Weißweinessig*, Meersalz, Kartoffelstärke*. Allergene: Kann Spuren von SELLERIE und NÜSSEN enthalten.",
-    hue: ["#c33a22", "#75190d"] },
   { id: "p16", cat: "pate", name: "Caponata siciliana", de: "Sizilianische Caponata",
     ean: "8053251660761", weight: "190 g", carton: 12, shelf: "24–30",
     ing: "Auberginen* (50 %), Tomatensauce* (16 %), Zwiebeln* (11 %), Sellerie* (7 %), natives Olivenöl extra* (5 %), Weißweinessig*, Rohrzucker*, grüne Oliven*, Kapern*, Meersalz, Basilikum*, schwarzer Pfeffer*, Chili*.",
     hue: ["#9a5a30", "#542c15"] },
-
-  { id: "p17", cat: "marmellate", name: "Marmellata di arance rosse", de: "Blutorangen-Marmelade",
-    ean: "8053251661157", weight: "360 g", carton: 6, shelf: "24–36",
-    ing: "brauner Zucker*, Blutorangen mit Zesten*, Geliermittel: Fruchtpektin, Säuerungsmittel: Zitronensäure.",
-    hue: ["#d4703a", "#93381d"] },
   { id: "p18", cat: "marmellate", name: "Marmellata di limoni", de: "Zitronen-Marmelade",
     ean: "8053251661164", weight: "360 g", carton: 6, shelf: "24–36",
     ing: "Rohrzucker*, Zitronen mit Schale*, Geliermittel: Fruchtpektin, Säuerungsmittel: Zitronensäure. Fruchtanteil: 45 g je 100 g.",
@@ -147,29 +206,10 @@ const PRODUCTS = [
     ean: "8053251661133", weight: "360 g", carton: 6, shelf: "24–36",
     ing: "Feigen*, Rohrzucker*, Geliermittel: Fruchtpektin, Säuerungsmittel: Zitronensäure. Fruchtanteil: 90 g je 100 g.",
     hue: ["#c2a86a", "#7e6635"] },
-
-  { id: "p21", cat: "creme", name: "Crema dolce di pistacchio", de: "Süße Pistaziencreme",
-    ean: "8053251660341", weight: "190 g", carton: 12, shelf: "24",
-    ing: "PISTAZIEN* (45 %), brauner Zucker*, Olivenöl*, Sonnenblumenöl*. Allergene: PISTAZIEN. Kann Spuren von anderen NÜSSEN enthalten.",
-    hue: ["#a4b06a", "#5c6633"] },
   { id: "p22", cat: "creme", name: "Crema dolce di mandorle", de: "Süße Mandelcreme",
     ean: "8053251660358", weight: "190 g", carton: 12, shelf: "24",
     ing: "MANDELN* (38 %), Rohrzucker*, Olivenöl*, Sonnenblumenöl*.",
     hue: ["#dcc08c", "#a3854c"] },
-  { id: "p23", cat: "creme", name: "Crema dolce di nocciole", de: "Süße Haselnusscreme",
-    ean: "8053251660495", weight: "190 g", carton: 12, shelf: "24",
-    ing: "HASELNÜSSE* (38 %), brauner Zucker*, Olivenöl*, Sonnenblumenöl*. Allergene: HASELNÜSSE. Kann Spuren von anderen NÜSSEN enthalten.",
-    hue: ["#b98a5c", "#6d4c2c"] },
-
-  /* ---- Natives Olivenöl extra · Casa Olearia Giuseppe Calvi & C., Imperia-Oneglia (seit 1921) ---- */
-  { id: "p24", cat: "olio", name: "Olio Extravergine Bio Rêuza 750 ml", de: "Natives Bio-Olivenöl extra, mild und blumig — für Bruschetta, Salate, Gemüse und alle Fleischsorten.",
-    ean: "auf Anfrage", weight: "750 ml", carton: null, shelf: null,
-    ing: "Natives Olivenöl extra* aus Oliven der Sorten Biancolilla* und Taggiasca*, kalt extrahiert, 100 % italienisches Öl.",
-    hue: ["#c08a52", "#7a5024"] },
-  { id: "p25", cat: "olio", name: "Extravergine Bio Frutto Verde 750 ml", de: "Natives Bio-Olivenöl extra, kräftig im Geschmack — ideal zu Bohnengerichten, gegrilltem Fleisch und geräuchertem Fisch.",
-    ean: "auf Anfrage", weight: "750 ml", carton: null, shelf: null,
-    ing: "Natives Olivenöl extra* aus früh geernteten Oliven, kalt extrahiert, 100 % italienisches Öl.",
-    hue: ["#6f8a3f", "#36461c"] },
 ];
 
 /* ---- Pausiert: Gelato von PEPINO 1884, Torino ----------------------------
@@ -210,6 +250,19 @@ const GELATO_PAUSIERT = [
     hue: ["#6fae8f", "#356b52"] },
 ];
 
+/* ---------- Grundpreis (PAngV): Preis je kg bzw. je Liter ---------- */
+function baseLine(p) {
+  if (!p.price || !p.weight) return "";
+  var m = /^([\d.,]+)\s*(g|kg|ml|l)\b/i.exec(p.weight);
+  if (!m) return "";
+  var n = parseFloat(m[1].replace(",", ".")), u = m[2].toLowerCase();
+  if (!n) return "";
+  if (u === "g")  return S().base(p.price / n * 1000, "kg");
+  if (u === "kg") return S().base(p.price / n, "kg");
+  if (u === "ml") return S().base(p.price / n * 1000, "l");
+  return S().base(p.price / n, "l");
+}
+
 /* ---------- Produktgrid ---------- */
 const grid = document.getElementById("productGrid");
 function renderGrid() {
@@ -224,13 +277,14 @@ function renderGrid() {
       <h3 class="card-name">${p.name}</h3>
       <p class="card-de">${p.de}</p>
       <p class="card-size">${t.size(p.weight, p.carton, p.shelf)}</p>
+      ${baseLine(p) ? `<p class="card-base">${baseLine(p)}</p>` : ""}
       <details class="card-ing">
         <summary>${t.ingSummary}</summary>
         <p>${p.ing}${p.bio === false ? "" : ' <span class="bio-note">' + t.bioNote + "</span>"}</p>
         <p class="card-ean">EAN ${p.ean}</p>
       </details>
       <div class="card-foot">
-        <span class="card-ask">${t.priceAsk}</span>
+        ${p.price ? `<span class="card-price">${t.money(p.price)}</span>` : `<span class="card-ask">${t.priceAsk}</span>`}
         <button class="card-add" data-id="${p.id}">${t.addBtn}</button>
       </div>
     </div>
