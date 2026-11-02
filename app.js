@@ -99,10 +99,6 @@ const PRODUCTS = [
     ing: "Kirschtomaten* (82,6 %), Auberginen* (11,5 %), Basilikum*, natives Olivenöl extra*, Apfelessig*, Meersalz, Knoblauch*. Allergene: Kann Spuren von SELLERIE und NÜSSEN enthalten.",
     hue: ["#a4442a", "#5f1c0e"] },
 
-  { id: "p11", cat: "pesti", name: "Pesto di finocchietto selvatico", de: "Pesto aus wildem Fenchel",
-    ean: "8053251660983", weight: "190 g", carton: 12, shelf: "24–30", price: 6.60,
-    ing: "Wilder Fenchel* (48 %), natives Olivenöl extra* (32 %), Zwiebeln*, getrocknete Tomaten*, Weißweinessig*, Sultaninen*, Rohrzucker*, Meersalz.",
-    hue: ["#8f975f", "#4f5531"] },
   { id: "p12", cat: "pesti", name: "Pesto trapanese", de: "Pesto nach Trapani-Art",
     ean: "8053251660785", weight: "190 g", carton: 12, shelf: "24–30", price: 6.60,
     ing: "Tomaten* (82 %), natives Olivenöl extra* (10 %), Basilikum*, MANDELN* (2,4 %), Weinessig*, Meersalz, Knoblauch*. Allergene: MANDELN, kann Spuren von SELLERIE und NÜSSEN enthalten.",
@@ -165,11 +161,15 @@ const PRODUCTS = [
 ];
 
 /* ---- Ausgelistet: nicht mehr im aktuellen Sortiment --------------------
-   Stand 2026-11-02 fuehren wir diese zehn Artikel nicht mehr. Die Daten
+   Stand 2026-11-02 fuehren wir diese elf Artikel nicht mehr. Die Daten
    bleiben hier liegen; zum Wiederaufnehmen einzelne Eintraege nach
    PRODUCTS verschieben oder:  PRODUCTS.push(...AUSGELISTET);
 ------------------------------------------------------------------------ */
 const AUSGELISTET = [
+  { id: "p11", cat: "pesti", name: "Pesto di finocchietto selvatico", de: "Pesto aus wildem Fenchel",
+    ean: "8053251660983", weight: "190 g", carton: 12, shelf: "24–30", price: 6.60,
+    ing: "Wilder Fenchel* (48 %), natives Olivenöl extra* (32 %), Zwiebeln*, getrocknete Tomaten*, Weißweinessig*, Sultaninen*, Rohrzucker*, Meersalz.",
+    hue: ["#8f975f", "#4f5531"] },
   { id: "p01", cat: "sughi", name: "Salsa pronta di pomodoro ciliegino", de: "Fertige Kirschtomatensauce",
     ean: "8053251660525", weight: "330 g", carton: 12, shelf: "24–36",
     ing: "Kirschtomaten* (97,5 %), natives Olivenöl extra* (1,7 %), Meersalz, Basilikum* (0,3 %).",
