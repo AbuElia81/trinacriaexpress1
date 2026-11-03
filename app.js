@@ -250,9 +250,17 @@ const GELATO_PAUSIERT = [
     hue: ["#6fae8f", "#356b52"] },
 ];
 
+/* ---------- Preisanzeige ----------
+   Auf false bleiben die hinterlegten price-Werte erhalten, die Karten zeigen
+   aber "Preis auf Anfrage" und keinen Grundpreis. Zum Wiedereinschalten diese
+   eine Zeile auf true setzen -- dann auch die Texte in index.html (Sortiments-
+   Intro, Fussnote), i18n.js (shop.intro, foot.note.shop, cart.ship) und den
+   Preisabschnitt im Impressum wieder auf die Preisfassung umstellen. */
+const PREISE_SICHTBAR = false;
+
 /* ---------- Grundpreis (PAngV): Preis je kg bzw. je Liter ---------- */
 function baseLine(p) {
-  if (!p.price || !p.weight) return "";
+  if (!PREISE_SICHTBAR || !p.price || !p.weight) return "";
   var m = /^([\d.,]+)\s*(g|kg|ml|l)\b/i.exec(p.weight);
   if (!m) return "";
   var n = parseFloat(m[1].replace(",", ".")), u = m[2].toLowerCase();
@@ -284,7 +292,7 @@ function renderGrid() {
         <p class="card-ean">EAN ${p.ean}</p>
       </details>
       <div class="card-foot">
-        ${p.price ? `<span class="card-price">${t.money(p.price)}</span>` : `<span class="card-ask">${t.priceAsk}</span>`}
+        ${PREISE_SICHTBAR && p.price ? `<span class="card-price">${t.money(p.price)}</span>` : `<span class="card-ask">${t.priceAsk}</span>`}
         <button class="card-add" data-id="${p.id}">${t.addBtn}</button>
       </div>
     </div>
