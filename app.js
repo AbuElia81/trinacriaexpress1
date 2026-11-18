@@ -15,6 +15,7 @@ const CATS = {
 const I18N_STR = {
   de: {
     cats: CATS, bio: "Bio",
+    spec: { sorte: "Olivensorte", bio: "Zertifizierung", intensitaet: "Intensität", verarbeitung: "Verarbeitung", herkunft: "Herkunft", ideal: "Ideal für" },
     size: (w, c, s) => [w, c ? `${c} Stück/Karton` : null, s ? `${s} Monate haltbar` : null].filter(Boolean).join(" · "),
     money: (v) => v.toFixed(2).replace(".", ",") + " €",
     base: (v, u) => v.toFixed(2).replace(".", ",") + " €/" + u + " · inkl. MwSt.",
@@ -34,6 +35,7 @@ const I18N_STR = {
   en: {
     cats: { sughi: "Sauces & sugo", pesti: "Pesto", pate: "Patés & preserves", marmellate: "Jams", creme: "Sweet creams", olio: "Olive oil", vino: "Wine", gelato: "Gelato" },
     bio: "Organic",
+    spec: { sorte: "Olive variety", bio: "Certification", intensitaet: "Intensity", verarbeitung: "Processing", herkunft: "Origin", ideal: "Ideal for" },
     size: (w, c, s) => [w, c ? `${c} pcs/case` : null, s ? `best before ${s} months` : null].filter(Boolean).join(" · "),
     money: (v) => "€" + v.toFixed(2),
     base: (v, u) => "€" + v.toFixed(2) + "/" + u + " · incl. VAT",
@@ -53,6 +55,7 @@ const I18N_STR = {
   it: {
     cats: { sughi: "Salse & sugo", pesti: "Pesto", pate: "Patè & conserve", marmellate: "Marmellate", creme: "Creme dolci", olio: "Olio d'oliva", vino: "Vino", gelato: "Gelato" },
     bio: "Bio",
+    spec: { sorte: "Cultivar", bio: "Certificazioni", intensitaet: "Intensità", verarbeitung: "Lavorazione", herkunft: "Origine", ideal: "Ideale per" },
     size: (w, c, s) => [w, c ? `${c} pz/cartone` : null, s ? `${s} mesi di conservazione` : null].filter(Boolean).join(" · "),
     money: (v) => v.toFixed(2).replace(".", ",") + " €",
     base: (v, u) => v.toFixed(2).replace(".", ",") + " €/" + u + " · IVA inclusa",
@@ -70,6 +73,16 @@ const I18N_STR = {
     mailLine: (q, p) => `- ${q} x ${p.name} (${p.weight}${p.carton ? `, ${p.carton} pz/cartone` : ""}, EAN ${p.ean})`,
   },
 };
+/* ---------- Symbole fuer die Oel-Merkmale (Inline-SVG, nimmt die Textfarbe an) ---------- */
+const SPEC_ICONS = {
+  sorte: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="10.5" cy="15" rx="5.2" ry="6"/><path d="M13.6 9.6c2.4-2.9 5.7-3.1 5.7-3.1s-.3 3.2-2.8 4.8"/></svg>',
+  bio: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.2"/><path d="m9.1 13.4-2 7.1 4.9-2.6 4.9 2.6-2-7.1"/><path d="m10.2 9 1.3 1.4 2.4-2.6"/></svg>',
+  intensitaet: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2s-6 7.4-6 11.1a6 6 0 0 0 12 0c0-3.7-6-11.1-6-11.1Z"/></svg>',
+  verarbeitung: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.4"/><path d="M12 3v2.6M12 18.4V21M3 12h2.6M18.4 12H21M5.6 5.6l1.9 1.9M16.5 16.5l1.9 1.9M18.4 5.6l-1.9 1.9M7.5 16.5l-1.9 1.9"/></svg>',
+  herkunft: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s6.2-6.4 6.2-10.4a6.2 6.2 0 1 0-12.4 0C5.8 14.6 12 21 12 21Z"/><circle cx="12" cy="10.4" r="2.2"/></svg>',
+  ideal: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.6 12.6h14.8a7.4 7.4 0 0 1-14.8 0Z"/><path d="M3 12.6h18"/><path d="M9.2 5.2c0 1.1 1 1.1 1 2.2M12 4c0 1.3 1 1.3 1 2.4M14.8 5.2c0 1.1 1 1.1 1 2.2"/></svg>',
+};
+
 const LANG = () => window.__teLang || document.documentElement.lang || "de";
 const S = () => I18N_STR[LANG()] || I18N_STR.de;
 
@@ -130,18 +143,22 @@ const PRODUCTS = [
   /* ---- Natives Olivenöl extra · Casa Olearia Giuseppe Calvi & C., Imperia-Oneglia (seit 1921) ---- */
   { id: "p24", cat: "olio", name: "Olio Extravergine Bio Rêuza 750 ml", de: "Natives Bio-Olivenöl extra, mild und blumig — für Bruschetta, Salate, Gemüse und alle Fleischsorten.",
     ean: "auf Anfrage", weight: "750 ml", carton: null, shelf: null, price: 17.30,
+    specs: [["sorte", "Biancolilla und Taggiasca"], ["bio", "Biologisch"], ["intensitaet", "Mild, aromatisch und blumig"], ["verarbeitung", "Kalt extrahiert"], ["herkunft", "Oliven in Italien geerntet und gepresst"], ["ideal", "Salate, Bruschetta, Gemüse, Carpaccio und Pasta"]],
     ing: "Natives Olivenöl extra* aus Oliven der Sorten Biancolilla* und Taggiasca*, kalt extrahiert, 100 % italienisches Öl.",
     hue: ["#c08a52", "#7a5024"] },
   { id: "p25", cat: "olio", name: "Extravergine Bio Frutto Verde 750 ml", de: "Natives Bio-Olivenöl extra, kräftig im Geschmack — ideal zu Bohnengerichten, gegrilltem Fleisch und geräuchertem Fisch.",
     ean: "auf Anfrage", weight: "750 ml", carton: null, shelf: null, price: 15.70,
+    specs: [["bio", "Biologisch"], ["intensitaet", "Kräftig und vollmundig, mit herber Note"], ["verarbeitung", "Kalt extrahiert"], ["herkunft", "Oliven in Italien geerntet und gepresst"], ["ideal", "Bruschetta, gegrilltes Fleisch und Gemüse, Bohnen, geräucherter Fisch"]],
     ing: "Natives Olivenöl extra* aus früh geernteten Oliven, kalt extrahiert, 100 % italienisches Öl.",
     hue: ["#6f8a3f", "#36461c"] },
   { id: "p26", cat: "olio", name: "Olio Extravergine Bio Rêuza 500 ml", de: "Natives Bio-Olivenöl extra, mild und blumig — für Bruschetta, Salate, Gemüse und alle Fleischsorten.",
     ean: "auf Anfrage", weight: "500 ml", carton: null, shelf: null, price: 14.25,
+    specs: [["sorte", "Biancolilla und Taggiasca"], ["bio", "Biologisch"], ["intensitaet", "Mild, aromatisch und blumig"], ["verarbeitung", "Kalt extrahiert"], ["herkunft", "Oliven in Italien geerntet und gepresst"], ["ideal", "Salate, Bruschetta, Gemüse, Carpaccio und Pasta"]],
     ing: "Natives Olivenöl extra* aus Oliven der Sorten Biancolilla* und Taggiasca*, kalt extrahiert, 100 % italienisches Öl.",
     hue: ["#c08a52", "#7a5024"] },
   { id: "p27", cat: "olio", name: "Extravergine Bio Frutto Verde 500 ml", de: "Natives Bio-Olivenöl extra, kräftig im Geschmack — ideal zu Bohnengerichten, gegrilltem Fleisch und geräuchertem Fisch.",
     ean: "auf Anfrage", weight: "500 ml", carton: null, shelf: null, price: 12.80,
+    specs: [["bio", "Biologisch"], ["intensitaet", "Kräftig und vollmundig, mit herber Note"], ["verarbeitung", "Kalt extrahiert"], ["herkunft", "Oliven in Italien geerntet und gepresst"], ["ideal", "Bruschetta, gegrilltes Fleisch und Gemüse, Bohnen, geräucherter Fisch"]],
     ing: "Natives Olivenöl extra* aus früh geernteten Oliven, kalt extrahiert, 100 % italienisches Öl.",
     hue: ["#6f8a3f", "#36461c"] },
 
@@ -284,6 +301,7 @@ function renderGrid() {
       <p class="card-origin">${t.cats[p.cat]}${p.bio === false ? "" : " · " + t.bio}</p>
       <h3 class="card-name">${p.name}</h3>
       <p class="card-de">${p.de}</p>
+      ${p.specs ? `<ul class="card-specs">${p.specs.map(([k, v]) => `<li><span class="spec-ico" aria-hidden="true">${SPEC_ICONS[k]}</span><span><b>${t.spec[k]}</b>${v}</span></li>`).join("")}</ul>` : ""}
       <p class="card-size">${t.size(p.weight, p.carton, p.shelf)}</p>
       ${baseLine(p) ? `<p class="card-base">${baseLine(p)}</p>` : ""}
       <details class="card-ing">

@@ -856,3 +856,16 @@ body.cart-open { overflow: hidden; }
 
 /* ---- Grundpreis unter der Mengenangabe ---- */
 .card-base { font-size: .78rem; color: var(--ink-soft); margin: -.65rem 0 .9rem; }
+
+/* ---- Merkmale der Olivenöle (Symbol + Wert) ---- */
+.card-specs { list-style: none; padding: 0; margin: .25rem 0 .9rem; display: grid; gap: .45rem; }
+.card-specs li {
+  display: grid; grid-template-columns: 18px 1fr; gap: .6rem; align-items: start;
+  font-size: .85rem; line-height: 1.4; color: var(--ink-soft);
+}
+.card-specs b {
+  display: block; font-family: var(--font-body);
+  font-size: .66rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--olive); margin-bottom: .05rem;
+}
+.spec-ico svg { width: 18px; height: 18px; display: block; color: var(--olive); margin-top: .12rem; }
