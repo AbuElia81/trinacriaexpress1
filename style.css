@@ -869,3 +869,11 @@ body.cart-open { overflow: hidden; }
   color: var(--olive); margin-bottom: .05rem;
 }
 .spec-ico svg { width: 18px; height: 18px; display: block; color: var(--olive); margin-top: .12rem; }
+
+/* ---- Rechtsform als Zusatz neben dem Markennamen ---- */
+.brand-form {
+  font-family: var(--font-body); font-size: .68rem; font-weight: 700;
+  letter-spacing: .1em; color: var(--ink-soft);
+  align-self: center; margin-left: -.25rem; white-space: nowrap;
+}
+@media (max-width: 440px) { .brand-form { display: none; } }

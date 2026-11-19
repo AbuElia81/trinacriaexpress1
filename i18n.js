@@ -17,14 +17,14 @@
       "foot.startseite": "Home",
       "foot.legal": "Legal",
       "foot.brandLine": "Massimiliano di Lorenzo<br>Michael Schnitzer-Trpin<br>Sicily → Germany",
-      "foot.note.shop": "© 2026 Trinacria Express — Massimiliano di Lorenzo &amp; Michael Schnitzer-Trpin · Prices on request.",
+      "foot.note.shop": "© 2026 Trinacria Express GbR — Massimiliano di Lorenzo &amp; Michael Schnitzer-Trpin · Prices on request.",
       "cart.title": "Your enquiry",
       "cart.qty": "Quantity",
       "cart.ship": "Prices on request · we'll reply with an offer",
       "cart.checkout": "Send enquiry by e-mail",
 
       /* ---- Startseite ---- */
-      "__title": "Trinacria Express — Sicily & Bavaria, directly connected",
+      "__title": "Trinacria Express GbR — Sicily & Bavaria, directly connected",
       "__desc": "Trinacria Express: organic specialities from Sicily to Germany — and soon from Bavaria to Sicily. Choose your direction.",
       "idx.cap": "From the market in Palermo to your table — authentic Sicilian living.",
       "idx.h2": "Sicilian organic specialities &amp; gelato",
@@ -38,9 +38,9 @@
       "idx.banner.cap": "Sugo, pesto, jams & sweet creams — 23 organic specialities from Sicilian soil.",
 
       /* ---- Sortiment ---- */
-      "__title.home": "Trinacria Express — Sicilian organic specialities & olive oil",
+      "__title.home": "Trinacria Express GbR — Sicilian organic specialities & olive oil",
       "__desc.home": "The Trinacria Express range: Sicilian organic specialities, organic extra-virgin olive oils by Olio Calvi and Sicilian organic wines. Prices on request.",
-      "__title.shop": "Products — Trinacria Express",
+      "__title.shop": "Products — Trinacria Express GbR",
       "__desc.shop": "The Trinacria Express range: 23 organic specialities from Sicily and 7 gelato classics by PEPINO 1884. Prices on request.",
       "shop.eyebrow": "The range",
       "shop.h2": "Our range",
@@ -57,7 +57,7 @@
       "chip.gelato": "Gelato",
 
       /* ---- Kontakt ---- */
-      "__title.kt": "Contact — Trinacria Express",
+      "__title.kt": "Contact — Trinacria Express GbR",
       "__desc.kt": "Write to Trinacria Express: questions about products, samples, quantities or prices — we'll get back to you.",
       "kt.eyebrow": "Contact",
       "kt.h2": "Talk <em>directly to us.</em>",
@@ -76,7 +76,7 @@
       "kt.status": "With “Send” your message goes straight to trinacriaexpress26@gmail.com. We usually reply within one or two working days.",
 
       /* ---- Verkaufsautomaten ---- */
-      "__title.av": "Vending machines — Trinacria Express",
+      "__title.av": "Vending machines — Trinacria Express GbR",
       "__desc.av": "Trinacria Express is looking for locations in and around Munich for Sicilian organic specialities from the vending machine (Sielaff SÜ 2020 SoftDrop). Rent, revenue share or free products.",
       "av.eyebrow": "Locations wanted",
       "av.h2": "Our <em>vending machines.</em>",
@@ -138,14 +138,14 @@
       "foot.startseite": "Home",
       "foot.legal": "Note legali",
       "foot.brandLine": "Massimiliano di Lorenzo<br>Michael Schnitzer-Trpin<br>Sicilia → Germania",
-      "foot.note.shop": "© 2026 Trinacria Express — Massimiliano di Lorenzo &amp; Michael Schnitzer-Trpin · Prezzi su richiesta.",
+      "foot.note.shop": "© 2026 Trinacria Express GbR — Massimiliano di Lorenzo &amp; Michael Schnitzer-Trpin · Prezzi su richiesta.",
       "cart.title": "La tua richiesta",
       "cart.qty": "Quantità",
       "cart.ship": "Prezzi su richiesta · vi rispondiamo con un'offerta",
       "cart.checkout": "Invia la richiesta per e-mail",
 
       /* ---- Startseite ---- */
-      "__title": "Trinacria Express — Sicilia e Baviera, collegate",
+      "__title": "Trinacria Express GbR — Sicilia e Baviera, collegate",
       "__desc": "Trinacria Express: specialità biologiche dalla Sicilia alla Germania — e presto dalla Baviera alla Sicilia. Scegli la direzione.",
       "idx.cap": "Dal mercato di Palermo fino a voi — autentico spirito siciliano.",
       "idx.h2": "Specialità biologiche siciliane &amp; gelato",
@@ -159,9 +159,9 @@
       "idx.banner.cap": "Sugo, pesto, marmellate e creme dolci — 23 specialità biologiche dalla terra siciliana.",
 
       /* ---- Sortiment ---- */
-      "__title.home": "Trinacria Express — Specialità biologiche siciliane e olio d'oliva",
+      "__title.home": "Trinacria Express GbR — Specialità biologiche siciliane e olio d'oliva",
       "__desc.home": "Il catalogo di Trinacria Express: specialità biologiche siciliane, oli extravergine biologici di Olio Calvi e vini biologici siciliani. Prezzi su richiesta.",
-      "__title.shop": "Prodotti — Trinacria Express",
+      "__title.shop": "Prodotti — Trinacria Express GbR",
       "__desc.shop": "Il catalogo di Trinacria Express: 23 specialità biologiche siciliane e 7 classici del gelato PEPINO 1884. Prezzi su richiesta.",
       "shop.eyebrow": "Il catalogo",
       "shop.h2": "Il nostro catalogo",
@@ -178,7 +178,7 @@
       "chip.gelato": "Gelato",
 
       /* ---- Kontatto ---- */
-      "__title.kt": "Contatto — Trinacria Express",
+      "__title.kt": "Contatto — Trinacria Express GbR",
       "__desc.kt": "Scrivete a Trinacria Express: domande su prodotti, campioni, quantità o prezzi — vi rispondiamo.",
       "kt.eyebrow": "Contatto",
       "kt.h2": "Parlate <em>direttamente con noi.</em>",
@@ -197,7 +197,7 @@
       "kt.status": "Con “Invia” il messaggio arriva direttamente a trinacriaexpress26@gmail.com. Rispondiamo di solito entro uno o due giorni lavorativi.",
 
       /* ---- Distributori automatici ---- */
-      "__title.av": "Distributori automatici — Trinacria Express",
+      "__title.av": "Distributori automatici — Trinacria Express GbR",
       "__desc.av": "Trinacria Express cerca punti di collocamento a Monaco e dintorni per specialità biologiche siciliane dal distributore (Sielaff SÜ 2020 SoftDrop). Affitto, partecipazione al fatturato o prodotti in omaggio.",
       "av.eyebrow": "Cerchiamo spazi",
       "av.h2": "I nostri <em>distributori automatici.</em>",
